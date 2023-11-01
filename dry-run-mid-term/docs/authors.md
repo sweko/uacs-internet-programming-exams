@@ -4,7 +4,7 @@ Build a website that allows the user to view a list of authors and their books.
 
 ## Data
 
-The data is provided via an API that provides the data. The url of the API is [https://raw.githubusercontent.com/sweko/apicon-jwt/main/docs/authors.json](https://raw.githubusercontent.com/sweko/apicon-jwt/main/docs/authors.json).
+The data is provided via an API that provides the data. The url of the API is [https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term/data/authors.json](https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term/data/authors.json).
 
 The format of the data is an array of `author` objects, and each author object is as follows:
 
