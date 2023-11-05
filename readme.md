@@ -39,7 +39,7 @@ If you already forked the repository
 
 2. Inside that folder will be a folder called `docs`, a folder called `data` and a folder called `code`. The `docs` folder contains the instructions for the exam, and the `date` folder contains the code for the exam.
 
-3. The `code` folder should contain a `tsconfig.json` file and folders with student ids. Locate the folder with your student id and open it. It should contain an `index.html` file, an `styles.css` file, and a `script.ts` file. This is where you will write your code for the exam.
+3. The `code` folder should contain folders with student ids. Locate the folder with your student id and open it. It should contain an `index.html` file, an `styles.css` file, and a `script.ts` file. This is where you will write your code for the exam.
 
 ## 4. Do the exam
 
