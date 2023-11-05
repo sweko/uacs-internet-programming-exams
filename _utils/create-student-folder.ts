@@ -1,7 +1,16 @@
-import {exists, readTextLines} from './fs-promisify'
+import {exists, readTextLines, copyDirectory} from './fs-promisify'
 
-function createStudentFolder(student: string, templateFolderName: string, destinationFolderName: string) {
-    
+async function createStudentFolder(student: string, templateFolderName: string, destinationFolderName: string) {
+    if (!destinationFolderName.endsWith("\\")) {
+        destinationFolderName = `${destinationFolderName}\\`;
+    }
+    const studentFolderName = `${destinationFolderName}${student}`;
+    console.log(`  Creating folder ${studentFolderName}`);
+    if (await exists(studentFolderName, true)) { 
+        console.log(`    Folder ${studentFolderName} already exists, skipping`);
+        return;
+    }
+    await copyDirectory(templateFolderName, studentFolderName);
 }
 
 async function main() {
@@ -37,7 +46,7 @@ async function main() {
 
     for (const student of students) {
         console.log(`Creating folder for ${student}`);
-        createStudentFolder(student, templateFolderName, destinationFolderName);
+        await createStudentFolder(student, templateFolderName, destinationFolderName);
     }
 
 

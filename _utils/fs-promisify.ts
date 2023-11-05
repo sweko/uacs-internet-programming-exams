@@ -36,3 +36,36 @@ export const exists = (path: string, folder: boolean): Promise<boolean> => {
         });
     });
 }
+
+export const copyDirectory = (source: string, destination: string): Promise<void> => {
+    return new Promise((resolve, reject) => {
+        fs.mkdir(destination, (err) => {
+            if (err) {
+                return reject(err);
+            }
+            fs.readdir(source, async (err, files) => {
+                if (err) {
+                    return reject(err);
+                }
+                for (const file of files) {
+                    const sourcePath = `${source}\\${file}`;
+                    const destinationPath = `${destination}\\${file}`;
+                    // no support for recursive copy
+                    await copyFile(sourcePath, destinationPath);
+                }
+                return resolve();
+            });
+        });
+    });
+}
+
+export const copyFile = (source: string, destination: string): Promise<void> => {
+    return new Promise((resolve, reject) => {
+        fs.copyFile(source, destination, (err) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve();
+        });
+    });
+}
