@@ -47,7 +47,7 @@ If you already forked the repository
 
 2. Carefully read the instructions for the exam. If you have any questions, ask the instructor.
 
-3. Execute the instructions for the exam. Note that the instructions may require you to do some research on your own, and that you may need to use the internet to find the information you need. However, you are not allowed to ask for help from anyone else, and you are not allowed to use generative AI's like GPT-3 to generate the code for you.
+3. Execute the instructions for the exam. Note that the instructions may require you to do some research on your own, and that you may need to use the internet to find the information you need. However, you are not allowed to ask for help from anyone else, and you are not allowed to use generative AI's like GPT-3 to generate the code for you. Additionally, usage of personal electronic devices (phone, laptop, ....) is disallowed as well.
 
 ## 5. Commit and push your changes
 
