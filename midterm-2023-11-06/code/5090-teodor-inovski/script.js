@@ -121,7 +121,7 @@ const generateBandRow = (band) => {
     row.appendChild(countryData);
     const membersData = document.createElement("div");
     membersData.classList.add("band-data", "band-members");
-    membersData.innerHTML = band.members;
+    membersData.innerHTML = band.members.join(", ");
     row.appendChild(membersData);
     const albumsData = document.createElement("div");
     albumsData.classList.add("band-data", "band-albums");

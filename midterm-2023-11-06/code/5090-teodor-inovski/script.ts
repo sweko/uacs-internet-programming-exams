@@ -149,10 +149,10 @@ const loadData= async()=>{
 const displayBands= (bands: Band[])=>{
     const container = document.getElementById("band-container")
    
-    container.innerHTML="";
+    container!.innerHTML="";
     for(const band of bands ){
         let bandRow = generateBandRow(band);
-        container.appendChild(bandRow);
+        container!.appendChild(bandRow);
         
     }
 }
@@ -195,7 +195,7 @@ const generateBandRow = (band: Band)=>{
     
     const membersData= document.createElement("div");
     membersData.classList.add("band-data", "band-members")
-    membersData.innerHTML= band.members;
+    membersData.innerHTML= band.members.join(", ");
     row.appendChild(membersData);
 
     
