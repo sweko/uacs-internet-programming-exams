@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MidTerm Exam for Internet Programming</title>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Bands Information</h1>
-    <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
-      <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
-    </div>
-    <div id="band-container">
-      <div class="band-table">
-        <div class="band-data">51</div>
-        <div class="band-data">Disturbed</div>
-        <div class="band-data">1996</div>
-        <div class="band-data">Chicago, Illinois, USA</div>
-        <div class="band-data">USA</div>
-        <div class="band-data">
-          David Draiman, Dan Donegan, John Moyer, Mike Wengren
-        </div>
-        <div class="band-data">7</div>
-      </div>
-    </div>
+    <div class="band-filters">
+        <label for="name-filter">Name:</label>
+        <input type="text" id="name-filter" placeholder="Enter band name">
 
-    <script src="scripts.js"></script>
+        <label for="country-filter">Country:</label>
+        <select id="country-filter">
+            <option value="">All</option>
+        </select>
+
+        <label for="genre-filter">Genre:</label>
+        <select id="genre-filter">
+            <option value="">All</option>
+        </select>
+
+        <label for="year-active-filter">Years Active:</label>
+        <input type="number" id="year-active-filter" placeholder="Enter year">
+    </div>
+    <div class="band-header-table">
+        <div class="band-header" data-sort-by="id">ID</div>
+        <div class="band-header" data-sort-by="name">Name</div>
+        <div class="band-header" data-sort-by="formed">Formed</div>
+        <div class="band-header" data-sort-by="location">Location</div>
+        <div class="band-header" data-sort-by="country">Country</div>
+        <div class="band-header" data-sort-by="members">Members</div>
+        <div class="band-header" data-sort-by="albums">Albums</div>
+        <div class="band-header" data-sort-by="firstAlbumYear">First Album</div>
+        <div class="band-header" data-sort-by="lastAlbumYear">Last Album</div>
+        <div class="band-header" data-sort-by="yearsActive">Years Active</div>
+    </div>
+    <div id="band-container"></div>
+    <script src="script.js"></script>
 </body>
 </html>

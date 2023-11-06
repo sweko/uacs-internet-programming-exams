@@ -1,28 +1,5 @@
-// Define the Band interface to represent the band data
-interface Band {
-    id: number;
-    name: string;
-    genre: string;
-    formed: number;
-    location: string;
-    country: string;
-    members: string[];
-    albums: Album[];
-    firstAlbumYear: number;
-    lastAlbumYear: number;
-}
-
-// Define the Album interface to represent album data
-interface Album {
-    name: string;
-    year: number;
-}
-
-// @ts-ignore
-declare var Promise: any;
-
-let bands: Band[] = [];
-
+"use strict";
+let bands = [];
 // Function to fetch band data from the local JSON file (bands.json)
 async function fetchBandData() {
     try {
@@ -34,32 +11,27 @@ async function fetchBandData() {
         bands = data.metalBands;
         populateFilterOptions(data);
         displayBands(bands);
-    } catch (error) {
+    }
+    catch (error) {
         console.error("Error:", error);
     }
 }
-
 // Function to display bands on the webpage
-function displayBands(bands: Band[]) {
+function displayBands(bands) {
     const bandContainer = document.getElementById("band-container");
     if (!bandContainer) {
         console.error("Band container not found.");
         return;
     }
-
     bandContainer.innerHTML = ''; // Clear the container
-
     bands.forEach((band) => {
         const bandElement = document.createElement("div");
         bandElement.classList.add("band-table");
-
         const location = band.location.split(", ");
         const country = location[location.length - 1];
-
         const albums = band.albums.map(album => album.name).join(", ");
         const firstAlbumYear = Math.min(...band.albums.map(album => album.year));
         const lastAlbumYear = Math.max(...band.albums.map(album => album.year));
-
         bandElement.innerHTML = `
             <div class="band-data">${band.id}</div>
             <div class "band-data">${band.name}</div>
@@ -72,10 +44,8 @@ function displayBands(bands: Band[]) {
             <div class="band-data">${lastAlbumYear}</div>
             <div class="band-data">${firstAlbumYear} - ${lastAlbumYear}</div>
         `;
-
         bandContainer.appendChild(bandElement);
     });
-
     const headers = document.querySelectorAll(".band-header");
     headers.forEach((header) => {
         header.addEventListener("click", () => {
@@ -87,12 +57,10 @@ function displayBands(bands: Band[]) {
         });
     });
 }
-
 // Function to sort the table data
-function sortTable(bands: Band[], sortBy: string) {
+function sortTable(bands, sortBy) {
     bands.sort((a, b) => {
-        let aValue, bValue: number | string;
-
+        let aValue, bValue;
         switch (sortBy) {
             case "id":
                 aValue = a.id;
@@ -120,37 +88,33 @@ function sortTable(bands: Band[], sortBy: string) {
                 aValue = 0;
                 bValue = 0;
         }
-
         if (typeof aValue === 'string' && typeof bValue === 'string') {
-            return (aValue as string).localeCompare(bValue as string);
-        } else if (typeof aValue === 'number' && typeof bValue === 'number') {
-            return (aValue as number) - (bValue as number);
-        } else {
+            return aValue.localeCompare(bValue);
+        }
+        else if (typeof aValue === 'number' && typeof bValue === 'number') {
+            return aValue - bValue;
+        }
+        else {
             return 0;
         }
     });
 }
-
 // Function to populate filter options
-function populateFilterOptions(data: any) {
+function populateFilterOptions(data) {
     const countryFilter = document.getElementById("country-filter");
     const genreFilter = document.getElementById("genre-filter");
-
-    const countries = new Set<string>();
-    const genres = new Set<string>();
-
-    data.metalBands.forEach((band: Band) => {
+    const countries = new Set();
+    const genres = new Set();
+    data.metalBands.forEach((band) => {
         countries.add(band.country);
         genres.add(band.genre);
     });
-
     countries.forEach((country) => {
         const option = document.createElement("option");
         option.value = country;
         option.textContent = country;
         countryFilter?.appendChild(option);
     });
-
     genres.forEach((genre) => {
         const option = document.createElement("option");
         option.value = genre;
@@ -158,27 +122,22 @@ function populateFilterOptions(data: any) {
         genreFilter?.appendChild(option);
     });
 }
-
 // Function to apply filters
 function applyFilters() {
-    const nameFilter = (document.getElementById("name-filter") as HTMLInputElement).value.toLowerCase();
-    const countryFilter = (document.getElementById("country-filter") as HTMLSelectElement).value;
-    const genreFilter = (document.getElementById("genre-filter") as HTMLSelectElement).value;
-    const yearActiveFilter = parseInt((document.getElementById("year-active-filter") as HTMLInputElement).value, 10);
-
+    const nameFilter = document.getElementById("name-filter").value.toLowerCase();
+    const countryFilter = document.getElementById("country-filter").value;
+    const genreFilter = document.getElementById("genre-filter").value;
+    const yearActiveFilter = parseInt(document.getElementById("year-active-filter").value, 10);
     const filteredBands = bands.filter((band) => {
         const nameMatches = !nameFilter || band.name.toLowerCase().includes(nameFilter);
         const countryMatches = !countryFilter || countryFilter === band.country;
         const genreMatches = !genreFilter || genreFilter === band.genre;
-        const yearActiveMatches =
-            !yearActiveFilter ||
+        const yearActiveMatches = !yearActiveFilter ||
             (yearActiveFilter >= band.firstAlbumYear && yearActiveFilter <= band.lastAlbumYear);
-
         return nameMatches && countryMatches && genreMatches && yearActiveMatches;
     });
-
     displayBands(filteredBands);
 }
-
 // Call the fetchBandData function to retrieve and display the data
 fetchBandData();
+//# sourceMappingURL=script.js.map
