@@ -11,10 +11,13 @@ const formedSorter_asc = (first, second) => first.formed - second.formed;
 const formedSorter_desc = (first, second) => second.formed - first.formed;
 const genreSorter_asc = (first, second) => first.genre.localeCompare(second.genre);
 const genreSorter_desc = (first, second) => second.genre.localeCompare(first.genre);
+const locationSorter_asc = (first, second) => first.location.localeCompare(second.location);
+const locationSorter_desc = (first, second) => second.location.localeCompare(first.location);
+const countrySorter_asc = (first, second) => findCountry(first).localeCompare(findCountry(second));
+const countrySorter_desc = (first, second) => findCountry(second).localeCompare(findCountry(first));
 async function siteCode() {
     const data = await loadData();
     bands = data.metalBands;
-    console.log(bands);
     displayBands(bands);
     fillBands(bands);
     fillGenre(bands);
@@ -25,7 +28,11 @@ async function siteCode() {
     const sortFormedButton = document.getElementById("sort-formed");
     sortFormedButton.addEventListener("click", sortFormed);
     const sortGenreButton = document.getElementById("sort-genre");
-    sortGenreButton?.addEventListener("clikc", sortGenre);
+    sortGenreButton.addEventListener("click", sortGenre);
+    const sortLocationButton = document.getElementById("sort-location");
+    sortLocationButton.addEventListener("click", sortLocation);
+    const sortCountryButton = document.getElementById("sort-country");
+    sortCountryButton?.addEventListener("click", sortCountry);
     const sortAlbumsButton = document.getElementById("sort-albums");
     sortAlbumsButton.addEventListener("click", sortAlbums);
     const applyFilterButton = document.getElementById("apply-filter");
@@ -87,6 +94,8 @@ let sortNameSwitch = false;
 let sortFormedSwitch = false;
 let sortAlbumsSwitch = false;
 let sortGenreSwitch = false;
+let sortLocationSwitch = false;
+let sortCountrySwitch = false;
 const sortID = () => {
     if (sortIdswitch === false) {
         const sortedBands = bands.toSorted(idSorter_asc);
@@ -99,16 +108,28 @@ const sortID = () => {
         sortIdswitch = false;
     }
 };
+const sortLocation = () => {
+    if (sortLocationSwitch === false) {
+        const sortedBands = bands.toSorted(locationSorter_asc);
+        displayBands(sortedBands);
+        sortLocationSwitch = true;
+    }
+    else if (sortLocationSwitch === true) {
+        const sortedBands = bands.toSorted(locationSorter_desc);
+        displayBands(sortedBands);
+        sortLocationSwitch = false;
+    }
+};
 const sortGenre = () => {
     if (sortGenreSwitch === false) {
         const sortedBands = bands.toSorted(genreSorter_asc);
         displayBands(sortedBands);
-        sortNameSwitch = true;
+        sortGenreSwitch = true;
     }
     else if (sortGenreSwitch === true) {
         const sortedBands = bands.toSorted(genreSorter_asc);
         displayBands(sortedBands);
-        sortNameSwitch = false;
+        sortGenreSwitch = false;
     }
 };
 const sortName = () => {
@@ -133,6 +154,18 @@ const sortFormed = () => {
         const sortedBands = bands.toSorted(formedSorter_desc);
         displayBands(sortedBands);
         sortFormedSwitch = false;
+    }
+};
+const sortCountry = () => {
+    if (sortCountrySwitch === false) {
+        const sortedBands = bands.toSorted(countrySorter_asc);
+        displayBands(sortedBands);
+        sortCountrySwitch = true;
+    }
+    else if (sortCountrySwitch === true) {
+        const sortedBands = bands.toSorted(countrySorter_desc);
+        displayBands(sortedBands);
+        sortCountrySwitch = false;
     }
 };
 const sortAlbums = () => {

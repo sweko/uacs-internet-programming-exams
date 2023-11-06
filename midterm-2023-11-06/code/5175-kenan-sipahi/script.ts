@@ -39,10 +39,16 @@ const formedSorter_desc : BandSorter = (first,second) =>second.formed-first.form
 const genreSorter_asc :BandSorter =(first,second)=>first.genre.localeCompare(second.genre);
 const genreSorter_desc :BandSorter =(first,second)=>second.genre.localeCompare(first.genre);
 
+const locationSorter_asc :BandSorter =(first,second)=>first.location.localeCompare(second.location);
+const locationSorter_desc :BandSorter =(first,second)=>second.location.localeCompare(first.location);
+
+const countrySorter_asc :BandSorter =(first,second)=>findCountry(first).localeCompare(findCountry(second));
+const countrySorter_desc :BandSorter =(first,second)=>findCountry(second).localeCompare(findCountry(first));
+
 async function siteCode(){
 const data = await   loadData();
 bands=data.metalBands;
-console.log(bands);
+
 displayBands(bands);
 
 fillBands(bands);
@@ -58,8 +64,14 @@ sortNameButton.addEventListener("click",sortName);
 const sortFormedButton=document.getElementById("sort-formed")!;
 sortFormedButton.addEventListener("click",sortFormed);
 
-const sortGenreButton=document.getElementById("sort-genre");
-sortGenreButton?.addEventListener("clikc",sortGenre);
+const sortGenreButton=document.getElementById("sort-genre")!;
+sortGenreButton.addEventListener("click",sortGenre);
+
+const sortLocationButton=document.getElementById("sort-location")!;
+sortLocationButton.addEventListener("click",sortLocation);
+
+const sortCountryButton=document.getElementById("sort-country");
+sortCountryButton?.addEventListener("click",sortCountry);
 
 const sortAlbumsButton=document.getElementById("sort-albums")!;
 sortAlbumsButton.addEventListener("click",sortAlbums);
@@ -144,6 +156,8 @@ let sortNameSwitch=false;
 let sortFormedSwitch=false;
 let sortAlbumsSwitch=false;
 let sortGenreSwitch=false;
+let sortLocationSwitch=false;
+let sortCountrySwitch=false;
 const sortID=()=>{
     if (sortIdswitch===false)
     {
@@ -157,20 +171,40 @@ const sortID=()=>{
         displayBands(sortedBands);
         sortIdswitch=false;
     }
+
+   
     
 }
+
+const sortLocation=()=>{
+    if(sortLocationSwitch===false)
+    {
+        const sortedBands=bands.toSorted(locationSorter_asc);
+        displayBands(sortedBands);
+            sortLocationSwitch=true;
+    }
+    else if (sortLocationSwitch===true)
+    {
+        const sortedBands=bands.toSorted(locationSorter_desc);
+        displayBands(sortedBands);
+        sortLocationSwitch=false;
+    }
+}
+
+
 const sortGenre=()=>{
+    
         if(sortGenreSwitch===false)
         {
             const sortedBands=bands.toSorted(genreSorter_asc);
             displayBands(sortedBands);
-            sortNameSwitch=true;
+            sortGenreSwitch=true;
         }
         else if(sortGenreSwitch===true)
         {
             const sortedBands=bands.toSorted(genreSorter_asc);
             displayBands(sortedBands);
-            sortNameSwitch=false;
+            sortGenreSwitch=false;
         }
 }
 const sortName=()=>{
@@ -205,6 +239,23 @@ const sortFormed =()=>
         sortFormedSwitch=false;
     }
    
+}
+const sortCountry=()=>{
+    if (sortCountrySwitch===false)
+    {
+        const sortedBands=bands.toSorted(countrySorter_asc);
+        displayBands(sortedBands);
+        sortCountrySwitch=true;
+    }
+    else if (sortCountrySwitch===true)
+    {
+        const sortedBands=bands.toSorted(countrySorter_desc);
+        displayBands(sortedBands);
+        sortCountrySwitch=false;
+    }
+
+   
+    
 }
 
 
