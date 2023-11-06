@@ -9,29 +9,44 @@
 </head>
 <body>
     <h1>Bands Information</h1>
+
     <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
-      <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
-    </div>
-    <div id="band-container">
-      <div class="band-table">
-        <div class="band-data">51</div>
-        <div class="band-data">Disturbed</div>
-        <div class="band-data">1996</div>
-        <div class="band-data">Chicago, Illinois, USA</div>
-        <div class="band-data">USA</div>
-        <div class="band-data">
-          David Draiman, Dan Donegan, John Moyer, Mike Wengren
-        </div>
-        <div class="band-data">7</div>
-      </div>
+        <div class="band-header" id="id-header">ID <span class="sort-arrow"></span></div>
+        <div class="band-header" id="name-header">Name <span class="sort-arrow"></span></div>
+        <div class="band-header" id="formed-header">Formed <span class="sort-arrow"></span></div>
+        <div class="band-header" id="location-header">Location <span class="sort-arrow"></span></div>
+        <div class="band-header" id="country-header">Country <span class="sort-arrow"></span></div>
+        <div class="band-header" id="members-header">Members <span class="sort-arrow"></span></div>
+        <div class="band-header" id="albums-header">Albums <span class="sort-arrow"></span></div>
     </div>
 
-    <script src="scripts.js"></script>
+    <div class="filters">
+        <input type="text" id="name-filter-input" placeholder="Filter by Name">
+        <select id="country-filter-select">
+            <option value="All">All Countries</option>
+        </select>
+        <select id="genre-filter-select">
+            <option value="All">All Genres</option>
+        </select>
+        <select id="genre-filter-select">
+          <option value="All">Filter by Years Active</option>
+      </select>
+    </div>
+
+    <div id="band-container">
+        <div class="band-table">
+            <div class="band-data">51</div>
+            <div class="band-data">Disturbed</div>
+            <div class="band-data">1996</div>
+            <div class="band-data">Chicago, Illinois, USA</div>
+            <div class="band-data">USA</div>
+            <div class="band-data">
+                David Draiman, Dan Donegan, John Moyer, Mike Wengren
+            </div>
+            <div class="band-data">7</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

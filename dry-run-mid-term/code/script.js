@@ -1,20 +1,31 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 document.addEventListener("DOMContentLoaded", siteCode);
 let authors = [];
-async function siteCode() {
-    const data = await loadData();
-    authors = data;
-    fillNationalities(authors);
-    displayAuthors(authors);
-    const nameSort = document.getElementById("sort-name");
-    nameSort.addEventListener("click", sortByName);
-    const idSort = document.getElementById("sort-id");
-    idSort.addEventListener("click", sortById);
-    const applyFilterButton = document.getElementById("apply-filter");
-    applyFilterButton.addEventListener("click", applyFilter);
-    const modal = document.getElementById("biblio-details");
-    modal.addEventListener("click", () => {
-        modal.classList.add("hidden");
+function siteCode() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const data = yield loadData();
+        authors = data;
+        fillNationalities(authors);
+        displayAuthors(authors);
+        const nameSort = document.getElementById("sort-name");
+        nameSort.addEventListener("click", sortByName);
+        const idSort = document.getElementById("sort-id");
+        idSort.addEventListener("click", sortById);
+        const applyFilterButton = document.getElementById("apply-filter");
+        applyFilterButton.addEventListener("click", applyFilter);
+        const modal = document.getElementById("biblio-details");
+        modal.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
     });
 }
 const nameSorter = (first, second) => first.name.localeCompare(second.name);
@@ -65,15 +76,15 @@ const applyFilter = () => {
     // const filteredAuthors = authors.filter(author => author.nationality === nationality);
     // displayAuthors(filteredAuthors);
 };
-const loadData = async () => {
+const loadData = () => __awaiter(void 0, void 0, void 0, function* () {
     const dataUri = "https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term/data/authors.json";
-    const response = await fetch(dataUri);
+    const response = yield fetch(dataUri);
     if (!response.ok) {
         throw new Error("The data is not there");
     }
-    const data = await response.json();
+    const data = yield response.json();
     return data;
-};
+});
 const displayAuthors = (authors) => {
     const container = document.getElementById("author-container");
     container.innerHTML = "";
@@ -145,4 +156,3 @@ const getAuthorAge = (author) => {
         return currentYear - birthYear;
     }
 };
-//# sourceMappingURL=script.js.map
