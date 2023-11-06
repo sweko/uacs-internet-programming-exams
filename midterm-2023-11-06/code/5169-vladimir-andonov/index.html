@@ -9,27 +9,31 @@
 </head>
 <body>
     <h1>Bands Information</h1>
+
+    <!-- Filter options -->
+    <input type="text" id="nameFilter" placeholder="Filter by Name">
+    <select id="countryFilter">
+        <option value="">Filter by Country</option>
+        
+    </select>
+    <select id="genreFilter">
+        <option value="">Filter by Genre</option>
+       
+    </select>
+    <input type="number" id="yearsActiveFilter" placeholder="Filter by Years Active">
+
+   
     <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
-      <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
+        <div class="band-header" data-sort="id">ID</div>
+        <div class="band-header" data-sort="name">Name</div>
+        <div class="band-header" data-sort="formed">Formed</div>
+        <div class="band-header" data-sort="location">Location</div>
+        <div class="band-header" data-sort="country">Country</div>
+        <div class="band-header" data-sort="members">Members</div>
+        <div class="band-header" data-sort="albums">Albums</div>
     </div>
     <div id="band-container">
-      <div class="band-table">
-        <div class="band-data">51</div>
-        <div class="band-data">Disturbed</div>
-        <div class="band-data">1996</div>
-        <div class="band-data">Chicago, Illinois, USA</div>
-        <div class="band-data">USA</div>
-        <div class="band-data">
-          David Draiman, Dan Donegan, John Moyer, Mike Wengren
-        </div>
-        <div class="band-data">7</div>
-      </div>
+       
     </div>
 
     <script src="scripts.js"></script>
