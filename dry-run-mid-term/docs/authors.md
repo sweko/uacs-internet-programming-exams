@@ -8,18 +8,18 @@ The data is provided via an API that provides the data. The url of the API is [h
 
 The format of the data is an array of `author` objects, and each author object is as follows:
 
-````json
+````javascript
 {
-    "id": number,
-    "name": string,
-    "birth_date": string, // ISO 8601 date format
-    "death_date": string, // optional, ISO 8601 date format
-    "nationality": string,
+    "id": "number",
+    "name": "string",
+    "birth_date": "string", // ISO 8601 date format
+    "death_date": "string", // optional, ISO 8601 date format
+    "nationality": "string",
     "bibliography": [
         {
-            "name": string,
-            "year": number,
-            "type": string // predefined list of types - "Novel", "Novella", "Non-Fiction", "Collection", "Graphic Novel"
+            "name": "string",
+            "year": "number",
+            "type": "string" // predefined list of types - "Novel", "Novella", "Non-Fiction", "Collection", "Graphic Novel"
         }
     ]
 }

@@ -2472,7 +2472,7 @@
             "name": "Disturbed",
             "genre": "Alternative Metal",
             "formed": 1996,
-            "locationFormed": "Chicago, Illinois, USA",
+            "location": "Chicago, Illinois, USA",
             "members": [
                 "David Draiman",
                 "Dan Donegan",
@@ -2515,7 +2515,7 @@
             "name": "Obituary",
             "genre": "Death Metal",
             "formed": 1984,
-            "locationFormed": "Tampa, Florida, USA",
+            "location": "Tampa, Florida, USA",
             "members": [
                 "John Tardy",
                 "Trevor Peres",
@@ -2579,7 +2579,7 @@
             "name": "My Dying Bride",
             "genre": "Doom Metal",
             "formed": 1990,
-            "locationFormed": "Bradford, West Yorkshire, England",
+            "location": "Bradford, West Yorkshire, England",
             "members": [
                 "Aaron Stainthorpe",
                 "Andrew Craighan",
@@ -2647,7 +2647,7 @@
             "name": "Carcass",
             "genre": "Death Metal",
             "formed": 1985,
-            "locationFormed": "Liverpool, England",
+            "location": "Liverpool, England",
             "members": [
                 "Jeff Walker",
                 "Bill Steer",
@@ -2686,7 +2686,7 @@
             "name": "Linkin Park",
             "genre": "Nu Metal",
             "formed": 1996,
-            "locationFormed": "Agoura Hills, California, USA",
+            "location": "Agoura Hills, California, USA",
             "members": [
                 "Mike Shinoda",
                 "Brad Delson",
