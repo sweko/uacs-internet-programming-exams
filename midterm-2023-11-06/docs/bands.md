@@ -8,7 +8,7 @@ The data is provided via an API that provides the data. The url of the API is [h
 
 The format of the data is an object, that has a single property `metalBands`, which is an array of `band` objects, and each band object is as follows:
 
-````json
+````json5
 {
     "id": "number",
     "name": "string",
