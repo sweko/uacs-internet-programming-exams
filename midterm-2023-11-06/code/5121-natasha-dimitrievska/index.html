@@ -3,35 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MidTerm Exam for Internet Programming</title>
-
+    <title>Band List</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bands Information</h1>
-    <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
-      <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
-    </div>
-    <div id="band-container">
-      <div class="band-table">
-        <div class="band-data">51</div>
-        <div class="band-data">Disturbed</div>
-        <div class="band-data">1996</div>
-        <div class="band-data">Chicago, Illinois, USA</div>
-        <div class="band-data">USA</div>
-        <div class="band-data">
-          David Draiman, Dan Donegan, John Moyer, Mike Wengren
+    <h1>Band List</h1>
+
+    <div class="filter-container">
+        <div class="filter-group">
+            <label for="nameFilter">Name:</label>
+            <input type="text" id="nameFilter">
         </div>
-        <div class="band-data">7</div>
-      </div>
+        <div class="filter-group">
+            <label for="countryFilter">Country:</label>
+            <select id="countryFilter">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="genreFilter">Genre:</label>
+            <select id="genreFilter">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="activeYearFilter">Years Active:</label>
+            <input type="number" id="activeYearFilter">
+        </div>
+        <button id="applyFilters">Apply</button>
     </div>
 
-    <script src="scripts.js"></script>
+    <table class="band-table">
+        <thead>
+            <tr>
+                <th class="sortable" data-column="id">ID</th>
+                <th class="sortable" data-column="name">Name</th>
+                <th class="sortable" data-column="formed">Formed</th>
+                <th class="sortable" data-column="location">Location</th>
+                <th class="sortable" data-column="country">Country</th>
+                <th class="sortable" data-column="genre">Genre</th>
+                <th class="sortable" data-column="members">Members</th>
+                <th class="sortable" data-column="albums">Albums</th>
+                <th class="sortable" data-column="firstAlbum">First Album</th>
+                <th class="sortable" data-column="lastAlbum">Last Album</th>
+                <th class="sortable" data-column="yearsActive">Years Active</th>
+            </tr>
+        </thead>
+        <tbody id="bandList"></tbody>
+    </table>
+
+    <div id="bandModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

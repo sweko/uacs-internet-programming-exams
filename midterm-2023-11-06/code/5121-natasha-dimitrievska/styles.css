@@ -1,34 +1,102 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  text-align: center;
+}
 
-  .band-header-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 3fr 1fr;
-    border: 1px solid #000;
-    background-color: #f2f2f2;
-    text-align: center;
-    font-weight: bold;
-  }
+h1 {
+  text-align: center;
+  padding: 20px;
+}
 
-  .band-header {
-    padding: 5px;
-    border: 1px solid #000;
-  }
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
-  .band-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 3fr 1fr;
-    border: 1px solid #000;
-  }
+.filter-group {
+  margin: 5px;
+}
 
-  .band {
-    border: solid 1px lime;
-    width: 100%;
-  }
+table.band-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .band-data {
-    text-align: left;
-    padding: 5px;
-    border: 1px solid #000;
-  }
+table.band-table, th, td {
+  border: 1px solid #e0e0e0;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+th::after {
+  content: '↓';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+
+th.sorted-asc::after {
+  content: '↑';
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th:hover {
+  background-color: #444;
+}
+
+.filter-group input[type="text"],
+.filter-group select,
+.filter-group input[type="number"] {
+  padding: 5px;
+}
+
+.filter-group select {
+  width: 100%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  border: 1px solid #333;
+  width: 60%;
+  margin: 15% auto;
+  padding: 20px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
