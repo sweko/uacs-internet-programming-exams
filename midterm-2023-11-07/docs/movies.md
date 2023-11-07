@@ -53,7 +53,7 @@ The list of movies should show the following information:
 
 All fields displayed should be sortable, i.e. clicking on the column header should sort the list by that column. The default sort order should be ascending, and clicking on the same column header again should reverse the sort order. The current sort order should be indicated by an arrow next to the column header. The arrow should point up for ascending order and down for descending order. If the column is not sorted, the arrow should not be displayed, or should be greyed out.
 
-Note: The genre column should be sorted by the number of genres, then by the first genre, then by the second genre, etc. The sorting should not take into account the order of the genres. (i.e. a movie with the genres `Action, Drama` should be sorted the same as a movie with the genres `Drama, Action`).
+Note: The genre column should be sorted by the number of genres, then by the first genre, then by the second genre, etc. The sorting should not take into account the order of the genres. (i.e. a movie with the genres `Action, Drama` should be sorted the same as a movie with the genres `Drama, Action`).  
 Note: The cast column should be sorted by the number of actors, then by the first actor, then by the second actor, etc.
 
 
