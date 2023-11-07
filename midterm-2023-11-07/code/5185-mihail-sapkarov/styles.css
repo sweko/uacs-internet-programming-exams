@@ -14,12 +14,13 @@ body {
   .movie-header {
     padding: 5px;
     border: 1px solid #000;
+    background-color: bisque;
   }
 
   .movie-table {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 1fr;
-    border: 1px solid #000;
+    border: 1px solid rgb(155, 77, 77)000;
   }
 
   .movie {
@@ -31,6 +32,7 @@ body {
     text-align: left;
     padding: 5px;
     border: 1px solid #000;
+    background-color: rgb(127, 182, 255);
 
     & ul {
       list-style-type: none;
@@ -39,3 +41,7 @@ body {
     }
   }
 
+  #movie{
+    color: blue;
+  }
+  
