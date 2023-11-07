@@ -9,9 +9,31 @@
 </head>
 <body>
     <h1>Movies Information</h1>
+
+    <div id="filter" class="filter">
+      <label for="title">Title: </label>
+      <input type="text" id="title-filter" />
+
+      <label for="director">Director: </label>
+      <input type="text" id="director-filter" />
+
+
+      <label for="year">Year</label>
+      <input type="number" id="year-filter">
+
+      <label for="genre">Genre</label>
+      <select id="genre-filter">Genre
+      <option value="all">all</option>
+      <option value="horror">Horror</option>
+      <option value="drama">drama</option>
+      <option value="thriller">Thriller</option>
+      </select>
+
+      <button id="apply-filter">Apply filter</button>
+
     <div class="movie-header-table">
-      <div class="movie-header">ID</div>
-      <div class="movie-header">Title</div>
+      <div class="movie-header">ID<span id="sort-id"></span></div>
+      <div class="movie-header">Title<span id="sort-title"></span></div>
       <div class="movie-header">Director</div>
       <div class="movie-header">Year</div>
       <div class="movie-header">Genre</div>
@@ -29,6 +51,7 @@
         <div class="movie-data">
           A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, beginning ...
         </div>
+
         <div class="movie-data">
           <ul>
             <li><strong>Stephen Baldwin</strong> as Michael McManus</li>
@@ -43,7 +66,10 @@
         <div class="movie-data">2</div>
       </div>
     </div>
+    <div id="movie-container">
 
-    <script src="scripts.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
