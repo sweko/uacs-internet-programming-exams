@@ -98,7 +98,7 @@ function generateNewRow(movie) {
     row.appendChild(castCollumn);
     const oscarsCollumn = document.createElement("div");
     oscarsCollumn.classList.add("movie-data", "movie-oscars");
-    oscarsCollumn.innerHTML = `The movie has ${movie.oscars.lenght} oscars`;
+    oscarsCollumn.innerHTML = `The movie has ${movie.oscars.length} oscars`;
     row.appendChild(oscarsCollumn);
     return row;
 }
