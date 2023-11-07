@@ -14,6 +14,10 @@ body {
   .movie-header {
     padding: 5px;
     border: 1px solid #000;
+    background-color: #ebbb4a;
+    color: #99251d;
+    font-weight: bold;
+    font-family: Georgia, serif;
   }
 
   .movie-table {
@@ -31,6 +35,9 @@ body {
     text-align: left;
     padding: 5px;
     border: 1px solid #000;
+    background-color: #f7ee8b;
+    font-family: 'Trebuchet MS', sans-serif;
+  
 
     & ul {
       list-style-type: none;
