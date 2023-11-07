@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of authors</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Information About Authors</h1>
+    <div id="filter" class="filter">
+        <label for="name">Name: </label>
+        <input type="text" id="name-filter" />
+
+        <label for="nationality">Nationality: </label>
+        <select id="nationality-filter">
+            <option value="all" selected>All</option>
+        </select>
+
+        <label for="alive">Alive: </label>
+        <select id="alive-filter">
+          <option value="all" selected>All</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="age">Active in year: </label>
+        <input type="number" id="year-filter" />
+
+        <button id="apply-filter">Apply Filter</button>
+    </div>
+    <div class="author-header-table">
+      <div class="author-header">ID <span id="sort-id">sort</span></div>
+      <div class="author-header">Name <span id="sort-name">sort</span></div>
+      <div class="author-header">Birth Date</div>
+      <div class="author-header">Alive</div>
+      <div class="author-header">Age</div>
+      <div class="author-header">Nationality</div>
+      <div class="author-header">Bibliography</div>
+      <div class="author-header">Years active</div>
+    </div>
+    <div id="author-container">
+
+    </div>
+
+    <div id="biblio-details" class="modal hidden">
+        <div id="biblio-details-content">
+            <div id="biblio-details-header">
+                <h2>Bibliography</h2>
+            </div>
+            <ul id="biblio-details-book-list">
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
