@@ -9,6 +9,32 @@
 </head>
 <body>
     <h1>Movies Information</h1>
+    <div id="filter" class="filter">
+      <label for="title">Title </label>
+      <input type="text" id="title-filter" />
+
+      <label for="year">Year: </label>
+      <input type="number" id="year-filter" />
+
+      <label for="genre">Genre: </label>
+      <select id="genre-filter">
+        <option value="Action" selected>Action</option>
+        <option value="Drama">Drama</option>
+        <option value="Comedy">Comedy</option>
+      </select>
+
+      <label for="oscars">Oscars: </label>
+      <select id="oscars-filter">
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="3">4</option>
+        <option value="3">5</option>
+      </select>
+
+      <button id="apply-filter">Apply Filter</button>
+    </div>
     <div class="movie-header-table">
       <div class="movie-header">ID</div>
       <div class="movie-header">Title</div>
@@ -20,30 +46,8 @@
       <div class="movie-header">Oscars</div>
     </div>
     <div id="movie-container">
-      <div class="movie-table">
-        <div class="movie-data">52</div>
-        <div class="movie-data">The Usual Suspects</div>
-        <div class="movie-data">Bryan Singer</div>
-        <div class="movie-data">1995</div>
-        <div class="movie-data">Crime / Mystery / Thriller</div>
-        <div class="movie-data">
-          A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, beginning ...
-        </div>
-        <div class="movie-data">
-          <ul>
-            <li><strong>Stephen Baldwin</strong> as Michael McManus</li>
-            <li><strong>Gabriel Byrne</strong> as Dean Keaton</li>
-            <li><strong>Benicio Del Toro</strong> as Fred Fenster</li>
-            <li><strong>Kevin Pollak</strong> as Todd Hockney</li>
-            <li><strong>Kevin Spacey</strong> as Roger 'Verbal' Kint</li>
-            <li><strong>Chazz Palminteri</strong> as Dave Kujan</li>
-            <li><strong>Pete Postlethwaite</strong> as Mr. Kobayashi</li>
-          </ul>
-        </div>
-        <div class="movie-data">2</div>
-      </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
