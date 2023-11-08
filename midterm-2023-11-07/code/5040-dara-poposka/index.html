@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MidTerm Exam for Internet Programming</title>
-
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List of Movies</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Movies Information</h1>
-    <div class="movie-header-table">
-      <div class="movie-header">ID</div>
-      <div class="movie-header">Title</div>
-      <div class="movie-header">Director</div>
-      <div class="movie-header">Year</div>
-      <div class="movie-header">Genre</div>
-      <div class="movie-header">Plot</div>
-      <div class="movie-header">Cast</div>
-      <div class="movie-header">Oscars</div>
-    </div>
-    <div id="movie-container">
-      <div class="movie-table">
-        <div class="movie-data">52</div>
-        <div class="movie-data">The Usual Suspects</div>
-        <div class="movie-data">Bryan Singer</div>
-        <div class="movie-data">1995</div>
-        <div class="movie-data">Crime / Mystery / Thriller</div>
-        <div class="movie-data">
-          A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, beginning ...
-        </div>
-        <div class="movie-data">
-          <ul>
-            <li><strong>Stephen Baldwin</strong> as Michael McManus</li>
-            <li><strong>Gabriel Byrne</strong> as Dean Keaton</li>
-            <li><strong>Benicio Del Toro</strong> as Fred Fenster</li>
-            <li><strong>Kevin Pollak</strong> as Todd Hockney</li>
-            <li><strong>Kevin Spacey</strong> as Roger 'Verbal' Kint</li>
-            <li><strong>Chazz Palminteri</strong> as Dave Kujan</li>
-            <li><strong>Pete Postlethwaite</strong> as Mr. Kobayashi</li>
-          </ul>
-        </div>
-        <div class="movie-data">2</div>
-      </div>
-    </div>
+  <header>
+    <h1>List of Movies</h1>
+    <div id="filters" class="filter">
+      <label for="title">Title:</label>
+      <input type="text" id="title-filter">
 
-    <script src="scripts.js"></script>
+      <label for="genre">Genre:</label>
+      <select id="genre-filter">
+        <option value="all" selected>All</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="sci-fi">Sci-Fi</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <input type="number" id="year-filter">
+
+      <button id="apply-filter">Apply Filter</button>
+    </div>
+  </header>
+
+  <table id="movie-table">
+    <thead>
+      <tr>
+        <th data-sort="id">ID <span id="sort-id">sort</span></th>
+        <th data-sort="title">Title <span id="sort-title">sort</span></th>
+        <th data-sort="director">Director <span id="sort-director">sort</span></th>
+        <th data-sort="genre">Genre <span id="sort-genre">sort</span></th>
+        <th data-sort="year">Year <span id="sort-year">sort</span></th>
+        <th data-sort="rating">Rating <span id="sort-rating">sort</span></th>
+      </tr>
+    </thead>
+    <tbody id="movie-container">
+      
+    </tbody>
+  </table>
+
+  <div id="movie-details" class="modal hidden">
+    <div id="movie-details-content">
+      <div id="movie-details-header">
+        <h2>Movie Details</h2>
+      </div>
+      <ul id="movie-details-list">
+        
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
