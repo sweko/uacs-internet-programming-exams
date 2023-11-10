@@ -9,9 +9,26 @@
 </head>
 <body>
     <h1>Bands Information</h1>
+    <div id="filter" class="filter">
+      <label for="name">Name: </label>
+      <input type="text" id="name-filter" />
+
+      <label for="country">Country: </label>
+        <select id="country-filter">
+            <option value="all" selected>All</option>
+        </select>
+
+        <label for="genre">Genre: </label>
+        <select id="genre-filter">
+            <option value="all" selected>All</option>
+        </select>
+
+        <label for="age">Years active: </label>
+        <input type="number" id="year-filter" />
+
     <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
+      <div class="band-header">ID</div> <span id="sort-id">sort</span></div>
+      <div class="band-header">Name</div> <span id="sort-name">sort</span></div>
       <div class="band-header">Formed</div>
       <div class="band-header">Location</div>
       <div class="band-header">Country</div>
@@ -19,7 +36,7 @@
       <div class="band-header">Albums</div>
     </div>
     <div id="band-container">
-      <div class="band-table">
+      <!-- <div class="band-table">
         <div class="band-data">51</div>
         <div class="band-data">Disturbed</div>
         <div class="band-data">1996</div>
@@ -28,10 +45,10 @@
         <div class="band-data">
           David Draiman, Dan Donegan, John Moyer, Mike Wengren
         </div>
-        <div class="band-data">7</div>
+        <div class="band-data">7</div> -->
       </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
