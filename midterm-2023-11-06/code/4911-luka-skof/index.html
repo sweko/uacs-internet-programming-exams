@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MidTerm Exam for Internet Programming</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <h1>Bands Information</h1>
     <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
-      <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
+      <div class="band-header" onclick="sortTable('id')">ID <i id="id-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('name')">Name <i id="name-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('formed')">Formed <i id="formed-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('location')">Location <i id="location-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('country')">Country <i id="country-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('genre')">Genre <i id="genre-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('members')">Members <i id="members-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('albums')">Albums <i id="albums-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('first-album')">First Album <i id="first-album-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('last-album')">Last Album <i id="last-album-icon" class="fas fa-sort"></i></div>
+      <div class="band-header" onclick="sortTable('years-active')">Years Active <i id="years-active-icon" class="fas fa-sort"></i></div>
     </div>
     <div id="band-container">
       <div class="band-table">
-        <div class="band-data">51</div>
+        <!-- <div class="band-data">51</div>
         <div class="band-data">Disturbed</div>
         <div class="band-data">1996</div>
         <div class="band-data">Chicago, Illinois, USA</div>
@@ -28,7 +34,7 @@
         <div class="band-data">
           David Draiman, Dan Donegan, John Moyer, Mike Wengren
         </div>
-        <div class="band-data">7</div>
+        <div class="band-data">7</div> -->
       </div>
     </div>
 
