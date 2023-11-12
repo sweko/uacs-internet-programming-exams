@@ -9,11 +9,23 @@
 </head>
 <body>
     <h1>Movies Information</h1>
+
+    <label for="name-filter">Name:</label>
+    <input type="text" id="name-filter" placeholder="Enter movie name">
+
+     
+    <label for="genre">Genre:</label>
+    <select id="genre-filter">
+    <option value="">All Genres</option>
+
+    <button id="apply-filter">Apply Filter</button>
+</select>
+
     <div class="movie-header-table">
-      <div class="movie-header">ID</div>
-      <div class="movie-header">Title</div>
-      <div class="movie-header">Director</div>
-      <div class="movie-header">Year</div>
+      <div class="movie-header">ID  <button id="sort-id"><strong>SORT</strong></button></div>
+      <div class="movie-header">Title  <button id="sort-title"><strong>SORT</strong></button></div>
+      <div class="movie-header">Director  <button id="sort-director"><strong>SORT</strong></button></div>
+      <div class="movie-header">Year  <button id="sort-year"><strong>SORT</strong></button></div>
       <div class="movie-header">Genre</div>
       <div class="movie-header">Plot</div>
       <div class="movie-header">Cast</div>
@@ -46,4 +58,4 @@
 
     <script src="scripts.js"></script>
 </body>
-</html>
+</html> 
