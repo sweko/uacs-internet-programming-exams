@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Movies Information</h1>
+    <h1 id="movie">Movies Information</h1>
+    <div id="filter" class="filter">
+        
+      <label id="title" for="title">Title: </label>
+      <input type="text" id="title-filter" />
+      <br>
+      <br>
+      <label id="year" for="year">Year: </label>
+      <select id="year-filter">
+          <option value="all" selected>All</option>
+      </select>
+      <label id="genre" for="genre">Genre </label>
+      <select id="genre-filter">
+          <option value="all" selected>All</option>
+      </select>
+      <button id="apply-filter">Apply Filter</button>
+  </div>
+  <br>
     <div class="movie-header-table">
       <div class="movie-header">ID</div>
       <div class="movie-header">Title</div>
@@ -18,8 +35,10 @@
       <div class="movie-header">Plot</div>
       <div class="movie-header">Cast</div>
       <div class="movie-header">Oscars</div>
+      <div class="movie-header">Rating</div>
     </div>
     <div id="movie-container">
+      <!---
       <div class="movie-table">
         <div class="movie-data">52</div>
         <div class="movie-data">The Usual Suspects</div>
@@ -41,9 +60,12 @@
           </ul>
         </div>
         <div class="movie-data">2</div>
+        --->
       </div>
+
+      
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
