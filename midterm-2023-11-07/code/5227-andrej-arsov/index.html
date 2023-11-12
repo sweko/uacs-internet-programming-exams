@@ -8,7 +8,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Movies Information</h1>
+    <h1>Movies Information - MidTerm Exam</h1>
+    
+    <div class="filters">
+      <div class="filter">
+          <label for="title-filter">Title:</label>
+          <input type="text" id="title-filter">
+      </div>
+      <div class="filter">
+          <label for="year-filter">Year:</label>
+          <input type="number" id="year-filter">
+      </div>
+      <div class="filter">
+          <label for="genre-filter">Genre:</label>
+          <select id="genre-filter">
+              <option value="">Comedy</option>
+              <option value="">Crime</option>
+              <option value="">Drama</option>
+              <option value="">Biography</option>
+              <option value="">Action</option>
+              <option value="">Thriller</option>
+              <option value="">Western</option>
+              <option value="">Mystery</option>
+              <option value="">Sci-Fi</option>
+              <option value="">Romance</option>
+
+          </select>
+      </div>
+      <div class="filter">
+          <label for="oscar-filter">Oscar:</label>
+          <select id="oscar-filter">
+              <option value="">Best Actor</option>
+              <option value="">Best Supporting Actor</option>
+              <option value="">Best Adapted Screenplay</option>
+              <option value="">Director</option>
+          </select>
+      </div>
+  </div>
+    
     <div class="movie-header-table">
       <div class="movie-header">ID</div>
       <div class="movie-header">Title</div>
@@ -20,30 +57,14 @@
       <div class="movie-header">Oscars</div>
     </div>
     <div id="movie-container">
-      <div class="movie-table">
-        <div class="movie-data">52</div>
-        <div class="movie-data">The Usual Suspects</div>
-        <div class="movie-data">Bryan Singer</div>
-        <div class="movie-data">1995</div>
-        <div class="movie-data">Crime / Mystery / Thriller</div>
-        <div class="movie-data">
-          A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, beginning ...
+
         </div>
-        <div class="movie-data">
-          <ul>
-            <li><strong>Stephen Baldwin</strong> as Michael McManus</li>
-            <li><strong>Gabriel Byrne</strong> as Dean Keaton</li>
-            <li><strong>Benicio Del Toro</strong> as Fred Fenster</li>
-            <li><strong>Kevin Pollak</strong> as Todd Hockney</li>
-            <li><strong>Kevin Spacey</strong> as Roger 'Verbal' Kint</li>
-            <li><strong>Chazz Palminteri</strong> as Dave Kujan</li>
-            <li><strong>Pete Postlethwaite</strong> as Mr. Kobayashi</li>
-          </ul>
-        </div>
-        <div class="movie-data">2</div>
+        <div class="movie-data"></div>
       </div>
     </div>
+    <div id="movie-container"></div>
 
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
