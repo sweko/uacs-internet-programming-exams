@@ -10,6 +10,11 @@ body {
     text-align: center;
     font-weight: bold;
   }
+  .band-row {
+    display: grid;
+    grid-template-columns: 0.66fr 1.2fr 0.7fr 1.2fr 0.65fr 1.9fr 0.65fr ;
+    border: 1px solid #8f8e8e;
+  }
 
   .band-header {
     padding: 5px;

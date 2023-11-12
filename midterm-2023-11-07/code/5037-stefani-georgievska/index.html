@@ -6,6 +6,31 @@
     <title>MidTerm Exam for Internet Programming</title>
 
     <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Information About Movies</h1>
+    <div id="filter" class="filter">
+        <label for="title">Title: </label>
+        <input type="text" id="title-filter" />
+
+        <label for="director">Director: </label>
+        <input type="string" id="director-filter" />
+
+        <label for="genre">Genre: </label>
+        <select id="genre-filter">
+            <option value="all" selected>all</option>
+            <option value="crime" selected>crime</option>
+            <option value="drama" selected>drama</option>
+            <option value="action" selected>action</option>
+            <option value="Thriller" selected>thriller</option>
+        </select>
+
+
+        <label for="year">Year: </label>
+        <input type="number" id="year-filter" />
+
+        <button id="apply-filter">Apply Filter</button>
+    </div>
 </head>
 <body>
     <h1>Movies Information</h1>
@@ -44,6 +69,6 @@
       </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,41 +1,111 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f2f2f2;
+}
 
-  .movie-header-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 1fr;
-    border: 1px solid #000;
-    background-color: #f2f2f2;
-    text-align: center;
-    font-weight: bold;
-  }
+header {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
 
-  .movie-header {
-    padding: 5px;
-    border: 1px solid #000;
-  }
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  .movie-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 1fr;
-    border: 1px solid #000;
-  }
+.filter {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
 
-  .movie {
-    border: solid 1px lime;
-    width: 100%;
-  }
+.filter label {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #fff;
+}
 
-  .movie-data {
-    text-align: left;
-    padding: 5px;
-    border: 1px solid #000;
+.filter input[type="text"],
+.filter input[type="number"],
+.filter select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
 
-    & ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-  }
+.filter button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+.movie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#movie-container tr:hover {
+  background-color: #f9f9f9;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+#movie-details-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+#movie-details-header h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#movie-details-list {
+  list-style: none;
+}
+
+#movie-details-list li {
+  margin-bottom: 5px;
+}
+ thead{
+  display:grid;
+ }

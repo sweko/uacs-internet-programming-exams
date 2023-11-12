@@ -9,14 +9,33 @@
 </head>
 <body>
     <h1>Bands Information</h1>
+    <div id="filter" class="filter">
+        
+      <label for="name">Search name: </label>
+      <input type="text" id="name-filter" />
+      <br>
+      <br>
+      <label for="genre">Genre: </label>
+      <select id="genre-filter">
+          <option value="all" selected>All</option>
+      </select>
+
+      <label for="country">Country: </label>
+      <select id="country-filter">
+          <option value="all" selected>All</option>
+      </select>
+      <button id="apply-filter">Apply Filter</button>
+  </div>
+  <br>
     <div class="band-header-table">
-      <div class="band-header">ID</div>
-      <div class="band-header">Name</div>
-      <div class="band-header">Formed</div>
-      <div class="band-header">Location</div>
-      <div class="band-header">Country</div>
+      <div class="band-header">ID<button id="sort-id">sort</button></div>
+      <div class="band-header">Name<button id="sort-name">sort</button></div>
+      <div class="band-header">Genre<button id="sort-genre">sort</button></div>
+      <div class="band-header">Formed<button id="sort-formed">sort</button></div>
+      <div class="band-header">Location<button id="sort-location">sort</button></div>
+      <div class="band-header">Country<button id="sort-country">sort</button></div>
       <div class="band-header">Members</div>
-      <div class="band-header">Albums</div>
+      <div class="band-header">Albums<button id="sort-albums">sort</button></div>
     </div>
     <div id="band-container">
       <div class="band-table">
@@ -32,6 +51,6 @@
       </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
