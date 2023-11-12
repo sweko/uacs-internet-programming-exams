@@ -9,39 +9,39 @@
 </head>
 <body>
     <h1>Movies Information</h1>
+
+
+    <div id="filter" class="filter">
+      <label for="title">Title </label>
+      <input type="text" id="title-filter" />
+
+      <label for="genre"> &nbsp Genre </label>
+      <select id="genre-filter">
+          <option value="all" selected>All</option>
+      </select>
+
+      <label for="year">&nbsp Year </label>
+      <input type="text" id="year-filter" />
+
+      <label for="director">&nbsp Director </label>
+      <input type="text" id="director-filter" />
+
+      <button id="apply-filter">Apply Filter</button>
+  </div>
+    
+
     <div class="movie-header-table">
-      <div class="movie-header">ID</div>
-      <div class="movie-header">Title</div>
-      <div class="movie-header">Director</div>
-      <div class="movie-header">Year</div>
-      <div class="movie-header">Genre</div>
+      <div class="movie-header">ID<span id="sort-id"> sort</span></div>
+      <div class="movie-header">Title<span id="sort-title"> sort</span></div>
+      <div class="movie-header">Year<span id="sort-year"> sort</span></div>
+      <div class="movie-header">Director<span id="sort-director"> sort</span></div>
+      <div class="movie-header">Genre<span id="sort-director"> sort</span></div>
       <div class="movie-header">Plot</div>
       <div class="movie-header">Cast</div>
       <div class="movie-header">Oscars</div>
     </div>
     <div id="movie-container">
-      <div class="movie-table">
-        <div class="movie-data">52</div>
-        <div class="movie-data">The Usual Suspects</div>
-        <div class="movie-data">Bryan Singer</div>
-        <div class="movie-data">1995</div>
-        <div class="movie-data">Crime / Mystery / Thriller</div>
-        <div class="movie-data">
-          A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, beginning ...
-        </div>
-        <div class="movie-data">
-          <ul>
-            <li><strong>Stephen Baldwin</strong> as Michael McManus</li>
-            <li><strong>Gabriel Byrne</strong> as Dean Keaton</li>
-            <li><strong>Benicio Del Toro</strong> as Fred Fenster</li>
-            <li><strong>Kevin Pollak</strong> as Todd Hockney</li>
-            <li><strong>Kevin Spacey</strong> as Roger 'Verbal' Kint</li>
-            <li><strong>Chazz Palminteri</strong> as Dave Kujan</li>
-            <li><strong>Pete Postlethwaite</strong> as Mr. Kobayashi</li>
-          </ul>
-        </div>
-        <div class="movie-data">2</div>
-      </div>
+      
     </div>
 
     <script src="scripts.js"></script>

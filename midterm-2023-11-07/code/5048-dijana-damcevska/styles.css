@@ -1,41 +1,70 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #EAD7BB;
+}
+
+h1 {
+  text-align: center;
+  color: #3F2305;
+}
+
+.movie-header-table {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 2fr;
+  border: 1px solid #3F2305;
+  background-color: #FFF2D8;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.movie-header {
+  padding: 5px;
+  border: 1px solid #3F2305;
+}
+
+.movie-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 2fr;
+  border: 1px solid #3F2305;
+  background-color: #FFF2D8;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.movie {
+  border: solid 1px lime;
+  width: 100%;
+}
+
+.movie-data {
+  text-align: left;
+  padding: 5px;
+  border: 1px solid #000;
+
+  & ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
+}
 
-  .movie-header-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 1fr;
-    border: 1px solid #000;
-    background-color: #f2f2f2;
-    text-align: center;
-    font-weight: bold;
-  }
+.filter {
+  padding: 10px;
+  margin: 5px;
+}
 
-  .movie-header {
-    padding: 5px;
-    border: 1px solid #000;
-  }
-
-  .movie-table {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 2fr 2fr 2fr 1fr;
-    border: 1px solid #000;
-  }
-
-  .movie {
-    border: solid 1px lime;
-    width: 100%;
-  }
-
-  .movie-data {
-    text-align: left;
-    padding: 5px;
-    border: 1px solid #000;
-
-    & ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-  }
-
+#title-filter,
+#genre-filter,
+#apply-filter,
+#year-filter,
+#director-filter {
+  border-radius: 7px;
+  border: none;
+  background-color: #F8EDE3;
+}
