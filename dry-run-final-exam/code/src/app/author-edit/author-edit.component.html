@@ -1,0 +1,26 @@
+<div *ngIf="!!author">
+    <form [formGroup]="editForm" (ngSubmit)="updateAuthor()">
+    <p>Name: <input type="text" formControlName="name"></p>
+    <p>Birth Date: <input type="date" formControlName="birthDate" [value]="author.birthDate"></p>
+    <p>Death Date: <input type="date" formControlName="deathDate"></p>
+    <p>
+        Nationality: 
+        <select formControlName="nationality">
+            <option *ngFor="let nationality of (nationalities$ | async)" [value]="nationality">{{nationality}}</option>
+        </select>
+    </p>
+
+    <h2>Bibliography</h2>
+    <ul>
+        <li *ngFor="let book of author.books">
+            {{ book.title }} ({{ book.year }}) - {{ book.type }}
+        </li>
+    </ul>
+
+        <button>Save</button>
+    </form>
+</div>
+<div *ngIf="!author">
+    No author loaded
+</div>
+
