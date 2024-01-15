@@ -1,0 +1,14 @@
+<div *ngIf="!!movie">
+    <form [formGroup]="editForm" (ngSubmit)="updateMovie()">
+    <p>Title: <input type="text" formControlName="title"></p>
+    <p>Year<input type="date" formControlName="year" [value]="movie.year"></p>
+    <p>director<input type="text" formControlName="director" [value]="movie.director"></p>
+    <p>Genre<input type="text" formControlName="genre" [value]="movie.genre"></p>
+    <p>Plot<input type="text" formControlName="plot" [value]="movie.plot"></p>
+
+
+
+        <button>Save</button>
+
+
+    </form>

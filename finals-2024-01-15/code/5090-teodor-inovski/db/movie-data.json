@@ -1427,42 +1427,6 @@
       "rating": 8.5
     },
     {
-      "id": 1,
-      "title": "The Departed",
-      "year": 2006,
-      "director": "Martin Scorsese",
-      "genre": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
-      "plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
-      "cast": [
-        {
-          "actor": "Leonardo DiCaprio",
-          "character": "Billy Costigan"
-        },
-        {
-          "actor": "Matt Damon",
-          "character": "Colin Sullivan"
-        },
-        {
-          "actor": "Jack Nicholson",
-          "character": "Frank Costello"
-        },
-        {
-          "actor": "Mark Wahlberg",
-          "character": "Staff Sgt. Sean Dignam"
-        }
-      ],
-      "oscars": {
-        "bestPicture": "The Departed",
-        "bestDirector": "Martin Scorsese",
-        "bestAdaptedScreenplay": "William Monahan"
-      },
-      "rating": 8.5
-    },
-    {
       "id": 8,
       "title": "The Prestige",
       "year": 2006,
