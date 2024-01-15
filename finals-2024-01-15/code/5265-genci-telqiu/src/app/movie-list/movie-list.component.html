@@ -1,1 +1,57 @@
-<p>And the movie list and everything else comes here</p>
+<div>
+    <h2>Movies List</h2>
+  
+    <div>
+      <label for="titleFilter">Title:</label>
+      <input type="text" id="titleFilter" [(ngModel)]="titleFilter" />
+    </div>
+  
+    <div>
+      <label for="yearFilter">Year:</label>
+      <input type="number" id="yearFilter" [(ngModel)]="yearFilter" />
+    </div>
+  
+    <div>
+      <label for="genreFilter">Genre:</label>
+      <select id="genreFilter" [(ngModel)]="selectedGenre">
+        <option value="" selected>All Genres</option>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="ratingFilter">Rating:</label>
+      <input type="number" id="ratingFilter" [(ngModel)]="ratingFilter" />
+    </div>
+  
+    <div>
+      <button (click)="filterMovies()">Filter</button>
+      <button (click)="resetFilters()">Reset Filters</button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortMoviesBy('id')">ID</th>
+          <th (click)="sortMoviesBy('title')">Title</th>
+          <th (click)="sortMoviesBy('year')">Year</th>
+          <th (click)="sortMoviesBy('director')">Director</th>
+          <th (click)="sortMoviesBy('genre')">Genre</th>
+          <th>Oscars</th>
+          <th (click)="sortMoviesBy('rating')">Rating</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of filteredMovies">
+          <td>{{ movie.id }}</td>
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.year }}</td>
+          <td>{{ movie.director }}</td>
+          <td>{{ movie.genre.join(', ') }}</td>
+          <td>{{ movie.rating }}</td>
+          <td>
+            <button (click)="viewMovieDetails(movie.id)">View</button>
+            <button (click)="editMovie(movie.id)">Edit</button>
+            
+  
