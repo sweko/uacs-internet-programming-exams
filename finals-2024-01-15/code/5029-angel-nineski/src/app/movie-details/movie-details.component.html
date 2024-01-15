@@ -1,0 +1,14 @@
+<h2>Movie Details</h2>
+<div *ngIf="movie">
+  <p><strong>ID:</strong> {{ movie.id }}</p>
+  <p><strong>Title:</strong> {{ movie.title }}</p>
+  <p><strong>Year:</strong> {{ movie.year }}</p>
+  <p><strong>Director:</strong> {{ movie.director }}</p>
+  <p><strong>Genres:</strong> {{ movie.genre.join(' / ') }}</p>
+  <p><strong>Plot:</strong> {{ movie.plot }}</p>
+
+  <p><strong>Rating:</strong> {{ movie.rating }}</p>
+</div>
+<div *ngIf="!movie">
+  <p>Movie not found.</p>
+</div>

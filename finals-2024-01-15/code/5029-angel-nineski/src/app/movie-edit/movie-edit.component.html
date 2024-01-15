@@ -1,0 +1,31 @@
+<h2>Edit Movie</h2>
+
+<form>
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="movie.title" name="title">
+
+  <label for="year">Year:</label>
+  <input type="number" id="year" [(ngModel)]="movie.year" name="year">
+
+  <label for="director">Director:</label>
+  <input type="text" id="director" [(ngModel)]="movie.director" name="director">
+
+  <label for="plot">Plot:</label>
+  <textarea id="plot" [(ngModel)]="movie.plot" name="plot"></textarea>
+
+  <label for="genre">Genre:</label>
+  <select id="genre" [(ngModel)]="movie.genre" name="genre">
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
+
+  <label for="oscars">Oscars:</label>
+  <div *ngFor="let oscarType of Object.keys(movie.oscars)">
+    <label>{{ oscarType }}:</label>
+    <input type="text" [(ngModel)]="movie.oscars[oscarType]" [name]="oscarType">
+  </div>
+
+  <label for="rating">Rating:</label>
+  <input type="number" id="rating" [(ngModel)]="movie.rating" name="rating">
+
+  <button type="button" (click)="saveChanges()">Save Changes</button>
+</form>
