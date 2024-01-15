@@ -1,0 +1,36 @@
+
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.info {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+
+    .link a:hover {
+      text-decoration: underline;
+    }

@@ -1,0 +1,13 @@
+<div>
+  <h2>Create a New Movie</h2>
+ 
+  <form (submit)="createMovie()">
+    
+    <label>Title: <input [(ngModel)]="newMovie.title" required></label><br>
+    <label>Year: <input type="number" [(ngModel)]="newMovie.year" required></label><br>
+  
+
+    <button type="submit">Create Movie</button>
+  </form>
+</div>
+

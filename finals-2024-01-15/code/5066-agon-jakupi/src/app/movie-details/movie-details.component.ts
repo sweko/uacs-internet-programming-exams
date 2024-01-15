@@ -1,41 +1,63 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../services/movie.service';  
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieService } from '../services/movie.service';
 import { UtilityService } from '../services/utility.service';
+
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
+  selector: 'app-movie-details',
+  templateUrl: './movie-details.component.html',
+  styleUrls: ['./movie-details.component.css']
 })
-export class MovieListComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
+  movieId: number = 0;
+  movie: any;
   movies: any[] = []; 
 
- 
+
   showAddCastButton: boolean = true;
 
-  constructor(private movieService: MovieService, private router: Router, private utilityService: UtilityService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private utilityService: UtilityService,
+    private movieService: MovieService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.movieService.getMovies().subscribe(
+    
+
+    this.route.params.subscribe(params => {
+      this.movieId = +params['id'] || 0; 
+      this.loadMovieDetails();
+     
+      this.movieService.getMovieById(this.movieId).subscribe(
+        (data) => {
+          this.movie = data;
+          console.log(this.movie);
+        },
+        (error) => {
+          console.error('Error fetching movie details', error);
+        }
+      );
+    });
+  }
+
+  loadMovieDetails() {
+  
+    this.movieService.getMovieById(this.movieId).subscribe(
       (data) => {
-        this.movies = data;
-        console.log(this.movies);
+        this.movie = data;
       },
       (error) => {
-        console.error('Error fetching movies', error);
+        console.error('Error fetching movie details', error);
       }
     );
   }
 
-  viewMovie(id: number) {
-    this.router.navigate(['/movies', id]);
-    console.log(`View movie with ID: ${id}`);
-  }
-
-  editMovie(id: number) {
-    
-    console.log(`Edit movie with ID: ${id}`);
-    this.router.navigate(['/movies', id, 'edit']); 
+  
+  editMovie() {
+   
+    this.router.navigate(['/movies', this.movieId, 'edit']);
   }
 
   deleteMovie(id: number) {
@@ -45,7 +67,7 @@ export class MovieListComponent implements OnInit {
       this.movieService.deleteMovie(id).subscribe(
         (data) => {
           console.log(`Movie with ID ${id} deleted successfully`, data);
-         
+          
           this.refreshMovieList();
         },
         (error) => {
@@ -56,7 +78,6 @@ export class MovieListComponent implements OnInit {
   }
 
   refreshMovieList() {
-    
     this.movieService.getMovies().subscribe(
       (data) => {
         this.movies = data;
@@ -67,9 +88,8 @@ export class MovieListComponent implements OnInit {
     );
   }
 
-
   addCast(movieId: number) {
-   
+    
     console.log(`Add cast to movie with ID: ${movieId}`);
   }
 
@@ -77,8 +97,7 @@ export class MovieListComponent implements OnInit {
   getOscars(oscars: { [key: string]: string }): string {
     if (!oscars) return '';
 
-   
+    
     return Object.entries(oscars).map(([type, recipient]) => `${type}: ${recipient}`).join(', ');
   }
 }
-
