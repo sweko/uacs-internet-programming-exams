@@ -1,23 +1,41 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie.service';
 
-import { MovieListComponent } from './movie-list.component';
+@Component({
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.css'],
+})
+export class MovieListComponent implements OnInit {
+  movies: any[] = [];
 
-describe('MovieListComponent', () => {
-  let component: MovieListComponent;
-  let fixture: ComponentFixture<MovieListComponent>;
+  constructor(private movieService: MovieService) {}
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [MovieListComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(MovieListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  ngOnInit(): void {
+    this.loadMovies();
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  loadMovies(): void {
+    this.movieService.getMovies().subscribe((data) => {
+      this.movies = data.movies;
+    });
+  }
+
+  deleteMovie(id: number): void {
+    // Implement delete logic here
+    // You may want to confirm the deletion using a dialog
+    // Once deleted, refresh the movie list
+  }
+
+  viewMovieDetails(id: number): void {
+    // Implement navigation to movie details page
+  }
+
+  editMovie(id: number): void {
+    // Implement navigation to movie edit page
+  }
+
+  navigateToCreatePage(): void {
+    // Implement navigation to movie create page
+  }
+}
