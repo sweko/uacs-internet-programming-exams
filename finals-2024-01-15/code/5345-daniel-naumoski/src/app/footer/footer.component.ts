@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Student } from '../models/student';
+import { Movie } from '../models/Movie';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +7,5 @@ import { Student } from '../models/student';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  @Input() student: Student | null = null;
+  @Input() movie: Movie | null = null;
 }

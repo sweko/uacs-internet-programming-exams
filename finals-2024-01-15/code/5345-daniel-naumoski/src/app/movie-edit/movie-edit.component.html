@@ -1,0 +1,15 @@
+<p>movie-edit works!</p>
+<div *ngIf="!!movie">
+    <form [formGroup]="editForm" (ngSubmit)="updateMovie()">
+    <p>Title: <input type="text" formControlName="title" [value]="movie.title"></p>
+    <p>Year: <input type="date" formControlName="year" [value]="movie.year"></p>
+    <p>Director: <input type="text" formControlName="director" [value]="movie.director"></p>
+    <p>Genre: <input type="text" formControlName="genre" [value]="movie.genre"></p>
+    <p>Plot: <input type="text" formControlName="plot" [value]="movie.plot"></p>
+    <p>Cast: <input type="text" formControlName="cast" [value]="movie.cast"></p>
+    <p>Rating: <input type="text" formControlName="rating" [value]="movie.rating"></p>
+    <div *ngIf="!movie">
+        No movie loaded.
+    </div>
+        
+
