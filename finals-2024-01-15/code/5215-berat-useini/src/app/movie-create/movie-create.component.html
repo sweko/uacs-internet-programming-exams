@@ -1,0 +1,42 @@
+iv>
+<h2>Add New Movie</h2>
+
+<form #movieForm="ngForm" (ngSubmit)="onSubmit(movieForm)">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" ngModel required>
+  </div>
+
+  <div>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" ngModel required>
+  </div>
+
+  <div>
+    <label for="plot">Plot:</label>
+    <textarea id="plot" name="plot" ngModel></textarea>
+  </div>
+
+  <div>
+    <label for="director">Director:</label>
+    <input type="text" id="director" name="director" ngModel required>
+  </div>
+
+  <div>
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre" ngModel multiple>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" ngModel min="0" max="10">
+  </div>
+
+  <div class="actions">
+    <button type="submit" [disabled]="!movieForm.form.valid">Add Movie</button>
+  </div>
+</form>
+
+

@@ -1,0 +1,45 @@
+<div *ngIf="movie">
+  <h2>Edit Movie: {{ movie.title }}</h2>
+
+  <form #movieForm="ngForm" (ngSubmit)="onSubmit(movieForm)">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="movie.title" required>
+    </div>
+
+    <div>
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year" [(ngModel)]="movie.year" required>
+    </div>
+
+    <div>
+      <label for="plot">Plot:</label>
+      <textarea id="plot" name="plot" [(ngModel)]="movie.plot"></textarea>
+    </div>
+
+    <div>
+      <label for="director">Director:</label>
+      <input type="text" id="director" name="director" [(ngModel)]="movie.director" required>
+    </div>
+
+    <div>
+      <label for="genre">Genre:</label>
+      <select id="genre" name="genre" [(ngModel)]="movie.genre">
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" name="rating" [(ngModel)]="movie.rating" min="0" max="10">
+    </div>
+
+    <div class="actions">
+      <button type="submit" [disabled]="!movieForm.form.valid">Save Changes</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

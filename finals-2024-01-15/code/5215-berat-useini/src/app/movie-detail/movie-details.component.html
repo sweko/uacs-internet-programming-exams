@@ -1,0 +1,28 @@
+<div *ngIf="movie; else loading">
+  <h2>{{ movie.title }}</h2>
+  <p><strong>ID:</strong> {{ movie.id }}</p>
+  <p><strong>Year:</strong> {{ movie.year }}</p>
+  <p><strong>Director:</strong> {{ movie.director }}</p>
+  <p><strong>Genres:</strong> {{ movie.genre.join(', ') }}</p>
+  <p><strong>Rating:</strong> {{ movie.rating }}</p>
+  <p><strong>Plot:</strong> {{ movie.plot }}</p>
+
+  <div *ngIf="movie.cast && movie.cast.length > 0">
+    <h3>Cast</h3>
+    <ul>
+      <li *ngFor="let member of movie.cast">
+        {{ member.actor }} as {{ member.character }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <button (click)="editMovie(movie.id)">Edit</button>
+    <button (click)="deleteMovie(movie.id)">Delete</button>
+
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading movie details...</p>
+</ng-template>
