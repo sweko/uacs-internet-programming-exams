@@ -18,6 +18,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { CastCreateComponent } from './cast-create/cast-create.component';
+import { ActorDetailsComponent } from './actor-details/actor-details.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CastCreateComponent } from './cast-create/cast-create.component';
     AboutComponent,
     NavigationBarComponent,
     CastCreateComponent,
+    ActorDetailsComponent,
   ],
   imports: [
     BrowserModule,
