@@ -1,1 +1,31 @@
-<p>And the movie list and everything else comes here</p>
+<h2>Movies List</h2>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Genre</th>
+        <th>Oscars</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.genre.join(' / ') }}</td>
+        <td>{{ countKeys(movie.oscars) }}</td>
+        <td>{{ movie.rating }}</td>
+        <td>
+            <a routerLink="/movies/{{ movie.id }}">View</a>
+            <a routerLink="/movies/{{ movie.id }}/edit">Edit</a>
+            <a (click)="deleteMovie(movie.id)">Delete</a>
+          </td>
+      </tr>
+    </tbody>
+  </table>
