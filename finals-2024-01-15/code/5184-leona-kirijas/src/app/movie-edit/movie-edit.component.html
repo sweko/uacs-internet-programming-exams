@@ -1,0 +1,27 @@
+<div *ngIf="!!movie">
+    <form [formGroup]="editForm" (ngSubmit)="updateMovie()">
+        <p>Title: <input type="text" formControlName="title"></p>
+        <p>Year: <input type="number" formControlName="year"></p>
+        <p>Director: <input type="text" formControlName="director"></p>
+        <p>Rating: <input type="number" step="0.1" formControlName="rating"></p>
+        <p>Plot: <textarea formControlName="plot">{{ movie.plot }}</textarea></p>
+
+        <h2>Genres</h2>
+       
+        <div *ngFor="let genre of movie.genres; let i = index">
+            <input type="text" [formControlName]="'genre' + i">
+        </div>
+
+        <h2>Cast</h2>
+        <ul>
+            <li *ngFor="let castMember of movie.cast">
+                {{ castMember.actor }} as {{ castMember.character }}
+            </li>
+        </ul>
+
+        <button>Save</button>
+    </form>
+</div>
+<div *ngIf="!movie">
+    No movie loaded
+</div>
