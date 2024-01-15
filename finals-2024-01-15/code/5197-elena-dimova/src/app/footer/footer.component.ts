@@ -7,5 +7,7 @@ import { Student } from '../models/student';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  currentYear: number = new Date().getFullYear();
+
   @Input() student: Student | null = null;
 }

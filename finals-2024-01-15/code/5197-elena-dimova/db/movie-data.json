@@ -1,45 +1,9 @@
 {
   "movies": [
     {
-      "id": 3,
-      "title": "The Godfather",
-      "year": 1972,
-      "director": "Francis Ford Coppola",
-      "genre": [
-        "Crime",
-        "Drama"
-      ],
-      "plot": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-      "cast": [
-        {
-          "actor": "Marlon Brando",
-          "character": "Vito Corleone"
-        },
-        {
-          "actor": "Al Pacino",
-          "character": "Michael Corleone"
-        },
-        {
-          "actor": "James Caan",
-          "character": "Sonny Corleone"
-        },
-        {
-          "actor": "Robert Duvall",
-          "character": "Tom Hagen"
-        }
-      ],
-      "oscars": {
-        "bestPicture": "The Godfather",
-        "bestDirector": "Francis Ford Coppola",
-        "bestActor": "Marlon Brando",
-        "bestAdaptedScreenplay": "Mario Puzo, Francis Ford Coppola"
-      },
-      "rating": 9.2
-    },
-    {
       "id": 33,
       "title": "The Shawshank Redemption",
-      "year": 1994,
+      "year": 1995,
       "director": "Frank Darabont",
       "genre": [
         "Drama"
@@ -2378,6 +2342,17 @@
         "bestSupportingActor": "Karl Malden"
       },
       "rating": 8
+    },
+    {
+      "title": "this is a title",
+      "year": 1996,
+      "plot": "wow what a plot",
+      "director": "Me",
+      "genre": [
+        "Action"
+      ],
+      "rating": 9,
+      "id": 56
     }
   ],
   "genres": [
