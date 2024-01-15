@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BandListComponent } from './band-list/band-list.component';
 
 const routes: Routes = [
-  { path: 'movie-list', component: BandListComponent },
-  { path: '', redirectTo: '/movie-list', pathMatch: 'full' },
+  { path: 'band-list', component: BandListComponent },
+  { path: '', redirectTo: '/band-list', pathMatch: 'full' },
 ];
 
 @NgModule({
