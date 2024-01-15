@@ -1,1 +1,6 @@
-<p>movie-details works!</p>
+<div *ngIf="movieDetails">
+  <h2>{{ movieDetails.title }}</h2>
+  <p>ID: {{ movieDetails.id }}</p>
+  <p>Year: {{ movieDetails.year }}</p>
+  <p>Plot: {{ movieDetails.plot }}</p>
+</div>

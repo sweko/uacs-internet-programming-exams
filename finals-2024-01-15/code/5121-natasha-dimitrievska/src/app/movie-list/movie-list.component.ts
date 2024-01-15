@@ -26,8 +26,8 @@ export class MovieListComponent implements OnInit {
     );
   }
 
-  getOscarsCount(oscars: any[]): number {
-    return oscars ? oscars.length : 0;
+  getOscarsCount(oscars: any): number {
+    return oscars ? Object.keys(oscars).length : 0;
   }
 
   editMovie(id: number): void {

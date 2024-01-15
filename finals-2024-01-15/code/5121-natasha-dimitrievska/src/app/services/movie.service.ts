@@ -10,10 +10,6 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<{ movies: any[] }> {
-    return this.http.get<{ movies: any[] }>(`${this.apiUrl}`);
-  }
-
   getMovieById(id: number): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
@@ -28,5 +24,8 @@ export class MovieService {
 
   deleteMovie(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
+  getMovies(): Observable<{ movies: any[] }> {
+    return this.http.get<{ movies: any[] }>(`${this.apiUrl}`);
   }
 }

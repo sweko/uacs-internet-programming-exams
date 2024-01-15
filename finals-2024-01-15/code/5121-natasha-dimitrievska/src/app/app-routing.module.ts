@@ -7,6 +7,7 @@ import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { CastAddComponent } from './cast-add/cast-add.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const routes: Routes = [
   { path: 'movies', component: MovieListComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'movies/:id/cast/add', component: CastAddComponent },
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: '**', redirectTo: '/movies' },
+  { path: 'details/:id', component: MovieDetailsComponent },
 ];
 
 @NgModule({
