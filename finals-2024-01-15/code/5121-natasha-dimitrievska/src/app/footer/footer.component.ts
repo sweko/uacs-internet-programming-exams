@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
       <br />
       {{student?.id}} - {{student?.name}}
     </p>
-    <p>&copy; {{ currentYear }} Your Name (Your ID) | <a routerLink="/about">About</a></p>
+    <p>&copy; {{ currentYear }} Natasha Dimitrievska 5121 | <a routerLink="/about">About</a></p>
   `,
   styles: [],
 })
