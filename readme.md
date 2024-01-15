@@ -35,15 +35,20 @@ If you already forked the repository
 
 ## 3. Make sure that you have the correct folder structure
 
-1. Locate the folder for the correct exam. The folder name should be something like `mid-term-<current-date>`.
+1. Locate the folder for the correct exam. The folder name should be something like `finals-<current-date>`.
 
-2. Inside that folder will be a folder called `docs`, a folder called `data` and a folder called `code`. The `docs` folder contains the instructions for the exam, and the `date` folder contains the code for the exam.
+2. Inside that folder will be a folder called `docs`  and a folder called `code`. The `docs` folder contains the instructions for the exam, and the `date` folder contains the code for the exam.
 
-3. The `code` folder should contain folders with student ids. Locate the folder with your student id and open it. It should contain an `index.html` file, an `styles.css` file, and a `script.ts` file. This is where you will write your code for the exam.
+3. The `code` folder should contain folders with student ids. Locate the folder with your student id and open it. It should contain an angular application. This is where you will write your code for the exam.
+
+4. Install the needed scripts by running the following command: `npm install`. This will install the needed scripts for the angular application.
+
+5. Run the following command: `npm start`. This will start the angular application. You can access it by opening a browser and navigating to `http://localhost:4200/`. You should see a page with the text "Hello World!".
+
 
 ## 4. Do the exam
 
-1. Open the markdown file in the `docs` folder in your browser. It should be something like `mid-term-<current-date>/docs/exam.md`. This is the file with the instructions for the exam.
+1. Open the markdown file in the `docs` folder in your browser. It should be something like `finals-<current-date>/docs/readme.md`. This is the file with the instructions for the exam.
 
 2. Carefully read the instructions for the exam. If you have any questions, ask the instructor.
 
@@ -51,7 +56,7 @@ If you already forked the repository
 
 ## 5. Commit and push your changes
 
-1. Open a terminal and navigate to the folder for the exam. The folder should be something like `mid-term-<current-date>/code/<your-student-id>`
+1. Open a terminal and navigate to the folder for the exam. The folder should be something like `finals-<current-date>/code/<your-student-id>`
 
 2. Run the following command: `git add .`. This will add all the files in the folder to the staging area.
 

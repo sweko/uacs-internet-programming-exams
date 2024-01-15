@@ -16,6 +16,20 @@ export const readTextLines = async (path: string): Promise<string[]> => {
     return data.split("\n");
 }
 
+export const isDirectory = (path: string): Promise<boolean> => {
+    return new Promise((resolve, reject) => {
+        fs.stat(path, (err, stats) => {
+            if (err) {
+                if (err.code === "ENOENT") {
+                    return resolve(false);
+                }
+                return reject(err);
+            }
+            return resolve(stats.isDirectory());
+        });
+    });
+}
+
 
 export const exists = (path: string, folder: boolean): Promise<boolean> => {
     return new Promise((resolve, reject) => {
@@ -49,8 +63,12 @@ export const copyDirectory = (source: string, destination: string): Promise<void
                 }
                 for (const file of files) {
                     const sourcePath = `${source}\\${file}`;
+                    const isFolder = await isDirectory(sourcePath);
+                    if (isFolder) {
+                        await copyDirectory(sourcePath, `${destination}\\${file}`);
+                        continue;
+                    }
                     const destinationPath = `${destination}\\${file}`;
-                    // no support for recursive copy
                     await copyFile(sourcePath, destinationPath);
                 }
                 return resolve();
