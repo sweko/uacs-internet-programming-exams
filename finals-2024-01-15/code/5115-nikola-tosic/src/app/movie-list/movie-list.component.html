@@ -1,1 +1,40 @@
-<p>And the movie list and everything else comes here</p>
+<table class="movie-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Genres</th>
+        <th>Plot</th>
+        <th>Cast</th>
+        <th>Oscars</th>
+        <th>Rating</th>
+        <th>Action</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr ngFor="let movie of movies">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.director }}</td>
+        <td>
+          <ul>
+            <li ngFor="let genre of movie.genre">{{ genre }}</li>
+          </ul>
+        </td>
+        <td>{{ movie.plot }}</td>
+        <td>
+            <ul>
+                <li ngFor="let cast of movie.cast">{{ cast }}</li>
+            </ul>
+        </td>
+        <td>{{ movie.oscars }}</td>
+        <td>{{ movie.rating }}</td>
+        <td>
+          <button (click)="onDeleteMovie(movie.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
