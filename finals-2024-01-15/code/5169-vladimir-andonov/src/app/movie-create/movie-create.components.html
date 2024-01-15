@@ -1,0 +1,41 @@
+<div>
+    <h2>Create Movie</h2>
+  
+    
+    <form (submit)="saveMovie()">
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="newMovie.title" required />
+  
+      <label for="year">Year:</label>
+      <input type="number" id="year" [(ngModel)]="newMovie.year" required />
+  
+      <label for="plot">Plot:</label>
+      <textarea id="plot" [(ngModel)]="newMovie.plot"></textarea>
+  
+      <label for="director">Director:</label>
+      <input type="text" id="director" [(ngModel)]="newMovie.director" required />
+  
+      <label for="genre">Genre:</label>
+      <select id="genre" [(ngModel)]="newMovie.genre" multiple>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+  
+      
+      <div *ngIf="newMovie.oscars">
+        <label for="oscars">Oscars:</label>
+        <ul>
+          <li *ngFor="let oscar of getOscars(newMovie.oscars); let i = index">
+            <input type="text" id="oscar{{ i }}" [(ngModel)]="newMovie.oscars[oscar]" />
+            <button (click)="removeOscar(i)">Remove</button>
+          </li>
+        </ul>
+        <button (click)="addOscar()">Add Oscar</button>
+      </div>
+  
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" [(ngModel)]="newMovie.rating" />
+  
+      <button type="submit">Save</button>
+    </form>
+  </div>
+  

@@ -1,13 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Final Exam</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+<!-- src/app/movies/movies.component.html -->
+
+<div>
+  <h2>Movies List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <!-- Add other table headers -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.title }}</td>
+        <!-- Add other table cells -->
+        <td>
+          <button (click)="viewMovie(movie.id)">View</button>
+          <button (click)="editMovie(movie.id)">Edit</button>
+          <button (click)="deleteMovie(movie.id)">Delete</button>
+          <!-- Add other action buttons -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

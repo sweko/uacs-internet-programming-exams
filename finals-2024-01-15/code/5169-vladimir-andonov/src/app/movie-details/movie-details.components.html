@@ -1,0 +1,62 @@
+<div>
+    <h2>Movie Details</h2>
+  
+    
+    <div *ngIf="movie">
+      <p><strong>ID:</strong> {{ movie.id }}</p>
+      <p><strong>Title:</strong> {{ movie.title }}</p>
+      <p><strong>Year:</strong> {{ movie.year }}</p>
+      <p><strong>Plot:</strong> {{ movie.plot }}</p>
+      <p><strong>Director:</strong> {{ movie.director }}</p>
+      <p><strong>Genre:</strong> {{ movie.genre.join(', ') }}</p>
+      
+      
+      <div *ngIf="movie.oscars">
+        <p><strong>Oscars:</strong></p>
+        <ul>
+          <li *ngFor="let oscar of getOscars(movie.oscars)">{{ oscar }}</li>
+        </ul>
+      </div>
+      
+      <p><strong>Rating:</strong> {{ movie.rating }}</p>
+  
+      
+      <div *ngIf="movie.cast">
+        <p><strong>Cast:</strong></p>
+        <ul>
+          <li *ngFor="let castMember of movie.cast">
+            {{ castMember.actor }} as {{ castMember.character }}
+            
+            <ng-container *ngIf="actors && actors.find(actor => actor.name === castMember.actor)">
+              (<a routerLink="/actors/{{ castMember.actor }}">{{ castMember.actor }}</a>)
+            </ng-container>
+          </li>
+        </ul>
+      </div>
+  
+      
+      <div>
+        <button (click)="editMovie()">Edit</button>
+        <button (click)="deleteMovie()">Delete</button>
+        
+        <button *ngIf="actors" routerLink="/movies/{{ movie.id }}/cast/add">Add Cast</button>
+      </div>
+  
+      
+      <div *ngIf="similarMovies && similarMovies.length > 0">
+        <p><strong>Similar Movies:</strong></p>
+        <ul>
+          <li *ngFor="let similarMovie of similarMovies">
+            <a routerLink="/movies/{{ similarMovie.id }}">{{ similarMovie.title }}</a>
+          </li>
+        </ul>
+      </div>
+  
+      
+    </div>
+  
+    <div *ngIf="!movie">
+      <p>Movie not found.</p>
+    </div>
+  </div>
+  

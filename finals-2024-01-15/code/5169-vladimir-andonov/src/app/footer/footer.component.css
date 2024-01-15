@@ -1,0 +1,22 @@
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ec8585;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #a33636;
+  }
+  
+  button {
+    margin-right: 5px;
+  }
+  
