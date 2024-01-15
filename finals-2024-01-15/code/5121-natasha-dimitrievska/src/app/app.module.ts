@@ -11,11 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentService } from './services/student.service';
 import { MovieListComponent } from './movie-list/movie-list.component';
-import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { CastAddComponent } from './cast-add/cast-add.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +21,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     HeaderComponent,
     FooterComponent,
     MovieListComponent,
-    ActorDetailsComponent,
     StatisticsComponent,
     AboutComponent,
     CastAddComponent,
-    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +33,6 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: 'movies', component: MovieListComponent },
-      { path: 'actor/:id', component: ActorDetailsComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'about', component: AboutComponent },
       { path: 'cast/add', component: CastAddComponent },

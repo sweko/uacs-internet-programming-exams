@@ -1,16 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
-@NgModule({
-  declarations: [
-    MovieDetailsComponent,
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule, // Include CommonModule here
-  ],
-  bootstrap: [MovieDetailsComponent],
+@Component({
+  selector: 'app-actor-details',
+  templateUrl: './actor-details.component.html',
+  styleUrl: './actor-details.component.css'
 })
-export class AppModule { }
+export class ActorDetailsComponent {
+
+}
