@@ -1,0 +1,17 @@
+.container{
+    border: cyan 2px solid;
+    justify-content: center;
+    display:flex;
+    background-color: lightblue     ;
+}
+ul {
+    
+    list-style-type: none;
+    display: flex;
+  }
+  
+  li {
+    margin:20px;
+    font-size: 30px;
+    padding: 0 5px;
+  }

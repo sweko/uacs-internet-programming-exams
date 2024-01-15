@@ -1,0 +1,41 @@
+<div>
+    <h2>Edit Movie</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" [(ngModel)]="movie.title" name="title" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Year:</label>
+        <input type="number" [(ngModel)]="movie.year" name="year" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Director:</label>
+        <input type="text" [(ngModel)]="movie.director" name="director" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Genre:</label>
+        <input type="text" [(ngModel)]="movie.genre" name="genre" required>
+      </div>
+      
+      <label>Plot:</label>
+      <div class="form-group">
+        
+        <textarea [(ngModel)]="movie.plot" name="plot" style="width:350px;height:200px; resize: none" rows="4" required></textarea>
+      </div>
+  
+  
+  
+  
+      <div class="form-group">
+        <label>Rating:</label>
+        <input type="number" [(ngModel)]="movie.rating" name="rating" required>
+      </div>
+  
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+  

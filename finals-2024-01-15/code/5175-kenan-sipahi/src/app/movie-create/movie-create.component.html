@@ -1,0 +1,15 @@
+<form >
+    <div>
+      <label for="movieTitle">Movie Title:</label>
+      <input type="text" id="movieTitle" [(ngModel)]="newMovie.title">
+    </div>
+    <div>
+      <label for="movieYear">Year:</label>
+      <input type="number" id="movieYear" [(ngModel)]="newMovie.year">
+    </div>
+    <div>
+      <label for="movieDirector">Director:</label>
+      <input type="text" id="movieDirector" [(ngModel)]="newMovie.director">
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>

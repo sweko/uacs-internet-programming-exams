@@ -1,42 +1,6 @@
 {
   "movies": [
     {
-      "id": 3,
-      "title": "The Godfather",
-      "year": 1972,
-      "director": "Francis Ford Coppola",
-      "genre": [
-        "Crime",
-        "Drama"
-      ],
-      "plot": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-      "cast": [
-        {
-          "actor": "Marlon Brando",
-          "character": "Vito Corleone"
-        },
-        {
-          "actor": "Al Pacino",
-          "character": "Michael Corleone"
-        },
-        {
-          "actor": "James Caan",
-          "character": "Sonny Corleone"
-        },
-        {
-          "actor": "Robert Duvall",
-          "character": "Tom Hagen"
-        }
-      ],
-      "oscars": {
-        "bestPicture": "The Godfather",
-        "bestDirector": "Francis Ford Coppola",
-        "bestActor": "Marlon Brando",
-        "bestAdaptedScreenplay": "Mario Puzo, Francis Ford Coppola"
-      },
-      "rating": 9.2
-    },
-    {
       "id": 33,
       "title": "The Shawshank Redemption",
       "year": 1994,
@@ -104,55 +68,6 @@
         "bestDirector": "Steven Spielberg",
         "bestActor": "Liam Neeson",
         "bestAdaptedScreenplay": "Steven Zaillian"
-      },
-      "rating": 8.9
-    },
-    {
-      "id": 39,
-      "title": "Pulp Fiction",
-      "year": 1994,
-      "director": "Quentin Tarantino",
-      "genre": [
-        "Crime",
-        "Drama"
-      ],
-      "plot": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-      "cast": [
-        {
-          "actor": "John Travolta",
-          "character": "Vincent Vega"
-        },
-        {
-          "actor": "Samuel L. Jackson",
-          "character": "Jules Winnfield"
-        },
-        {
-          "actor": "Uma Thurman",
-          "character": "Mia Wallace"
-        },
-        {
-          "actor": "Bruce Willis",
-          "character": "Butch Coolidge"
-        },
-        {
-          "actor": "Ving Rhames",
-          "character": "Marsellus Wallace"
-        },
-        {
-          "actor": "Harvey Keitel",
-          "character": "The Wolf"
-        },
-        {
-          "actor": "Tim Roth",
-          "character": "Pumpkin"
-        },
-        {
-          "actor": "Amanda Plummer",
-          "character": "Honey Bunny"
-        }
-      ],
-      "oscars": {
-        "bestOriginalScreenplay": "Quentin Tarantino"
       },
       "rating": 8.9
     },

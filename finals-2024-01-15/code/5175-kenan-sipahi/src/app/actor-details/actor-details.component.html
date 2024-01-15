@@ -1,0 +1,14 @@
+
+<div *ngIf="!!actor">
+    <h1>{{ actor.name }}</h1>
+    <p><u>Birthdate:</u> {{ actor.birthdate }}</p>
+    <p><u>Height:</u> {{ actor.height }} cm</p>
+    <p><u>Nationality:</u> {{ actor.nationality }}</p>
+    <h2>Notable Works:</h2>
+    <ul>
+      <li *ngFor="let work of actor.notable_works">{{ work }}</li>
+    </ul>
+  </div>
+  <div *ngIf="!actor">
+    No actor loaded
+  </div>
