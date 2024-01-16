@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Bands } from '../models/band';
+import { BandsService } from '../services/bands.service';
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-band-list',
@@ -6,5 +11,73 @@ import { Component } from '@angular/core';
   styleUrl: './band-list.component.css'
 })
 export class BandListComponent {
+ 
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource: MatTableDataSource<Bands> = new MatTableDataSource<Bands>()
+  bands: Bands[] = [];
+  filteredBands: Bands[] = [];
+  displayedColumns: string[] = ['id', 'name', 'genre', 'formed', 'location','totalMembers','totalAlbums', 'edit', 'delete'];
 
+  private _bandsSearch: string = '';
+
+  get bandsSearch(): string {
+    return this._bandsSearch;
+  }
+
+  set bandsSearch(value: string) {
+    this._bandsSearch = value;
+    console.log('set list', value)
+    this.filteredBands = this.performSearch(value);
+    this.dataSource = new MatTableDataSource<Bands>(this.filteredBands);
+    this.dataSource.sort = this.sort;
+  }
+
+  constructor(private bandsService: BandsService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.getBands();
+
+  }
+
+  getBands(): void {
+    this.bandsService.getBands().subscribe((bands) => {
+      this.bands = bands;
+      this.filteredBands = this.bands
+      this.applyFilters(this.filteredBands);
+    });
+  }
+
+  getTotalMembers(band: Bands): number {    
+    return band.members && Array.isArray(band.members) ? band.members.length : 0;
+  }
+  
+  getTotalAlbums(band: Bands): number {
+    return band.albums && Array.isArray(band.albums) ? band.albums.length : 0;
+  }
+  
+  applyFilters(bands: Bands[]) {
+    this.dataSource = new MatTableDataSource<Bands>(bands);
+    this.dataSource.sort = this.sort;
+  }
+
+  performSearch(filterBy: string): Bands[] {
+    filterBy = filterBy.toLowerCase()
+    return this.bands.filter((band: Bands) =>
+      band.name.toLowerCase().includes(filterBy));
+  }
+
+  onRemove(id: number): void {
+    const confirmDelete = confirm('Are you sure you want to delete this Band?');
+    if (confirmDelete) {
+      this.bandsService.deleteBand(id).subscribe({
+        next: () => {
+          this.getBands();
+        }
+      });
+    }
+  }
+
+  goToBandDetails(bandId: number): void {
+    this.router.navigate(['/band', bandId]);
+  }
 }

@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BandListComponent } from './band-list.component';
 
-describe('BandListComponent', () => {
-  let component: BandListComponent;
-  let fixture: ComponentFixture<BandListComponent>;
+import { BandDetailsComponent } from './band-details.component';
+
+describe('BandDetailsComponent', () => {
+  let component: BandDetailsComponent;
+  let fixture: ComponentFixture<BandDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BandListComponent]
+      declarations: [BandDetailsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BandListComponent);
+    fixture = TestBed.createComponent(BandDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,50 @@
+.card-body {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-group {
+    flex-grow: 1;
+    margin-right: 10px;
+    width: auto;
+  }
+  
+  .btn-danger {
+    margin-left: 10px;
+  }
+
+  button{
+    margin-top: 20px;
+  }
+
+  .cancel{
+    margin-left: 25px;
+  }
+
+  .save{
+    margin-left: 25px;
+  }
+
+  .card-footer{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  .info{
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info label{
+    margin-top: 20px;
+  }
+
+  button{
+    margin-top: 40px;
+  }
