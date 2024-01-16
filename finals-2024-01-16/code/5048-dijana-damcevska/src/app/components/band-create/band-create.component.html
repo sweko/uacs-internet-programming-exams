@@ -1,0 +1,36 @@
+<div class="new-band">
+<form [formGroup]="bandForm" (ngSubmit)="saveBand()" class="create-form">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" required />
+    </div>
+
+    <div class="form-group">
+        <label for="formed">Formed:</label>
+        <input type="number" id="formed" formControlName="formed" required />
+    </div>
+
+    <div class="form-group">
+        <label for="country">Country:</label>
+        <select formControlName="country">
+            <option *ngFor="let place of (places$ | async)" [value]="place.country">{{ place.country }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City:</label>
+        <select formControlName="city">
+            <option *ngFor="let place of (places$ | async)" [value]="place.city">{{ place.city }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="genre">Genre:</label>
+        <select id="genre" formControlName="genre" required>
+            <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+    </div>
+
+    <button type="submit" [disabled]="bandForm.invalid" class="submit-button">Save</button>
+</form>
+</div>

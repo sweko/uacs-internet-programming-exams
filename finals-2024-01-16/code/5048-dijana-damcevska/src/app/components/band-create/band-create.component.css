@@ -1,0 +1,47 @@
+.new-band{
+    padding:40px;
+}
+.create-form {
+    max-width: 400px;
+    margin: auto; 
+    padding: 40px;
+    border: 1px solid #503C3C;
+    border-radius: 8px;
+    background-color: #F9EFDB;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #503C3C;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #503C3C;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  button.submit-button {
+    background-color: #503C3C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.submit-button:hover {
+    background-color: #EBD9B4;
+  }
+  

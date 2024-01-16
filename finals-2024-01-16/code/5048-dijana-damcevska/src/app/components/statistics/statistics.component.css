@@ -1,0 +1,31 @@
+.statistics-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #503C3C;
+    border-radius: 8px;
+    background-color: #F9EFDB;
+    margin-top: 40px; /* Add margin to the top */
+  margin-bottom: 40px;
+  }
+  
+  h1, h2 {
+    color: #503C3C;
+  }
+  
+  p {
+    color: #503C3C;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    color: #503C3C;
+  }
+  

@@ -1,0 +1,33 @@
+<div class="edit-form-container" *ngIf="!!band">
+  <form [formGroup]="editForm" (ngSubmit)="updateBand()">
+    <p>ID: <input type="text" formControlName="id"></p>
+    <p>Name: <input type="text" formControlName="name"></p>
+    <p>Formed: <input type="number" formControlName="formed"></p>
+    <p>Country:
+      <select formControlName="country">
+        <option *ngFor="let place of (places$ | async)" [value]="place.country">{{ place.country }}</option>
+      </select>
+    </p>
+
+    <p>City:
+      <select formControlName="city">
+        <option *ngFor="let place of (places$ | async)" [value]="place.city">{{ place.city }}</option>
+      </select>
+    </p>
+
+    <p>
+      Genre:
+      <select formControlName="genre">
+        <option *ngFor="let genre of (genres$ | async)" [value]="genre">{{ genre }}</option>
+      </select>
+    </p>
+
+    <p>Location: <input type="text" formControlName="location"></p>
+
+    <button class="action-button">Save</button>
+  </form>
+</div>
+
+<div class="no-band-loaded" *ngIf="!band">
+  No band loaded
+</div>

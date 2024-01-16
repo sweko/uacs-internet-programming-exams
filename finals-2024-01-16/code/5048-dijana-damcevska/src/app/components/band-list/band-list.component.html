@@ -1,0 +1,51 @@
+<div class="band-list">
+  <div class="add">
+    <button (click)="addBand()">Add Band</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="updateSorting('id')">ID</th>
+        <th (click)="updateSorting('name')">Name</th>
+        <th (click)="updateSorting('genre')">Genre</th>
+        <th (click)="updateSorting('formed')">Formed</th>
+        <th (click)="updateSorting('location')">Location</th>
+        <th (click)="updateSorting('members')">Members</th>
+        <th (click)="updateSorting('albums')">Albums</th>
+        <th>Actions</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let band of bands">
+        <td>{{ band.id }}</td>
+        <td>{{ band.name }}</td>
+        <td>{{ band.genre }}</td>
+        <td>{{ band.formed }}</td>
+        <td>{{ band.location }}</td>
+        <td>{{ band.members.length }}</td>
+        <td>{{ band.albums.length }}</td>
+        <td>
+          <button class="action-button" (click)="viewBand(band)">View</button>
+          <button class="action-button" (click)="editBand(band)">Edit</button>
+          <button class="action-button" (click)="deleteBand(band)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <dialog #dialog id="modal">
+    <div id="modal-content">
+      <div id="modal-header">
+        <h3>Confirm Deletion</h3>
+      </div>
+      <div id="modal-body">
+        Are you sure you want to delete the band {{ selectedBand?.name }}?
+      </div>
+      <div id="modal-footer">
+        <button (click)="confirmModal()">Yes</button>
+        <button (click)="closeModal()">No</button>
+      </div>
+    </div>
+  </dialog>
+</div>
