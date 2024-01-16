@@ -1,0 +1,20 @@
+<form>
+    <div>
+      <label for="bandName">Band Name:</label>
+      <input type="text" id="bandName" [(ngModel)]="newBand.name">
+    </div>
+    <div>
+      <label for="bandGenre">Genre:</label>
+      <input type="text" id="bandGenre" [(ngModel)]="newBand.genre">
+    </div>
+    <div>
+      <label for="bandFormed">Formed Year:</label>
+      <input type="number" id="bandFormed" [(ngModel)]="newBand.formed">
+    </div>
+    <div>
+      <label for="bandLocation">Location:</label>
+      <input type="text" id="bandLocation" [(ngModel)]="newBand.location">
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>
+  

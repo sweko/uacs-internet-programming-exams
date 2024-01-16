@@ -1,0 +1,19 @@
+<!-- country-details.component.html -->
+
+<div *ngIf="country">
+    <h2>Country Details</h2>
+    <p><strong>ID:</strong> {{ country.id }}</p>
+    <p><strong>Name:</strong> {{ country.name }}</p>
+  
+    <h3>Cities</h3>
+    <ul>
+      <li *ngFor="let city of sortedCitiesWithBandCount()">
+        {{ city.name }} ({{ city.bandCount }} bands)
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="!country">
+    <p>No country details available</p>
+  </div>
+  

@@ -1,0 +1,40 @@
+<div>
+    <h2>Edit Band</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="band.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Formed:</label>
+        <input type="number" [(ngModel)]="band.formed" name="formed" required>
+      </div>
+
+      <div class="form-group">
+        <label>Genre:</label>
+        <input type="text" [(ngModel)]="band.genre" name="genre" required>
+      </div>
+
+      <div class="form-group">
+        <label>Location:</label>
+        <input type="text" [(ngModel)]="band.location" name="location" required>
+      </div>
+
+      <label>Members:</label>
+      <div class="form-group">
+        <textarea [(ngModel)]="band.members" name="members" style="width:350px;height:200px; resize: none" rows="4" required></textarea>
+      </div>
+
+      <label>Albums:</label>
+      <div class="form-group">
+        <div *ngFor="let album of band.albums; let i = index">
+          <label>Album {{ i + 1 }}:</label>
+          
+        </div>
+      </div>
+
+      <button type="submit">Save Changes</button>
+    </form>
+</div>
+

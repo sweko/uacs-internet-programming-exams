@@ -1,0 +1,17 @@
+.container{
+    border: rgb(225, 240, 13) 2px solid;
+    justify-content: center;
+    display:flex;
+    background-color: rgb(197, 193, 170)     ;
+}
+ul {
+
+    list-style-type: none;
+    display: flex;
+  }
+
+  li {
+    margin:20px;
+    font-size: 30px;
+    padding: 0 5px;
+  }

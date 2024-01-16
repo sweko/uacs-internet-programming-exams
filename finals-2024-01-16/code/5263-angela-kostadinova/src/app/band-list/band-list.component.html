@@ -1,1 +1,78 @@
-<p>And the band list and everything else comes here</p>
+<p><div *ngFor="Bands">
+    <div>ID: {{ band.id }}</div>
+    <div>Name: {{ band.name }}</div>
+    <div>Formed: {{ band.formed }}</div>
+    <div>Location: {{ band.location }}</div>
+    <div>Bonus Country: {{ band.country }}</div>
+    <div>Genre: {{ band.genre }}</div>
+    <div>Members: {{ band.members.length }}</div>
+    <div>Albums: {{ band.albums.length }}</div>
+    <div>Bonus First Album: {{ band.albums[0]?.name }} ({{ band.albums[0]?.year }})</div>
+    <div>Bonus Last Album: {{ band.albums[band.albums.length - 1]?.name }} ({{ band.albums[band.albums.length - 1]?.year }})</div>
+    <hr />
+  </div>
+  
+
+    <div>
+      <h1>{{ band.name }}</h1>
+     
+      <div>
+        <button (click)="viewBandDetails(band.id)">View</button>
+        <button (click)="editBand(band.id)">Edit</button>
+        <button (click)="confirmDelete(band.id)">Delete</button>
+        <button (click)="addMember(band.id)">Add Member</button>
+      </div>
+  
+      <hr />
+    </div>
+ 
+  
+
+  <button (click)="navigateToAddBand()">Add Band</button>
+  
+
+  <div *ngIf="showConfirmationDialog">
+    <p>Are you sure you want to delete this band?</p>
+    <button (click)="deleteBand()">Yes</button>
+    <button (click)="cancelDelete()">No</button>
+  </div></p>
+
+<div *ngFor="Bands">
+    <div>ID: {{ band.id }}</div>
+    <div>Name: {{ band.name }}</div>
+    <div>Formed: {{ band.formed }}</div>
+    <div>Location: {{ band.location }}</div>
+    <div>Bonus Country: {{ band.country }}</div>
+    <div>Genre: {{ band.genre }}</div>
+    <div>Members: {{ band.members.length }}</div>
+    <div>Albums: {{ band.albums.length }}</div>
+    <div>Bonus First Album: {{ band.albums[0]?.name }} ({{ band.albums[0]?.year }})</div>
+    <div>Bonus Last Album: {{ band.albums[band.albums.length - 1]?.name }} ({{ band.albums[band.albums.length - 1]?.year }})</div>
+    <hr />
+  </div>
+  
+
+    <div>
+      <h1>{{ band.name }}</h1>
+     
+      <div>
+        <button (click)="viewBandDetails(band.id)">View</button>
+        <button (click)="editBand(band.id)">Edit</button>
+        <button (click)="confirmDelete(band.id)">Delete</button>
+        <button (click)="addMember(band.id)">Add Member</button>
+      </div>
+  
+      <hr />
+    </div>
+  </div>
+  
+
+  <button (click)="navigateToAddBand()">Add Band</button>
+  
+
+  <div *ngIf="showConfirmationDialog">
+    <p>Are you sure you want to delete this band?</p>
+    <button (click)="deleteBand()">Yes</button>
+    <button (click)="cancelDelete()">No</button>
+  </div>
+  
