@@ -1,0 +1,28 @@
+.band-statistics {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .band-statistics h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .band-statistics ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .band-statistics li {
+    margin-bottom: 8px;
+  }
+  
+  .band-statistics li strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
