@@ -2744,4 +2744,42 @@ export class BandsService {
   getBands() {
     return of(this.bands);
   }
+
+  fetchBands() {
+    return this._http.get<Band[]>(`https://localhost:3000/bands`);
+  }
+
+  fetchBand(id: number) {
+    return this._http.get<Band[]>(`https://localhost:3000/bands/${id}`);
+  }
+
+  createBand(name: string, formed: number, country: string, city: string, genre: string) {
+    return this._http.post(`https://localhost:3000/bands`, {
+      name,
+      formed,
+      country,
+      city,
+      genre,
+    });
+  }
+
+  editBrand(id: number, name: string, formed: number, country: string, city: string, genre: string) {
+    return this._http.put(`https://localhost:3000/bands/${id}`, {
+      name,
+      formed,
+      country,
+      city,
+      genre,
+    });
+  }
+
+  deleteBrand(id: number) {
+    return this._http.delete(`https://localhost:3000/bands/${id}`);
+  }
+
+  fetchGenres() {
+    return this._http.get<string[]>(`https://localhost:3000/genres`);
+  }
+
+
 }

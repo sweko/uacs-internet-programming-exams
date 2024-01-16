@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { filter, flatMap, map, of } from 'rxjs';
 import Place from '../models/place';
@@ -173,7 +173,7 @@ export class PlacesService {
 
   parsedPlaces: Place[] = JSON.parse(places);
 
-  constructor(private _http: HttpClientModule) { }
+  constructor(private _http: HttpClient) { }
 
   getPlaces() {
     return of(JSON.parse(places));
@@ -187,5 +187,13 @@ export class PlacesService {
     return of(this.parsedPlaces).pipe(
       map(places => places.filter(place => place.country == country).map(place => place.cities)[0])
     );
+  }
+
+  fetchPlaces() {
+    return this._http.get<Place[]>(`https://localhost:3000/places`);
+  }
+
+  fetchPlace(id: number) {
+    return this._http.get<Place>(`https://localhost:3000/places/${id}`);
   }
 }
