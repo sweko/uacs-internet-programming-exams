@@ -1,0 +1,22 @@
+<div *ngIf="band">
+    
+      <h1>Edit Band: {{ band.name }}</h1>
+  
+      <p>Name: <input type="text" formControlName="name"></p>
+      <p>Formed: <input type="text" formControlName="formed"></p>
+      <p>Location: <input type="text" formControlName="location"></p>
+  
+      <h2>Albums</h2>
+      <ul>
+        <li *ngFor="let album of band.albums">
+          {{ album.name }} ({{ album.year }})
+        </li>
+      </ul>
+  
+      <button type="submit">Save Band</button>
+    
+  </div>
+  
+  <div *ngIf="!band">
+    No band loaded
+  </div>
