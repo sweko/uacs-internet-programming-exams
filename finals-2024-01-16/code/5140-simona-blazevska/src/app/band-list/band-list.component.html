@@ -1,1 +1,26 @@
-<p>And the band list and everything else comes here</p>
+<div *ngIf="bands.length > 0">
+    <h2>Band List</h2>
+    <ul class="grid">
+      <li *ngFor="let band of bands" class="grid-item">
+        <div class="btn-groups">
+          <!-- <button (click)="viewBandDetails(band.id)">View</button> -->
+          <button (click)="deleteBand(band.id)">Delete</button>
+        </div>
+        <h3>{{ band.name }}</h3>
+        <p>Genre: {{ band.genre }}</p>
+        <p>Formed: {{ band.formed }}</p>
+        <p>Location: {{ band.location }}</p>
+        <p>Members: {{ band.members.join(', ') }}</p>
+        <h4>Albums:</h4>
+        <ul>
+          <li *ngFor="let album of band.albums">
+            {{ album.name }} ({{ album.year }})
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="bands.length === 0">
+    <p>No bands found.</p>
+  </div>
