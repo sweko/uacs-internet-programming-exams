@@ -1,1 +1,46 @@
-<p>And the band list and everything else comes here</p>
+<div>
+    <button (click)="addBand()">Add Band</button>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Hometown</th>
+        <th>Members</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let band of bands">
+        <td>{{ band.id }}</td>
+        <td>{{ band.name }}</td>
+        <td>{{ band.genre }}</td>
+        <td>{{ band.hometown }}</td>
+        <td>{{ band.members }}</td>
+        <td>
+          <button (click)="viewBand(band)">View</button>
+          <button (click)="editBand(band)">Edit</button>
+          <button (click)="deleteBand(band)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <dialog #dialog id="modal">
+    <div id="modal-content">
+      <div id="modal-header">
+        <h3>Confirmation dialog</h3>
+      </div>
+      <div id="modal-body">
+          Do you want to delete the band {{ selectedBand?.name }}
+      </div>
+      <div id="modal-footer">
+        <button (click)="confirmModal()">Yes</button>
+        <button (click)="closeModal()">No</button>
+      </div>
+    </div>
+  </dialog>
+  

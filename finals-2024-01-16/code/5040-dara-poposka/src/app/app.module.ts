@@ -7,6 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentService } from './services/student.service';
 import { BandListComponent } from './band-list/band-list.component';
+import { StatisticsComponentComponent } from './statistics-component/statistics-component.component';
+import { NavigationBarComponent } from './navigation-bar-component/navigation-bar-component.component';
+import { FooterComponentComponent } from './footer-component/footer-component.component';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +18,11 @@ import { BandListComponent } from './band-list/band-list.component';
     HeaderComponent,
     FooterComponent,
     BandListComponent,
+    StatisticsComponentComponent,
+    NavigationBarComponent,
+    FooterComponentComponent,
+   
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div>
+    <h1>Create Band</h1>
+    <form>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="band.name">
+      <br>
+      <label>Genre:</label>
+      <input type="text" [(ngModel)]="band.genre">
+      <br>
+      <label>Formed:</label>
+      <input type="number" [(ngModel)]="band.formed">
+      <br>
+      <label>Location:</label>
+      <input type="text" [(ngModel)]="band.location">
+      <br>
+      <label>Members:</label>
+      <ul>
+        <li *ngFor="let member of band.members">
+          {{ member }}
+        </li>
+      </ul>
+      <br>
+      <label>Albums:</label>
+      <ul>
+        <li *ngFor="let album of band.albums">
+          {{ album.name }} ({{ album.year }})
+        </li>
+      </ul>
+    </form>
+    <button (click)="create()">Create Band</button>
+  </div>

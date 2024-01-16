@@ -1,0 +1,18 @@
+
+<div>
+    <h1>{{ band.name }}</h1>
+    <p>{{ band.genre }}</p>
+    <p>{{ band.formed }}</p>
+    <p>{{ band.location }}</p>
+    <ul>
+      <li *ngFor="let member of band.members">
+        {{ member }}
+      </li>
+    </ul>
+    <ul>
+      <li *ngFor="let album of band.albums">
+        {{ album.name }} ({{ album.year }})
+      </li>
+    </ul>
+  </div>
+`
