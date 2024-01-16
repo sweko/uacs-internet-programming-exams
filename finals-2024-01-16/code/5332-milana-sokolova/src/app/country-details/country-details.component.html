@@ -1,0 +1,21 @@
+
+<div class="country-details-container">
+    <h2>Country Details</h2>
+    <div>
+      <label>ID:</label>
+      <span>{{ country.id }}</span>
+    </div>
+    <div>
+      <label>Name:</label>
+      <span>{{ country.name }}</span>
+    </div>
+    <div>
+      <label>Cities:</label>
+      <ul>
+        <li *ngFor="let city of country.cities | orderBy: 'name'">
+          {{ city.name }} ({{ city.bandCount }} bands)
+        </li>
+      </ul>
+    </div>
+  </div>
+  

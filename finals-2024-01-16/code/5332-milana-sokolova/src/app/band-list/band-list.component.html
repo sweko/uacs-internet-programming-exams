@@ -1,1 +1,59 @@
 <p>And the band list and everything else comes here</p>
+<div>
+    <div class="filter-div">
+    <label for="nameFilter">Name:</label>
+    <input [(ngModel)]="nameFilter" (input)='applyFilters()' name="nameFilter"/>
+
+
+
+    <label for="countryFilter">   Country:</label>
+    <select id="countryFilter" [(ngModel)]="countryFilter" (change)="applyFilters()" *ngIf="countriesLoaded">
+        <option value="">All Countries</option>
+        <option *ngFor="let country of countries" [value]="country.country">{{ country.country }}</option>
+    </select>
+
+    <label for="genreFilter">     Genre:</label>
+    <select id="genreFilter" [(ngModel)]="genreFilter" (change)="applyFilters()" *ngIf="genresLoaded">
+        <option value="">All Genres</option>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th (click)="sort('id')">ID</th>
+                <th (click)="sort('name')">Name</th>
+                <th (click)="sort('genre')">Genre</th>
+                <th (click)="sort('formed')">Formed</th>
+                <th (click)="sort('location')">Location</th>
+                <th (click)="sort('members')">Members</th>
+                <th (click)="sort('albums')">Albums</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let band of bands">
+                <td>{{ band.id }}</td>
+                <td>{{ band.name }}</td>
+                <td>{{ band.genre }}</td>
+                <td>{{ band.formed }}</td>
+                <td>{{ band.location }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let member of band.members">{{ member }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let album of band.albums">{{ album.name }} - {{ album.year }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <button (click)="viewBandDetails(band)">View</button>
+                    <button (click)="editBand(band)">Edit</button>
+                    <button (click)="deleteBand(band)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

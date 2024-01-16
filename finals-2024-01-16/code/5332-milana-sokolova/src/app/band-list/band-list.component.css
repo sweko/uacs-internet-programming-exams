@@ -1,0 +1,46 @@
+table {
+  max-height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #953131;
+  padding: 6px;
+  text-align: center;
+}
+
+th {
+  background-color: #572020;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 7px;
+}
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: #91b1a1;
+}
+
+.filter-div{
+  padding-top: 15px;
+  padding-left: 5px;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #b5ac9a;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: 7px;
+}
