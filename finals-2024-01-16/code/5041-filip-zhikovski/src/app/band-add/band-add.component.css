@@ -1,0 +1,56 @@
+.add-band-container {
+    overflow: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(5, 5, 5, 0.4);
+    background-color: #fff;
+}
+
+h2 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.members-list {
+    list-style: none;
+    padding: 0;
+}
+
+.album-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 99%;
+    padding: 8px;
+    box-sizing: border;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #1b6440;
+    color: #bbb2a0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+    color: white;
+}
