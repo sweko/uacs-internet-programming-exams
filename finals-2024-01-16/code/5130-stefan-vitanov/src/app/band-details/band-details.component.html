@@ -1,0 +1,18 @@
+<div class="band-card">
+  <p>{{band.id}}</p>
+  <p>{{band.name}}</p>
+  <p>{{band.formed}}</p>
+  <p>{{band.location}}</p>
+  <p>{{country}}</p>
+  <p>{{band.genre}}</p>
+  <p *ngFor="let member of members">
+    {{member}}
+  </p>
+  <p *ngFor="let album of albums">
+    <span>{{album.name}}</span><span>({{album.year}})</span>
+  </p>
+  <div class="actions-bar">
+    <a routerLink="#">Edit</a>
+    <button>Delete</button>
+  </div>
+</div>

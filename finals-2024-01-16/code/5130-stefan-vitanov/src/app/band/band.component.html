@@ -1,0 +1,14 @@
+<div class="band-card">
+  <p>{{band.id}}</p>
+  <p>{{band.name}}</p>
+  <p>{{band.formed}}</p>
+  <p>{{band.location}}</p>
+  <p>{{band.genre}}</p>
+  <p>{{band.members.length}}</p>
+  <p>{{band.albums.length}}</p>
+  <div class="actions-bar">
+    <a [routerLink]="'/bands/{{band.id}}'">View</a>
+    <a [routerLink]="'/bands/{{band.id}}/edit'">Edit</a>
+    <button>Delete</button>
+  </div>
+</div>

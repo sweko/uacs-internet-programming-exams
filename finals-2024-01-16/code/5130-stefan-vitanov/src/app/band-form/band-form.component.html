@@ -1,0 +1,27 @@
+<form [formGroup]="bandForm" (submit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="formed">Formed: </label>
+  <input id="formed" type="number" formControlName="formed">
+
+  <label for="country">Country: </label>
+  <select id="country" formControlName="country" (change)="onCountryChange()">
+    <option *ngFor="let country of countries" [ngValue]="country">
+      {{ country }}
+    </option>
+  </select>
+
+  <label for="city">City: </label>
+  <select id="city" formControlName="city">
+    <option *ngFor="let city of cities" [ngValue]="city">
+      {{ city }}
+    </option>
+  </select>
+
+  <label for="genre">Genre: </label>
+  <input id="genre" type="text" formControlName="genre">
+
+  <button type="submit">Save</button>
+  <button type="button" (click)="onCancel()">Cancel</button>
+</form>
