@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Band from '../models/band';
-import { of } from 'rxjs';
+import { filter, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 const bandsJson = `[
@@ -2743,6 +2743,12 @@ export class BandsService {
 
   getBands() {
     return of(this.bands);
+  }
+
+  getBand(id: number) {
+    return of(this.bands).pipe(
+      map(bands => bands.filter(b => b.id == id)[0])
+      );
   }
 
   fetchBands() {

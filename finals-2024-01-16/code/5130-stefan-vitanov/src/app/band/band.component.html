@@ -1,4 +1,4 @@
-<div class="band-card">
+<div class="band-card" style="border: 1px solid gray;">
   <p>{{band.id}}</p>
   <p>{{band.name}}</p>
   <p>{{band.formed}}</p>
@@ -7,8 +7,8 @@
   <p>{{band.members.length}}</p>
   <p>{{band.albums.length}}</p>
   <div class="actions-bar">
-    <a [routerLink]="'/bands/{{band.id}}'">View</a>
-    <a [routerLink]="'/bands/{{band.id}}/edit'">Edit</a>
+    <a routerLink="/bands/{{band.id}}">View</a>
+    <a routerLink="/bands/{{band.id}}/edit">Edit</a>
     <button>Delete</button>
   </div>
 </div>
