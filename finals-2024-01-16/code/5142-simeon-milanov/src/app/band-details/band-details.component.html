@@ -1,0 +1,27 @@
+<div *ngIf="band">
+  <h2>Band Details</h2>
+
+  <div>
+    <strong>ID:</strong> {{ band.id }}<br>
+    <strong>Name:</strong> {{ band.name }}<br>
+    <strong>Formed:</strong> {{ band.formed }}<br>
+    <strong>Location:</strong> {{ band.location }}<br>
+    <strong>Country:</strong> <a [routerLink]="['/country', extractCountryId(band.location)]">{{ extractCountryName(band.location) }}</a><br>
+    <strong>Genre:</strong> {{ band.genre }}<br>
+    <strong>Members:</strong>
+    <ul>
+      <li *ngFor="let member of sortedMembers(band.members)">{{ member }}</li>
+    </ul>
+    <strong>Albums:</strong>
+    <ul>
+      <li *ngFor="let album of sortedAlbums(band.albums)">{{ album.name }} ({{ album.year }})</li>
+    </ul>
+    <strong>Years Active:</strong> {{ calculateYearsActive(band) }}<br>
+  </div>
+
+  <div>
+    <h3>Actions</h3>
+    <button (click)="navigateToEditPage()">Edit</button>
+    <button (click)="confirmDelete()">Delete</button>
+  </div>
+</div>

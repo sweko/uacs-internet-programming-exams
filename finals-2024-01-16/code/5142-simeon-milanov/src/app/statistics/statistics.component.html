@@ -1,0 +1,38 @@
+<div>
+    <h2>Statistics</h2>
+  
+    <div>
+      <p>Total number of bands: {{ totalBands }}</p>
+      <p>Total number of band members: {{ totalBandMembers }}</p>
+      <p>Total number of genres: {{ totalGenres }}</p>
+      <p>Total number of albums: {{ totalAlbums }}</p>
+    </div>
+  
+    <div>
+      <h3>Bands per Genre</h3>
+      <ul>
+        <li *ngFor="let genre of bandsPerGenre">{{ genre.name }}: {{ genre.count }}</li>
+      </ul>
+    </div>
+  
+  
+    <div>
+      <h3>Albums per Decade</h3>
+      <ul>
+        <li *ngFor="let decade of albumsPerDecade">{{ decade.name }}s: {{ decade.count }}</li>
+      </ul>
+    </div>
+  
+    <div>
+      <p>Number of cities without bands: {{ citiesWithoutBands }}</p>
+    </div>
+  
+    <div>
+      <h3>Cities without Bands</h3>
+      <ul>
+        <li *ngFor="let city of citiesWithoutBandsList">{{ city }}</li>
+      </ul>
+    </div>
+  
+  </div>
+  

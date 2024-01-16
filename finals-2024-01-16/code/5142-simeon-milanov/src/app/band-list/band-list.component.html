@@ -1,1 +1,41 @@
-<p>And the band list and everything else comes here</p>
+<div>
+    <h2>Band List</h2>
+  
+    <button (click)="navigateToCreatePage()">Add Band</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Formed</th>
+          <th>Location</th>
+          <th>Genre</th>
+          <th>Members</th>
+          <th>Albums</th>
+          <th>First Album</th>
+          <th>Last Album</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let band of bands">
+          <td>{{ band.id }}</td>
+          <td>{{ band.name }}</td>
+          <td>{{ band.formed }}</td>
+          <td>{{ band.location }}</td>
+          <td>{{ band.genre }}</td>
+          <td>{{ band.members.length }}</td>
+          <td>{{ band.albums.length }}</td>
+          <td>{{ getFirstAlbumInfo(band) }}</td>
+          <td>{{ getLastAlbumInfo(band) }}</td>
+          <td>
+            <button (click)="navigateToDetailsPage(band.id.toString())">View</button>
+            <button (click)="navigateToEditPage(band.id.toString())">Edit</button>
+            <button (click)="confirmDelete(band.id.toString())">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
