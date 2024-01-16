@@ -1,0 +1,35 @@
+
+
+div {
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
+  
+  li {
+    margin: 20px;
+    text-align: left; 
+    max-width: 300px;
+  }
+  
+  h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  

@@ -1,1 +1,34 @@
-<p>And the band list and everything else comes here</p>
+<div class="table-container">
+<table>
+    <thead>
+      <tr>
+        <th (click)="sort('id')">ID</th>
+        <th (click)="sort('name')" >Name</th>
+        <th (click)="sort('genre')">Genre</th>
+        <th (click)="sort('formed')">Formed</th>
+        <th (click)="sort('location')">Location</th>
+        <th (click)="sort('members')">Members</th>
+        <th (click)="sort('albums')">Albums</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let band of bands | sort: sortField : sortDirection">
+        <td>{{ band.id }}</td>
+        <td>{{ band.name }}</td>
+        <td>{{ band.genre }}</td>
+        <td>{{ band.formed }}</td>
+        <td>{{ band.location }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let member of band.members">{{ member }}</li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="viewBandDetails(band.id)">View</button>
+          <button (click)="editBandDetails(band.id)">Edit</button>
+          <button (click)="deleteBand(band.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
