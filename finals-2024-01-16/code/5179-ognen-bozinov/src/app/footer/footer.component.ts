@@ -8,4 +8,5 @@ import { Student } from '../models/student';
 })
 export class FooterComponent {
   @Input() student: Student | null = null;
-}
+  };
+
