@@ -41,7 +41,7 @@ If you already forked the repository
 
 3. The `code` folder should contain folders with student ids. Locate the folder with your student id and open it. It should contain an angular application. This is where you will write your code for the exam.
 
-4. Install the needed scripts by running the following command: `npm install`. This will install the needed scripts for the angular application.
+4. Install the needed scripts by running the following command: `npm install`. This will install the needed scripts for the angular application. Note: If you are using Visual Studio Code, you can use the built-in terminal to run the command. The terminal can be opened using the `Ctrl + ~` keyboard shortcut.
 
 5. Run the following command: `npm start`. This will start the angular application. You can access it by opening a browser and navigating to `http://localhost:4200/`. You should see a page with the text "Hello World!".
 
@@ -62,7 +62,7 @@ If you already forked the repository
 
 3. Run the following command: `git commit -m "<your-commit-message-here>"`. This will commit your changes to the local repository. Make sure that your commit message is descriptive enough to understand what you did.
 
-4. Run the following command: `git push`. This will push your changes to your remote repository.
+4. Run the following command: `git push`. This will push your changes to your remote repository. Note, if the push fails, refer to the [FAQ](https://github.com/sweko/uacs-internet-programming-exams/blob/main/faq.md).
 
 ## 5a. Commit and push your changes (alternative)
 

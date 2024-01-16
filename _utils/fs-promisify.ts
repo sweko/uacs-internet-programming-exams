@@ -13,7 +13,7 @@ export const readTextFile = (path: string): Promise<string> => {
 
 export const readTextLines = async (path: string): Promise<string[]> => {
     const data = await readTextFile(path);
-    return data.split("\n");
+    return data.split("\r\n");
 }
 
 export const isDirectory = (path: string): Promise<boolean> => {
