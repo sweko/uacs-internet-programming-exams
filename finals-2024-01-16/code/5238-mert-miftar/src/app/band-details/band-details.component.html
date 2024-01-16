@@ -1,0 +1,20 @@
+<div *ngIf="band">
+    <h2>{{ band.name }} Details</h2>
+    <ul>
+      <li><strong>ID:</strong> {{ band.id }}</li>
+      <li><strong>Genre:</strong> {{ band.genre }}</li>
+      <li><strong>Formed:</strong> {{ band.formed }}</li>
+      <li><strong>Location:</strong> {{ band.location }}</li>
+      <li><strong>Members:</strong>
+        <ul>
+          <li *ngFor="let member of band.members">{{ member }}</li>
+        </ul>
+      </li>
+      <li><strong>Albums:</strong>
+        <ul>
+          <li *ngFor="let album of band.albums">{{ album.name }} ({{ album.year }})</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  

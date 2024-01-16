@@ -6,13 +6,11 @@ describe('BandListComponent', () => {
   let component: BandListComponent;
   let fixture: ComponentFixture<BandListComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [BandListComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(BandListComponent);
+    });
+    fixture = TestBed.createComponent(BandListComponent); 
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
