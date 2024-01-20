@@ -1,1 +1,47 @@
-<p>And the movie list and everything else comes here</p>
+<div>
+
+  
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sort('id')">ID</th>
+            <th (click)="sort('title')">Title</th>
+            <th (click)="sort('year')">Year</th>
+            <th (click)="sort('director')">Director</th>
+            <th (click)="sort('genre')">Genre</th>
+            <th (click)="sort('plot')">Plot</th>
+            <th>Cast</th>
+            <th >Oscars</th>
+            <th (click)="sort('rating')">Rating</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies | sort:sortField:sortDirection">
+            <td>{{ movie.id }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.plot }}</td>
+            <td>
+              <span *ngFor="let person of movie.cast">{{ person.actor }} as {{ person.character }} || </span>
+            </td>
+            <td>
+              <div *ngFor="let oscar of movie.oscars | keyvalue">
+                <- {{ oscar.key }}: {{ oscar.value }} ->
+              </div>
+            </td>
+            <td>{{ movie.rating }}</td>
+            <td>
+              <button class="button"(click)="viewMovie(movie)">view</button>
+              <button class="button"(click)="editMovie(movie)">edit</button>
+              <button class="button"(click)="openDeleteConfirmationDialog(movie)">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

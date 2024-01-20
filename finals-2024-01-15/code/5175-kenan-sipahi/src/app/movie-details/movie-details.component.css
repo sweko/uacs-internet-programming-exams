@@ -1,0 +1,7 @@
+.actor-list{
+    text-decoration: underline;
+
+}
+.actor-list:hover{
+    color:blue;
+}
