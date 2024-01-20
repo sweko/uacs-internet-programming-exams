@@ -1,0 +1,32 @@
+<div *ngIf="movie">
+    <h2>{{ movie.title }}</h2>
+    <p>ID: {{ movie.id }}</p>
+    <p>Year: {{ movie.year }}</p>
+    <!-- Add more movie details as needed -->
+  
+    <div>
+      <h3>Cast:</h3>
+      <ul>
+        <li *ngFor="let actor of movie.cast">
+          {{ actor.actor }} as {{ actor.character }}
+        </li>
+      </ul>
+    </div>
+  
+    <div>
+      <h3>Oscars:</h3>
+      <ul>
+        <li *ngFor="let oscar of getOscarsList(movie.oscars)">
+          {{ oscar }}
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Add more sections for additional details -->
+  
+    <div>
+      <button (click)="editMovie()">Edit</button>
+      <button (click)="deleteMovie()">Delete</button>
+    </div>
+  </div>
+  
