@@ -1,1 +1,61 @@
-<p>And the movie list and everything else comes here</p>
+<div>
+    <button (click)="addMovie()">Add Movie</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th>Genre</th>
+      <th>Plot</th>
+      <th>Cast</th>
+      <th>Oscars</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.id }}</td>
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.director }}</td>
+      <td>{{ movie.genre.join(', ') }}</td>
+      <td>{{ movie.plot }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let cast of movie.cast">{{ cast.actor }} as {{ cast.character }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let oscar of movie.oscars">{{ oscar }}</li>
+        </ul>
+      </td>
+      <td>{{ movie.rating }}</td>
+      <td>
+        <button (click)="viewMovie(movie)">View</button>
+        <button (click)="editMovie(movie)">Edit</button>
+        <button (click)="deleteMovie(movie)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dialog id="modal">
+  <div id="modal-content">
+    <div id="modal-header">
+      <h3>Confirmation dialog</h3>
+    </div>
+    <div id="modal-body">
+        Do you want to delete the movie {{ selectedMovie?.title }}
+    </div>
+    <div id="modal-footer">
+      <button (click)="confirmModal()">Yes</button>
+      <button (click)="closeModal()">No</button>
+    </div>
+  </div>
+</dialog>

@@ -1,13 +1,13 @@
-export interface StudentResponse {
+export interface Student {
     id: number,
-  name: string,
-  birthdate: string, // a string in the format "Month DD, YYYY"
-  height: number, // a value in centimeters
-  nationality: string, // a string
-  notable_works: MovieResponse[] // an array of strings, each string is the title of a movie
+    name: string,
+    birthdate: string, // a string in the format "Month DD, YYYY"
+    height: number, // a value in centimeters
+    nationality: string, // a string
+    notable_works: Movie[] // an array of strings, each string is the title of a movie
 }
 
-export interface MovieResponse {
+export interface Movie {
     id: number,
     title: string,
     year: number, // the year the movie was released
@@ -20,6 +20,5 @@ export interface MovieResponse {
         actor: string, // the name of the actor
         character: string // the name of the character played by the actor
       }
-    ], // an array of cast objects
-    
+    ], // an array of cast objects,
   }

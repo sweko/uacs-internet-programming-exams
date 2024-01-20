@@ -1,11 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { Student } from '../models/student';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
-})
-export class FooterComponent {
-  @Input() student: Student | null = null;
-}
+import { FooterComponent } from './footer.component';
+
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [FooterComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(FooterComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+export { FooterComponent };
