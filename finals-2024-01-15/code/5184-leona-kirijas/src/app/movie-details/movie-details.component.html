@@ -1,0 +1,28 @@
+<div *ngIf="!!movie">
+    <h1> {{ movie.title }}</h1>
+    <p>Title: {{ movie.title }}</p>
+    <p>Year: {{ movie.year }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <p>Rating: {{ movie.rating }}</p>
+    <p>Plot: {{ movie.plot }}</p>
+
+    <h2>Genres</h2>
+    <ul>
+        <li *ngFor="let genre of movie.genres">
+            {{ genre.name }}
+        </li>
+    </ul>
+
+    <h2>Cast</h2>
+    <ul>
+        <li *ngFor="let castMember of movie.cast">
+            {{ castMember.actor }} as {{ castMember.character }}
+        </li>
+    </ul>
+
+    <button (click)="editMovie()">Edit</button>
+    <button (click)="deleteMovie()">Delete</button>
+</div>
+<div *ngIf="!movie">
+    No movie loaded
+</div>

@@ -2267,44 +2267,6 @@
       "rating": 8.6
     },
     {
-      "id": 37,
-      "title": "No Country for Old Men",
-      "year": 2007,
-      "director": "Joel and Ethan Coen",
-      "genre": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
-      "plot": "Llewelyn Moss stumbles upon a drug deal gone wrong in the desert and takes a briefcase full of money. This sets off a violent chain of events involving a relentless hitman named Anton Chigurh and a local sheriff, Ed Tom Bell, who is trying to maintain order in a world gone mad.",
-      "cast": [
-        {
-          "actor": "Tommy Lee Jones",
-          "character": "Sheriff Ed Tom Bell"
-        },
-        {
-          "actor": "Javier Bardem",
-          "character": "Anton Chigurh"
-        },
-        {
-          "actor": "Josh Brolin",
-          "character": "Llewelyn Moss"
-        },
-        {
-          "actor": "Woody Harrelson",
-          "character": "Carson Wells"
-        }
-      ],
-      "oscars": {
-        "bestPicture": "No Country for Old Men",
-        "bestDirector": "Joel and Ethan Coen",
-        "bestSupportingActor": "Javier Bardem",
-        "bestAdaptedScreenplay": "Joel and Ethan Coen",
-        "bestCinematography": "Roger Deakins"
-      },
-      "rating": 8.1
-    },
-    {
       "id": 26,
       "title": "The Silence of the Lambs",
       "year": 1991,
