@@ -1,11 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { Student } from '../models/student';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  template: `
+    <p style="border: dashed 1px blue;">
+      Natasha Dimitrievska - 5121
+      <br />
+      {{student?.id}} - {{student?.name}}
+    </p>
+    <p>&copy; {{ currentYear }} Natasha Dimitrievska 5121 | <a routerLink="/about">About</a></p>
+  `,
+  styles: [],
 })
 export class FooterComponent {
-  @Input() student: Student | null = null;
+  @Input() student: any;
+
+  currentYear: number = new Date().getFullYear();
 }

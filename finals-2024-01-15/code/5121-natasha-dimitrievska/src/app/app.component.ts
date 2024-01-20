@@ -10,8 +10,9 @@ import { Student } from './models/student';
 })
 export class AppComponent {
   student$: Observable<Student> = this.studentService.getStudent();
-  
-  constructor(private studentService: StudentService) { 
-    
+  currentYear: number = new Date().getFullYear();
+
+  constructor(private studentService: StudentService) {
+
   }
 }
