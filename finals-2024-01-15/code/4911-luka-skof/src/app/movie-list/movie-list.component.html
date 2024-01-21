@@ -1,1 +1,19 @@
-<p>And the movie list and everything else comes here</p>
+<h2>Movies List</h2>
+<ul>
+  <li *ngFor="let movie of movies">
+    <div>ID: {{ movie.id }}</div>
+    <div>Title: {{ movie.title }}</div>
+    <div>Year: {{ movie.year }}</div>
+    <div>Director: {{ movie.director }}</div>
+    <div>Genre: {{ movie.genre.join(' / ') }}</div>
+    <div>Oscars: {{ Object.keys(movie.oscars).length }}</div>
+    <div>Rating: {{ movie.rating }}</div>
+    <div>
+      <button (click)="viewMovie(movie.id)">View</button>
+      <button (click)="editMovie(movie.id)">Edit</button>
+      <button (click)="deleteMovie(movie.id)">Delete</button>
+    
+    </div>
+  </li>
+</ul>
+<button routerLink="/movies/create">Add Movie</button>
