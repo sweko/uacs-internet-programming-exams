@@ -1,0 +1,15 @@
+<div>
+    <h2>Add Cast Member</h2>
+  
+    
+    <form (submit)="saveCastMember()">
+      <label for="actor">Actor:</label>
+      <input type="text" id="actor" [(ngModel)]="newCastMember.actor" required />
+  
+      <label for="character">Character:</label>
+      <input type="text" id="character" [(ngModel)]="newCastMember.character" required />
+  
+      <button type="submit">Add Cast Member</button>
+    </form>
+  </div>
+  

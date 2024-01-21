@@ -1,0 +1,33 @@
+<div>
+    <h2>Actor Details</h2>
+  
+    
+    <div *ngIf="actor">
+      <p><strong>ID:</strong> 3845</p>
+      <p><strong>Name:</strong> Ryan Gosling</p>
+      <p><strong>Birthdate:</strong> November 12, 1980</p>
+      <p><strong>Height:</strong> 184 cm</p>
+      <p><strong>Nationality:</strong> Canadian</p>
+  
+      
+      <div *ngIf="actor.notable_works && actor.notable_works.length > 0">
+        <p><strong>Notable Works:</strong> 
+        </p>
+        <ul>
+          <li *ngFor="let notableWork of actor.notable_works">
+            <a routerLink="/movies/{{ getMovieId(notableWork) }}">The Fall Guy, 
+              Barbie, 
+               Gray Man, 
+               First Man, 
+               Blade Runner.
+            </p></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div *ngIf="!actor">
+      <p></p>
+    </div>
+  </div>
+  
