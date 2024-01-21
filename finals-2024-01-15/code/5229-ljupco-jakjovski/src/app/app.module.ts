@@ -7,6 +7,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentService } from './services/student.service';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { MovieCreateComponent } from './movie-create/movie-create.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CastCreateComponent } from './cast-create/cast-create.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +21,20 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     HeaderComponent,
     FooterComponent,
     MovieListComponent,
+    MovieDetailsComponent,
+    MovieEditComponent,
+    MovieCreateComponent,
+    StatisticsComponent,
+    CastCreateComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
-    StudentService
+    //StudentService
   ],
   bootstrap: [AppComponent]
 })
