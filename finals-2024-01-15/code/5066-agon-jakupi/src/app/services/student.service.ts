@@ -7,7 +7,7 @@ import { Student } from '../models/student';
 })
 export class StudentService {
 
-  private studentSubject = new BehaviorSubject<Student>({id: 1, name: 'John Doe'});
+  private studentSubject = new BehaviorSubject<Student>({id: 5066, name: 'Agon Jakupi'});
 
   constructor() { }
 

@@ -1,0 +1,21 @@
+
+<div *ngIf="movie">
+  <h2>Movie Details</h2>
+  <p>Movie ID: {{ movie.id }}</p>
+  <p>Title: {{ movie.title }}</p>
+  <p>Year: {{ movie.year }}</p>
+  <p>Director: {{ movie.director }}</p>
+  <p>Genre: {{ movie.genre.join(', ') }}</p>
+  <p>Oscars: {{ getOscars(movie.oscars) }}</p>
+  <p>Rating: {{ movie.rating }}</p>
+
+
+
+  <div>
+    <h3>Actions</h3>
+    <button (click)="editMovie()">Edit</button>
+    <button (click)="deleteMovie(movie.id)">Delete</button>
+
+    <button *ngIf="showAddCastButton" (click)="addCast(movie.id)">Add Cast</button>
+  </div>
+</div>

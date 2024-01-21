@@ -1,0 +1,29 @@
+
+
+<div>
+  <h2>Edit Movie</h2>
+
+  <form (ngSubmit)="saveChanges()" #editForm="ngForm">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="movie.title" required>
+    </div>
+
+    <div>
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year" [(ngModel)]="movie.year" required>
+    </div>
+
+    <div>
+      <label for="director">Director:</label>
+      <input type="text" id="director" name="director" [(ngModel)]="movie.director" required>
+    </div>
+
+
+
+    <div>
+      <button type="submit">Save Changes</button>
+    </div>
+  </form>
+</div>
+

@@ -1,0 +1,20 @@
+<div>
+  <h2>Statistics</h2>
+
+  <p>Total number of movies: {{ totalMovies }}</p>
+  <p>Total number of actors: {{ totalActors }}</p>
+  <p>Total number of genres: {{ totalGenres }}</p>
+  <p>Total number of oscars: {{ totalOscars }}</p>
+
+  <h3>Oscars</h3>
+  <ul>
+    <li *ngFor="let oscar of oscarsPerType">{{ oscar.type }}: {{ oscar.count }}</li>
+  </ul>
+
+  <h3>Oscars per Genre</h3>
+  <ul>
+    <li *ngFor="let oscar of oscarsPerGenre">{{ oscar.genre }}: {{ oscar.count }}</li>
+  </ul>
+
+
+</div>
