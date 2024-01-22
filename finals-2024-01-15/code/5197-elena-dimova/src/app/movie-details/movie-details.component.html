@@ -1,0 +1,13 @@
+<div *ngIf="movie">
+    <h2>{{ movie.title }}</h2>
+    <p>Year: {{ movie.year }}</p>
+    <p>Plot: {{ movie.plot }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <!-- ... other movie details -->
+  
+    <button (click)="editMovie()">Edit</button>
+    <button (click)="deleteMovie()">Delete</button>
+</div>
+<div *ngIf="!movie">
+    No movie details...
+</div>

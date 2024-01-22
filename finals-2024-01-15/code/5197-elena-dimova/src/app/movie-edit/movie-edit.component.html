@@ -1,0 +1,22 @@
+<div *ngIf="movie">
+    <label>Title:</label>
+    <input [(ngModel)]="movie.title" name="title" />
+    <br>
+    <label>Year:</label>
+    <input [(ngModel)]="movie.year" name="year" type="number" />
+    <br>
+    <label>Plot:</label>
+    <textarea [(ngModel)]="movie.plot" name="plot"></textarea>
+    <br>
+    <label>Director:</label>
+    <input [(ngModel)]="movie.director" name="director" />
+    <br>
+    <label>Genre:</label>
+    <input [(ngModel)]="movie.genre" name="genre" />
+    <br>
+    <label>Rating:</label>
+    <input [(ngModel)]="movie.rating" name="rating" type="number" />
+    <br>
+    <!-- Save button -->
+    <button (click)="saveMovie()">Save</button>
+</div>

@@ -1,0 +1,32 @@
+<div>
+    <h2>Create Movie</h2>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" formControlName="title" required />
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <input type="number" id="year" formControlName="year" required />
+      </div>
+      <div>
+        <label for="plot">Plot</label>
+        <textarea id="plot" formControlName="plot"></textarea>
+      </div>
+      <div>
+        <label for="director">Director</label>
+        <input type="text" id="director" formControlName="director" required />
+      </div>
+      <div>
+        <label for="genre">Genre</label>
+        <select id="genre" formControlName="genre" multiple>
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="rating">Rating</label>
+        <input type="number" id="rating" formControlName="rating" />
+      </div>
+      <button type="submit" [disabled]="movieForm.invalid">Save</button>
+    </form>
+  </div>
