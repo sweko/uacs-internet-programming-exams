@@ -1,0 +1,38 @@
+nav.header {
+    background-color: #EBD9B4; 
+    padding: 12px;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  
+  h1 {
+    color: #503C3C; 
+    margin-bottom: 0;
+  }
+  
+  ul.nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0; 
+  }
+  li {
+    margin: 0; 
+  }
+  
+  button {
+    font-size: 16px; 
+    padding: 8px 16px; 
+    background-color: #503C3C;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #E9B384;
+  }
+  

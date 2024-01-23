@@ -1,0 +1,59 @@
+.band-list {
+    margin-top: 20px;
+  }
+  
+  .add {
+    padding: 15px 10px;
+    background-color: #EBD9B4;
+    text-align: left;
+  }
+  
+  .add button {
+    font-size: 15px;
+    background-color: #F9EFDB;
+    color: #503C3C; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add button:hover {
+    background-color: #F8FAE5;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #503C3C;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #EBD9B4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #F9EFDB;
+  }
+  
+  .action-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    background-color: #503C3C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #E9B384;
+  }
+  

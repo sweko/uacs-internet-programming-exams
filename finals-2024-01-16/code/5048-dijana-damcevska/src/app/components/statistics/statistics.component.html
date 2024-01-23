@@ -1,0 +1,20 @@
+<div class="statistics-container">
+  <div *ngIf="totalBands > 0">
+    <h1>Statistics</h1>
+    <p>Total number of bands: {{ totalBands }}</p>
+    <p>Total number of band members: {{ totalMembers }}</p>
+    <p>Total number of genres: {{ totalGenres }}</p>
+    <p>Total number of albums: {{ totalAlbums }}</p>
+
+    <h2>Bands per Genre</h2>
+    <ul>
+      <li *ngFor="let item of bandsPerGenre">
+        {{ item.genre }}: {{ item.count }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="totalBands === 0">
+    <p>No bands available for statistics.</p>
+  </div>
+</div>

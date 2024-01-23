@@ -1,0 +1,31 @@
+<div class="band-details-container" *ngIf="!!band">
+  <h1>{{ band.name }}</h1>
+  <p><strong>Name:</strong> {{ band.name }}</p>
+  <p><strong>Genre:</strong> {{ band.genre }}</p>
+  <p><strong>Formed:</strong> {{ band.formed }}</p>
+  <p><strong>Location:</strong> {{ band.location }}</p>
+
+  <h2>Members</h2>
+  <ul>
+    <li *ngFor="let member of band.members">
+      {{ member }}
+    </li>
+  </ul>
+
+  <h2>Albums</h2>
+  <ul>
+    <li *ngFor="let album of sortedAlbums()">
+      {{ album.name }} ({{ album.year }})
+    </li>
+  </ul>
+
+  <h2>Years Active</h2>
+  <p>{{ yearsActive }}</p>
+
+  <button class="action-button" (click)="editBand()">Edit</button>
+  <button class="action-button" (click)="deleteBand()">Delete</button>
+</div>
+
+<div class="no-band-loaded" *ngIf="!band">
+  No band loaded
+</div>
