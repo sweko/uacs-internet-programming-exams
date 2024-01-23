@@ -1,0 +1,36 @@
+<div class="add-band-cnt">
+    <h2>Add Band</h2>
+    <form (submit)="addBand()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input [(ngModel)]="newBand.name" name="name" required />
+
+            <label for="genre">Genre:</label>
+            <input [(ngModel)]="newBand.genre" name="genre" required />
+
+            <label for="formed">Formed:</label>
+            <input [(ngModel)]="newBand.formed" name="formed" type="number" required />
+
+            <label for="location">Country:</label>
+            <input [(ngModel)]="newBand.location" name="location" required />
+
+            <label for="members">Members:</label>
+            <ul>
+                <li *ngFor="let member of newBand.members; let i = index">
+                    <input [(ngModel)]="newBand.members[i]" name="members{{i}}" />
+                </li>
+            </ul>
+        </div>
+
+        <label for="albums">Albums:</label>
+        <div *ngFor="let album of newBand.albums; let i = index" class="album-group">
+            <label for="albumName{{i}}">Album Name:</label>
+            <input [(ngModel)]="newBand.albums[i].name" name="albumName{{i}}" />
+
+            <label for="albumYear{{i}}">Album Year:</label>
+            <input [(ngModel)]="newBand.albums[i].year" name="albumYear{{i}}" type="number" />
+        </div>
+
+        <button type="submit">Add Band</button>
+    </form>
+</div>

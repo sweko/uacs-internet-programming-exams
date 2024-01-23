@@ -6,12 +6,13 @@ import { Student } from '../models/student';
   providedIn: 'root'
 })
 export class StudentService {
-
-  private studentSubject = new BehaviorSubject<Student>({id: 1, name: 'John Doe'});
+  getStudent(): import("rxjs").Observable<Student> {
+    throw new Error('Method not implemented.');
+  }
+  
+  private studentSubject = new BehaviorSubject<Student>({ id: 5263, name: 'Angela Kostadinova' });
 
   constructor() { }
 
-  getStudent() {
-    return this.studentSubject.asObservable();
-  }
 }
+
