@@ -1,0 +1,13 @@
+.footer-content {
+    border: dashed 1px blue;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px; 
+    background-color: #f0f8ff;
+    text-align: center;
+
+}
+
+.footer-content br {
+    display: none;
+}

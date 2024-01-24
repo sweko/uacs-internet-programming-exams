@@ -1,0 +1,33 @@
+
+<div class="band-edit-container">
+    <div>
+      <label for="bandId">ID:</label>
+      <input type="text" id="bandId" [(ngModel)]="band.id" disabled>
+    </div>
+    <div>
+      <label for="bandName">Name:</label>
+      <input type="text" id="bandName" [(ngModel)]="band.name" required>
+    </div>
+    <div>
+      <label for="bandFormed">Formed:</label>
+      <input type="number" id="bandFormed" [(ngModel)]="band.formed" required>
+    </div>
+    <div>
+      <label for="bandCountry">Country:</label>
+      <select id="bandCountry" [(ngModel)]="band.country" required>
+        <option *ngFor="let place of places" [value]="place.country">{{ place.country }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="bandCity">City:</label>
+      <select id="bandCity" [(ngModel)]="band.city" required>
+        <option *ngFor="let place of places" [value]="place.city">{{ place.city }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="bandGenre">Genre:</label>
+      <input type="text" id="bandGenre" [(ngModel)]="band.genre">
+    </div>
+    <button (click)="saveBand()">Save</button>
+  </div>
+  
