@@ -1,0 +1,21 @@
+<div *ngIf="band">
+    <h2>Band Details</h2>
+    <p>ID: {{ band.id }}</p>
+    <p>Name: {{ band.name }}</p>
+    <p>Genre: {{ band.genre }}</p>
+    <p>Formed: {{ band.formed }}</p>
+    <p>Location: {{ band.location }}</p>
+    <p>Members: {{ band.members.join(', ') }}</p>
+    <p>Years Active: {{ yearsActive }}</p>
+    <h3>Albums</h3>
+    <ul>
+      <li *ngFor="let album of band.albums">{{ album.name }} - {{ album.year }}</li>
+    </ul>
+    <h3>Similar Bands</h3>
+    <ul>
+      <li *ngFor="let similarBand of similarBands">
+        <a [routerLink]="['/band-details', similarBand.id]">{{ similarBand.name }}</a>
+      </li>
+    </ul>
+  </div>
+  
