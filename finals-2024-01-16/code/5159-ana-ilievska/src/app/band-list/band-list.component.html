@@ -1,1 +1,34 @@
-<p>And the band list and everything else comes here</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Formed</th>
+            <th>Location</th>
+            <th>Members</th>
+            <th>Albums</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let band of bands">
+            <td>{{ band.id }}</td>
+            <td>{{ band.name }}</td>
+            <td>{{ band.genre }}</td>
+            <td>{{ band.formed }}</td>
+            <td>{{ band.location }}</td>
+            <td> {{ band.members.length }}</td>
+            <td> {{ band.albums.length }}</td>
+            <td>
+                <button (click)="viewBand(band)">View</button>
+                <button (click)="editBand(band)">Edit</button>
+                <button (click)="deleteBand(band)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <button (click)="addBand()">Add Band</button>
+</div>
