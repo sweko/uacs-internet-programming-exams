@@ -1,0 +1,12 @@
+band-card {
+  margin: 10px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+actions-bar {
+  margin: 5px;
+  border: 1px solid gray;
+  display: flex;
+}
