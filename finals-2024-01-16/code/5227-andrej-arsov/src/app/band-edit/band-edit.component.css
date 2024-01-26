@@ -1,0 +1,49 @@
+div {
+    margin: 20px; 
+  }
+  
+  h2, h3 {
+    color: #3498db; 
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+  
+  label {
+    margin-top: 10px; 
+    color: #3498db; 
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #3498db; 
+    border-radius: 5px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li input {
+    margin-right: 10px; 
+  }
+  
+  button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #2980b9; 
+    color: #fff; 
+  }
+  
+  button:hover {
+    background-color: #3498db; 
+  }
+  
