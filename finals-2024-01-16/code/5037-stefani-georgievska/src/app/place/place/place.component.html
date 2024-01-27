@@ -1,0 +1,21 @@
+<h2>List of Places</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Country</th>
+      <th>Cities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let place of places">
+      <td>{{ place.id }}</td>
+      <td>{{ place.country }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let city of place.cities">{{ city }}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
