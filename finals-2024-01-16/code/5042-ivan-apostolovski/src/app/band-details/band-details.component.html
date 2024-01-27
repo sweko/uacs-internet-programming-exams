@@ -1,0 +1,47 @@
+<div *ngIf="band">
+    <div class="container mt-4">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">{{ band.name }} Details</h1>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>ID:</strong> {{ band.id }}</p>
+              <p><strong>Genre:</strong> {{ band.genre }}</p>
+              <p><strong>Formed:</strong> {{ band.formed }}</p>
+              <p><strong>Location:</strong> {{ band.location }}</p>
+              <p><strong>Number of Albums:</strong> {{ getAlbumCount() }}</p>
+              <p><strong>Number of Members:</strong> {{ getMemberCount() }}</p>
+            </div>
+            <div class="col-md-6">
+              <h2>Members</h2>
+              <ul>
+                <li *ngFor="let member of band?.members">
+                  {{ member }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Albums</h2>
+              <ul class="albums-list">
+                <li *ngFor="let album of band?.albums">
+                  <strong>{{ album.name }}</strong> ({{ album.year }})
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-secondary" [routerLink]="['/band-list']">Back</button>
+
+          <button class="btn btn-warning ml-2" [routerLink]="['/band', band.id, 'edit']">Edit</button>
+
+          <button class="btn btn-danger ml-2" (click)="onDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
