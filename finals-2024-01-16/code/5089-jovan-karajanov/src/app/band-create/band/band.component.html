@@ -1,0 +1,34 @@
+
+
+<div>
+    <h2>Create a New Band</h2>
+  
+    <form (ngSubmit)="createBand()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="newBand.name" name="name" required>
+      </div>
+  
+      <div>
+        <label for="formed">Formed:</label>
+        <input type="number" id="formed" [(ngModel)]="newBand.formed" name="formed" required>
+      </div>
+  
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="newBand.location" name="location" required>
+      </div>
+  
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" [(ngModel)]="newBand.genre" name="genre" required>
+      </div>
+  
+      <!-- Add other form fields as needed -->
+  
+      <div>
+        <button type="submit">Create Band</button>
+      </div>
+    </form>
+  </div>
+  
