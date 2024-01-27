@@ -1,0 +1,84 @@
+<div *ngIf="band">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Edit {{ band.name }}</h1>
+            </div>
+            <div class="card-body">
+                <div class="row info">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" [(ngModel)]="band.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="genre">Genre:</label>
+                            <input type="text" class="form-control" id="genre" [(ngModel)]="band.genre">
+                        </div>
+                        <div class="form-group">
+                            <label for="formed">Formed:</label>
+                            <input type="number" class="form-control" id="formed" [(ngModel)]="band.formed">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country:</label>
+                            <select id="country" class="form-control" [(ngModel)]="band.country">
+                              <option *ngFor="let place of placesData" [ngValue]="place.country">{{ place.country }}</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="city">City:</label>
+                            <select id="city" class="form-control" [(ngModel)]="band.location">
+                              <ng-container *ngFor="let place of placesData">
+                                <optgroup [label]="place.country">
+                                  <option *ngFor="let city of place.cities" [ngValue]="city">{{ city }}</option>
+                                </optgroup>
+                              </ng-container>
+                            </select>
+                          </div>
+                    </div>
+
+
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <h2>Edit Members</h2>
+                            <div *ngFor="let member of band.members; let i = index" class="card mb-3">
+                              <div class="card-body d-flex align-items-center">
+                                <div class="form-group flex-grow-1">
+                                  <label for="member{{ i }}">Member {{ i + 1 }}</label>
+                                  <input type="text" id="member{{ i }}" [(ngModel)]="band.members[i]" class="form-control" required />
+                                </div>
+                                <button class="btn btn-danger ml-2" (click)="removeMember(i)">Remove</button>
+                              </div>
+                            </div>
+                            <button class="btn btn-success" (click)="addMember()">Add Member</button>
+                          </div>
+
+
+
+                        <div class="col-md-6">
+                            <h2>Edit Albums</h2>
+                            <div *ngFor="let album of band.albums; let i = index" class="card mb-3">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="albumName{{ i }}">Album {{ i + 1 }}:</label>
+                                        <input type="text" id="albumName{{ i }}" [(ngModel)]="album.name"
+                                            class="form-control" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="albumYear{{ i }}">Year:</label>
+                                        <input type="number" id="albumYear{{ i }}" [(ngModel)]="album.year"
+                                            class="form-control" required />
+                                    </div>
+                                    <button class="btn btn-danger mr-2" (click)="removeAlbum(i)">Remove</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-success" (click)="addAlbum()">Add Album</button>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="cancel btn btn-secondary" [routerLink]="['/bands', band.id]">Cancel</button>
+                        <button class="save btn btn-dark ml-2" (click)="onSaveChanges()">Save Changes</button>
+                    </div>
+                </div>
+            </div>

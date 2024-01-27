@@ -1,0 +1,36 @@
+.container {
+    margin-top: 15%;
+    margin-bottom: 14%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: silver;
+    border-radius: 25px;
+    max-width: 420px;
+    color: black;
+
+  }
+  
+  .container p,
+  .container a {
+    font-size: 25px;
+    margin: 10px 0;
+    text-decoration: none;
+  }
+  
+  .container p,
+  .container a {
+    margin: 10px 0;
+  }
+  
+  .container a {
+    color: #000; 
+    text-decoration: none;
+  }
+  
+  .container a:hover {
+    text-decoration: underline;
+  }

@@ -1,0 +1,14 @@
+.card-footer{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.back{
+    margin-right: 25px;
+}
+
+.delete{
+    margin-left: 25px;
+}
