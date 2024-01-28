@@ -1,1 +1,43 @@
-<p>And the band list and everything else comes here</p>
+<button (click)="statistics()">Statistics</button> 
+<button (click)="about()">About me</button>
+<button (click)="create()">Create</button>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Formed</th>
+      <th>Location</th>
+      <th>Members</th>
+      <th>Albums</th>
+      <th>Actions</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let band of bands">
+      <td>{{ band.id }}</td>
+      <td>{{ band.name }}</td>
+      <td>{{ band.genre }}</td>
+      <td>{{ band.formed }}</td>
+      <td>{{ band.location }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let member of band.members">{{ member }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let album of band.albums">{{ album.name }} - {{ album.year }}</li>
+        </ul>
+      </td>
+      <td>
+        <button (click)="viewBandDetails(band.id)">View</button>
+        <button (click)="editBand(band.id)">Edit</button>
+        <button (click)="deleteBand(band)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+<div class="band-create-form">
+    <h2>Create New Band</h2>
+    <form (ngSubmit)="saveBand()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="band.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" [(ngModel)]="band.genre" name="genre" required>
+      </div>
+      <div class="form-group">
+        <label for="formed">Formed Year:</label>
+        <input type="number" id="formed" [(ngModel)]="band.formed" name="formed" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="band.location" name="location" required>
+      </div>
+      <div class="form-group">
+        <label for="members">Members (comma-separated):</label>
+        <input type="text" id="members" [(ngModel)]="band.members" name="members">
+      </div>
+      <div class="form-group">
+        <label for="albums">Albums (comma-separated):</label>
+        <input type="text" id="albums" [(ngModel)]="band.albums" name="albums">
+      </div>
+      <button type="submit" class="btn btn-primary">Create Band</button>
+    </form>
+  </div>
+  

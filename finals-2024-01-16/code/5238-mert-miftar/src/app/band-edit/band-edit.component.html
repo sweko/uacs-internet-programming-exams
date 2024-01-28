@@ -1,0 +1,23 @@
+<div *ngIf="band">
+    <h2>Edit {{ band.name }}</h2>
+    <form (ngSubmit)="updateBand()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="band.name" name="name" required>
+      </div>
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" [(ngModel)]="band.genre" name="genre" required>
+      </div>
+      <div>
+        <label for="formed">Formed Year:</label>
+        <input type="number" id="formed" [(ngModel)]="band.formed" name="formed" required>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="band.location" name="location" required>
+      </div>
+      <button type="submit">Update Band</button>
+    </form>
+  </div>
+  
