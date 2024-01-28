@@ -1,1 +1,11 @@
-<p style="border: solid 1px red;">Header, put the menu here</p>
+<nav>
+    <ul>
+      <li><a routerLink="/" class="bands">Bands</a></li>
+      <li><a routerLink="/statistics" class="statistics">Statistics</a></li>
+      <li><a *ngIf="country" routerLink="/country-details/{{ country.id }}" class="country-details">Country Details</a></li>
+      <li><a routerLink="/about" class="about">About</a></li>
+    </ul>
+    <ul>
+      <button><a routerLink="/band-add" class="add-band">Add Band</a></button>
+    </ul>
+</nav>

@@ -1,0 +1,14 @@
+p {
+    border: dashed 1px blue;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+  }
+  
+  p:hover {
+    background-color: #ddd;
+  }
+  

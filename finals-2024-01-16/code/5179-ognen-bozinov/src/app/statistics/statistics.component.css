@@ -1,0 +1,35 @@
+
+:host {
+    display: block;
+    margin: 20px;
+  }
+  
+  .statistics-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .statistics-item {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .list-heading {
+    font-size: 20px;
+    color: #008080;
+  }
+  
+  .list-item {
+    margin-left: 20px;
+    list-style: none;
+  }
+  
+  .cities-without-bands {
+    font-size: 18px;
+    color: #e74c3c;
+  }
+  

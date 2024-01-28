@@ -1,0 +1,16 @@
+
+<div *ngIf="country">
+    <p><strong>ID:</strong> {{ country.id }}</p>
+    <p><strong>Name:</strong> {{ country.name }}</p>
+  
+    <div *ngIf="country?.cities && country.cities.length > 0">
+      <p><strong>Cities:</strong></p>
+      <ul>
+        <li *ngFor="let city of country.cities | sortAlphabetically">{{ city }}</li>
+      </ul>
+    </div>
+    <div *ngIf="!country.cities || country.cities.length === 0">
+      <p>No cities available.</p>
+    </div>
+  </div>
+  
