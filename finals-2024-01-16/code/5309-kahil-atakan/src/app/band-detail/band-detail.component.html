@@ -1,0 +1,13 @@
+<div *ngIf="band" class="band-details">
+    <h2>Band Details</h2>
+    <p>ID: {{ band.id }}</p>
+    <p>Name: {{ band.name }}</p>
+    <p>Genre: {{ band.genre }}</p>
+    <p>Formed: {{ band.formed }}</p>
+    <p>Location: {{ band.location }}</p>
+    <p>Members: {{ band.members.join(', ') }}</p>
+    <h3>Albums</h3>
+    <ul>
+      <li *ngFor="let album of band.albums">{{ album.name }} - {{ album.year }}</li>
+    </ul>
+  </div>

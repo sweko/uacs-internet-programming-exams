@@ -1,0 +1,27 @@
+.band-details {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .band-details h2 {
+    color: #333;
+  }
+  
+  .band-details p {
+    margin: 10px 0;
+  }
+  
+  .band-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .band-details li {
+    margin-bottom: 5px;
+  }
+  

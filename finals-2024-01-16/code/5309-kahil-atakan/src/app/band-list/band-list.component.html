@@ -1,1 +1,59 @@
-<p>And the band list and everything else comes here</p>
+<table>
+    <thead>
+      <tr>
+        <th>ID
+          <button style="color: green;" (click)="sortAsc('id')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('id')">sortDown</button>
+        </th>
+        <th>Name
+          <button style="color: green;" (click)="sortAsc('name')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('name')">sortDown</button>
+        </th>
+        <th (click)="sortAsc('genre')">Genre
+          <button style="color: green;" (click)="sortAsc('genre')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('genre')">sortDown</button>
+        </th>
+        <th (click)="sortAsc('formed')">Formed
+          <button style="color: green;" (click)="sortAsc('formed')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('formed')">sortDown</button>
+        </th>
+        <th (click)="sortAsc('location')">Location
+          <button style="color: green;" (click)="sortAsc('location')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('location')">sortDown</button>
+        </th>
+        <th (click)="sortAsc('members')">Members
+          <button style="color: green;" (click)="sortAsc('members')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('members')">sortDown</button>
+        </th>
+        <th (click)="sortAsc('albums')">Albums
+          <button style="color: green;" (click)="sortAsc('albums')">sortUp</button>
+          <button style="color: red;" (click)="sortDesc('albums')">sortDown</button>
+        </th>
+        <th>Actions</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let band of bands">
+        <td>{{ band.id }}</td>
+        <td>{{ band.name }}</td>
+        <td>{{ band.genre }}</td>
+        <td>{{ band.formed }}</td>
+        <td>{{ band.location }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let member of band.members">{{ member }}</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let album of band.albums">{{ album.name }} - {{ album.year }}</li>
+          </ul>
+        </td>
+        <td>
+          <button (click)="viewBandDetails(band)">View</button>
+          <button (click)="editBand(band)">Edit</button>
+          <button (click)="deleteBand(band)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
