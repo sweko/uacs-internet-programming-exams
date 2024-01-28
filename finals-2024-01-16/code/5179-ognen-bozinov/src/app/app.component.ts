@@ -9,6 +9,7 @@ import { Student } from './models/student';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  title = 'Band Application';
   student$: Observable<Student> = this.studentService.getStudent();
   
   constructor(private studentService: StudentService) { 

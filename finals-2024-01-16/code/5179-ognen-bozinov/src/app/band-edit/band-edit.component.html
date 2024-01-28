@@ -1,0 +1,34 @@
+<div *ngIf="band">
+    <h2>Edit Band</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input [(ngModel)]="band.name" name="name" />
+
+        <label for="genre">Genre:</label>
+        <input [(ngModel)]="band.genre" name="genre" />
+
+        <label for="formed">Formed:</label>
+        <input [(ngModel)]="band.formed" name="formed" type="number" />
+
+        <label for="location">Location:</label>
+        <input [(ngModel)]="band.location" name="location" />
+
+        <label for="members">Members:</label>
+        <ul>
+            <li *ngFor="let member of band.members; let i = index">
+                <input [value]="band.members[i]" (input)="updateMember(i, $event)" />
+            </li>
+        </ul>
+
+        <h3>Albums</h3>
+        <div *ngFor="let album of band.albums; let i = index">
+            <label for="albumName{{i}}">Album Name:</label>
+            <input [(ngModel)]="band.albums[i].name" name="albumName{{i}}" />
+
+            <label for="albumYear{{i}}">Album Year:</label>
+            <input [(ngModel)]="band.albums[i].year" name="albumYear{{i}}" type="number" />
+        </div>
+
+        <button (click)="saveChanges()">Save Changes</button>
+    </form>
+</div>
