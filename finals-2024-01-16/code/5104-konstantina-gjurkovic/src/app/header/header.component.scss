@@ -1,0 +1,33 @@
+
+nav {
+    border: solid 1px rgb(167, 163, 159);
+    padding: 10px;
+    background-color: rgb(211, 210, 210); 
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 25px;
+  }
+  
+  a {
+    text-decoration: none;
+    text-align: center;
+justify-content: center;
+    color: #333; 
+    font-weight: bold;
+    font-size: 19px;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #4CAF50; 
+  }
+  

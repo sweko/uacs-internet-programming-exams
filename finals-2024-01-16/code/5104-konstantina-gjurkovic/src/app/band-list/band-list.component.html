@@ -1,1 +1,69 @@
-<p>And the band list and everything else comes here</p>
+<div>
+    <button (click)="addBand()">Add Band</button>
+</div>
+
+<div>
+  <label for="filterName">Name:</label>
+  <input type="text" id="filterName" [(ngModel)]="filterName">
+
+  <label for="filterCountry">Country:</label>
+  <select id="filterCountry" [(ngModel)]="filterCountry">
+    <option value="">All</option>
+    <option *ngFor="let place of places" [value]="place.country">{{ place.country }}</option>
+  </select>
+
+  <label for="filterGenre">Genre:</label>
+  <select id="filterGenre" [(ngModel)]="filterGenre">
+    <option value="">All</option>
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
+
+  <button (click)="applyFilters()">Apply Filters</button>
+</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sort('id')">ID <span [hidden]="sortedColumn !== 'id'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('name')">Name <span [hidden]="sortedColumn !== 'name'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('genre')">Genre <span [hidden]="sortedColumn !== 'genre'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('formed')">Formed <span [hidden]="sortedColumn !== 'formed'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('location')">Location <span [hidden]="sortedColumn !== 'location'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('members')">Members <span [hidden]="sortedColumn !== 'members'">&#x2191;&#x2193;</span></th>
+        <th (click)="sort('albums.length')">Albums <span [hidden]="sortedColumn !== 'albums.length'">&#x2191;&#x2193;</span></th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let band of bands">
+        <td>{{ band.id }}</td>
+        <td>{{ band.name }}</td>
+        <td>{{ band.genre }}</td>
+        <td>{{ band.formed }}</td>
+        <td>{{ band.location }}</td>
+        <td>{{ band.members.join(', ') }}</td>
+        <td>{{ band.albums.length }}</td>
+        <td>
+          <button (click)="viewBand(band)">View</button>
+          <button (click)="editBand(band)">Edit</button>
+          <button (click)="deleteBand(band)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <dialog #dialog id="modal">
+    <div id="modal-content">
+      <div id="modal-header">
+        <h3>Confirmation dialog</h3>
+      </div>
+      <div id="modal-body">
+        Do you want to delete the band {{ selectedBand?.name }}?
+      </div>
+      <div id="modal-footer">
+        <button (click)="confirmModal()">Yes</button>
+        <button (click)="closeModal()">No</button>
+      </div>
+    </div>
+  </dialog>
+  

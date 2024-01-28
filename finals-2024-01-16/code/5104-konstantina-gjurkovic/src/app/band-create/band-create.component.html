@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Create a New Band</h2>
+  <form [formGroup]="createForm" (ngSubmit)="saveBand()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="formed">Formed:</label>
+      <input type="number" id="formed" formControlName="formed" class="form-control" required pattern="^[0-9]{4}$">
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <select id="country" formControlName="country" class="form-control" required>
+        <option *ngFor="let place of places" [value]="place.country">{{ place.country }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <select id="city" formControlName="city" class="form-control" required>
+        <option *ngFor="let place of places">
+          <ng-container *ngFor="let city of place.cities">
+            <option [value]="city">{{ city }}</option>
+          </ng-container>
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" formControlName="genre" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Band</button>
+  </form>
+</div>

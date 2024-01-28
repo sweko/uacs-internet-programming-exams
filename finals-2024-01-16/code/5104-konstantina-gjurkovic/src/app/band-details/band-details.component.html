@@ -1,0 +1,33 @@
+<div *ngIf="!!band">
+    <h1>{{ band.name }}</h1>
+    <p>ID: {{ band.id }}</p>
+    <p>Genre: {{ band.genre }}</p>
+    <p>Formed: {{ band.formed }}</p>
+    <p>Location: {{ band.location }}</p>
+    <p>Members: {{ band.members.join(', ') }}</p>
+  
+    <h2>Albums</h2>
+    <ul>
+      <li *ngFor="let album of band.albums">
+        <a [routerLink]="['/bands', band.id, 'albums', album.id]">{{ album.name }} ({{ album.year }})</a>
+      </li>
+    </ul>
+  
+    <div>
+      <button (click)="editBand()">Edit</button>
+      <button (click)="openConfirmationDialog()">Delete</button>
+    </div>
+  
+    <dialog #confirmationDialog id="confirmationDialog">
+      <div>
+        <p>Are you sure you want to delete the band {{ band.name }}?</p>
+        <button (click)="confirmDelete()">Yes</button>
+        <button (click)="closeConfirmationDialog()">No</button>
+      </div>
+    </dialog>
+  </div>
+  
+  <div *ngIf="!band">
+    No band loaded
+  </div>
+  

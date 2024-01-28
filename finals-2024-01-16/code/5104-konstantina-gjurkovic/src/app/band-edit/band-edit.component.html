@@ -1,0 +1,14 @@
+<div *ngIf="!!band">
+    <form [formGroup]="editForm" (ngSubmit)="updateBand()">
+        <p>Name: <input type="text" formControlName="name"></p>
+        <p>Genre: <input type="text" formControlName="genre"></p>
+        <p>Formed: <input type="number" formControlName="formed"></p>
+        <p>Location: <input type="text" formControlName="location"></p>
+        <p>Members: <input type="text" formControlName="members"></p>
+
+        <button>Save</button>
+    </form>
+</div>
+<div *ngIf="!band">
+    No band loaded
+</div>

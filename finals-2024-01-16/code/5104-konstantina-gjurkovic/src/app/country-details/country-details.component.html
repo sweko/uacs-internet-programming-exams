@@ -1,0 +1,18 @@
+<div *ngIf="country">
+    <h2>Country Details</h2>
+    <p>ID: {{ country?.id }}</p>
+    <p>Name: {{ country?.name }}</p>
+  
+    <h3>Cities</h3>
+    <ul>
+      <li *ngFor="let city of country.cities | sortCities">
+        {{ city }}
+        <span class="band-count">Bands: {{ getBandCount(city) }}</span>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="!country">
+    <p>Country not found</p>
+  </div>
+  
