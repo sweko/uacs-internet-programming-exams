@@ -1,0 +1,20 @@
+
+
+p {
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for a better look */
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* Style for student info */
+p br {
+    display: none; /* Hide line break */
+}
+
+/* Style for student id and name */
+p span {
+    font-weight: bold;
+}
