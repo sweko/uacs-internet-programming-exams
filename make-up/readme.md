@@ -16,7 +16,7 @@ The final deadline is end-of-day 09.02.2024. By this deadline you are expected t
 
 The criteria on which the project will be graded are the same as the criteria for the regular project. The project will be graded by the same grading guideline as the regular project, only the reduced timeframe will be taken into account when grading.
 
-For the details of the project, see the project description, in the project folder.
+For the details of the project, see the [project description](https://github.com/sweko/uacs-internet-programming-exams/tree/main/make-up/project), in the project folder.
 
 ### The in-person exam
 

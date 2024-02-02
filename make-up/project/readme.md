@@ -15,7 +15,7 @@ Create a web-application that will show the current temperature for some cities.
     - **Bonus** The detailed information should include a 5-day forecast for the city.
 
 ## Data 
-The location of the data is [here](), and the application should load that data when it starts. The data is a JSON array of objects, each object representing a city. The objects have the following properties:
+The location of the data is [here](https://github.com/sweko/uacs-internet-programming-exams/blob/main/make-up/project/places.json), and the application should load that data when it starts. The data is a JSON array of objects, each object representing a city. The objects have the following properties:
 
 - `name` - the name of the city
 - `country` - the country of the city
