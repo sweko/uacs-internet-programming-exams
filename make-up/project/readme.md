@@ -29,3 +29,13 @@ In order to get the current temperature for a city, you should use the [Open Met
 However, both services only use the latitude and longitude of the city to get the weather data. You will have to use a service like [OpenCage API](https://opencagedata.com/) or [Geocode.xyz](https://geocode.xyz/) to get the latitude and longitude of the city. The first service is free, but requires an API key, while the second service is free for up to 1000 requests per day, and does not require an API key.
 
 You do **not** have to have any code that reduces the number of requests, but it will be a bonus if you do.
+
+## Submission
+
+The project should be submitted as a git repository. The repository should contain a README.md file that explains how to run the project, and how to use it. The repository should also contain a .gitignore file that ignores the node_modules folder. Since you will be using API keys, you should create the GitHub repository as a private one, and add me as a collaborator. You should send me the link to the repository by the initial deadline, via email (swekster@gmail.com or vekoslav.stefanovski@uacs.edu.mk) or on Discord. Please make sure that I acknowledge the receipt of the link.
+
+## Hints
+
+You can load the data by directly accessing the raw JSON link, or you could use the [json-server](https://www.npmjs.com/package/json-server) library to work as a makeshift backend. An example of using json-server is provided in the dry run of the final exam, as well as in the exams templates.
+
+In my opinion, it should be the easiest to implement the project using Angular, with some (not much) routing and some components and services. However, you can use whatever framework you want, or no framework at all - that is up to you, but please choose whatever you're most comfortable with.
