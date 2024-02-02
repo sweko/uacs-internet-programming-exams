@@ -1,0 +1,290 @@
+{
+    "cities": [
+        {
+            "name": "London",
+            "country": "United Kingdom"
+        },
+        {
+            "name": "Paris",
+            "country": "France"
+        },
+        {
+            "name": "Berlin",
+            "country": "Germany"
+        },
+        {
+            "name": "Madrid",
+            "country": "Spain"
+        },
+        {
+            "name": "Rome",
+            "country": "Italy"
+        },
+        {
+            "name": "Athens",
+            "country": "Greece"
+        },
+        {
+            "name": "Amsterdam",
+            "country": "Netherlands"
+        },
+        {
+            "name": "Vienna",
+            "country": "Austria"
+        },
+        {
+            "name": "Dublin",
+            "country": "Ireland"
+        },
+        {
+            "name": "Lisbon",
+            "country": "Portugal"
+        },
+        {
+            "name": "Brussels",
+            "country": "Belgium"
+        },
+        {
+            "name": "Stockholm",
+            "country": "Sweden"
+        },
+        {
+            "name": "Copenhagen",
+            "country": "Denmark"
+        },
+        {
+            "name": "Oslo",
+            "country": "Norway"
+        },
+        {
+            "name": "Warsaw",
+            "country": "Poland"
+        },
+        {
+            "name": "Prague",
+            "country": "Czech Republic"
+        },
+        {
+            "name": "Budapest",
+            "country": "Hungary"
+        },
+        {
+            "name": "Zurich",
+            "country": "Switzerland"
+        },
+        {
+            "name": "Helsinki",
+            "country": "Finland"
+        },
+        {
+            "name": "Bratislava",
+            "country": "Slovakia"
+        },
+        {
+            "name": "Sofia",
+            "country": "Bulgaria"
+        },
+        {
+            "name": "Bucharest",
+            "country": "Romania"
+        },
+        {
+            "name": "Ljubljana",
+            "country": "Slovenia"
+        },
+        {
+            "name": "Valletta",
+            "country": "Malta"
+        },
+        {
+            "name": "Luxembourg City",
+            "country": "Luxembourg"
+        },
+        {
+            "name": "Vilnius",
+            "country": "Lithuania"
+        },
+        {
+            "name": "Tallinn",
+            "country": "Estonia"
+        },
+        {
+            "name": "Riga",
+            "country": "Latvia"
+        },
+        {
+            "name": "Belgrade",
+            "country": "Serbia"
+        },
+        {
+            "name": "Zagreb",
+            "country": "Croatia"
+        },
+        {
+            "name": "Skopje",
+            "country": "Macedonia"
+        },
+        {
+            "name": "Reykjavik",
+            "country": "Iceland"
+        },
+        {
+            "name": "Frankfurt",
+            "country": "Germany"
+        },
+        {
+            "name": "Barcelona",
+            "country": "Spain"
+        },
+        {
+            "name": "Munich",
+            "country": "Germany"
+        },
+        {
+            "name": "Milan",
+            "country": "Italy"
+        },
+        {
+            "name": "Hamburg",
+            "country": "Germany"
+        },
+        {
+            "name": "Cologne",
+            "country": "Germany"
+        },
+        {
+            "name": "Naples",
+            "country": "Italy"
+        },
+        {
+            "name": "Turin",
+            "country": "Italy"
+        },
+        {
+            "name": "Marseille",
+            "country": "France"
+        },
+        {
+            "name": "Lyon",
+            "country": "France"
+        },
+        {
+            "name": "Hannover",
+            "country": "Germany"
+        },
+        {
+            "name": "Bremen",
+            "country": "Germany"
+        },
+        {
+            "name": "Stuttgart",
+            "country": "Germany"
+        },
+        {
+            "name": "Dusseldorf",
+            "country": "Germany"
+        },
+        {
+            "name": "Leipzig",
+            "country": "Germany"
+        },
+        {
+            "name": "Dresden",
+            "country": "Germany"
+        },
+        {
+            "name": "Rostock",
+            "country": "Germany"
+        },
+        {
+            "name": "Palermo",
+            "country": "Italy"
+        },
+        {
+            "name": "Genoa",
+            "country": "Italy"
+        },
+        {
+            "name": "Bologna",
+            "country": "Italy"
+        },
+        {
+            "name": "Florence",
+            "country": "Italy"
+        },
+        {
+            "name": "Pisa",
+            "country": "Italy"
+        },
+        {
+            "name": "Venice",
+            "country": "Italy"
+        },
+        {
+            "name": "Verona",
+            "country": "Italy"
+        },
+        {
+            "name": "Seville",
+            "country": "Spain"
+        },
+        {
+            "name": "Valencia",
+            "country": "Spain"
+        },
+        {
+            "name": "Zaragoza",
+            "country": "Spain"
+        },
+        {
+            "name": "Malaga",
+            "country": "Spain"
+        },
+        {
+            "name": "Murcia",
+            "country": "Spain"
+        },
+        {
+            "name": "Palma de Mallorca",
+            "country": "Spain"
+        },
+        {
+            "name": "Las Palmas",
+            "country": "Spain"
+        }
+    ],
+    "countries": [
+        "United Kingdom",
+        "France",
+        "Germany",
+        "Spain",
+        "Italy",
+        "Greece",
+        "Netherlands",
+        "Austria",
+        "Ireland",
+        "Portugal",
+        "Belgium",
+        "Sweden",
+        "Denmark",
+        "Norway",
+        "Poland",
+        "Czech Republic",
+        "Hungary",
+        "Switzerland",
+        "Finland",
+        "Slovakia",
+        "Bulgaria",
+        "Romania",
+        "Slovenia",
+        "Malta",
+        "Luxembourg",
+        "Lithuania",
+        "Estonia",
+        "Latvia",
+        "Serbia",
+        "Croatia",
+        "Macedonia",
+        "Iceland"
+    ]
+}
