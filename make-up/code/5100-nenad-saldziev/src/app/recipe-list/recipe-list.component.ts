@@ -29,21 +29,21 @@ export class RecipeListComponent {
       this['recipesSubscription$']?.unsubscribe();
     }
     
-    isAlive(author: recipes) {
-      return author.deathDate === undefined;
-    }
+    // isAlive(recipes: recipes) {
+    //   return recipes.deathDate === undefined;
+    // }
       
-    deleteAuthor(author: recipes) {
-      this.selectedAuthor = author;
+    deleteAuthor(recipes: recipes) {
+      this.selectedAuthor = recipes;
       this.dialog?.nativeElement.showModal();
     }
       
-    editAuthor(author: recipes) {
-      this.router.navigate(['/recipes', author.id, "edit"]);
+    editAuthor(recipes: recipes) {
+      this.router.navigate(['/recipes', recipes.id, "edit"]);
     }
       
-    viewAuthor(author: recipes) {
-      this.router.navigate(['/recipes', author.id]);
+    viewAuthor(recipes: recipes) {
+      this.router.navigate(['/recipes', recipes.id]);
     }
       
     addAuthor() {
