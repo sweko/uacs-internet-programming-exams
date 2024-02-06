@@ -1,0 +1,6 @@
+<div class="container my-5" *ngIf="student$ | async as student">
+  <h3>Student: {{ student.name }}</h3>
+  <h5>ID: {{ student.id }}</h5>
+  <h5>Year: {{ student.year }}</h5>
+  <a href="https://github.com/simonablazevska">Visit Github Repo</a>
+</div>

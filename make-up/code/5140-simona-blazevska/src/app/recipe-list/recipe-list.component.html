@@ -1,1 +1,6 @@
-<p>And the recipe list and everything else comes here</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4 mb-3" *ngFor="let recipe of recipes" app-recipecard [data]="recipe"
+      (delete)="deleteRecipe(recipe.id)"></div>
+  </div>
+</div>
