@@ -1,0 +1,10 @@
+<div>
+    <h2>Add Recipe</h2>
+    <form (submit)="createRecipe()">
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="newRecipe.title" name="title" required>
+  
+      <button type="submit">Add Recipe</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div>
+    <h2>Recipe Details</h2>
+    <div>
+      <p><strong>ID:</strong> {{ recipe?.id }}</p>
+      <p><strong>Title:</strong> {{ recipe?.title }}</p>
+      <p><strong>Cuisine:</strong> {{ recipe?.cuisine }}</p>
+      <p><strong>Description:</strong> {{ recipe?.description }}</p>
+      <p><strong>Instructions:</strong> {{ recipe?.instructions }}</p>
+      <p><strong>Time:</strong> {{ formatTime(recipe?.time) }}</p>
+      <p><strong>Servings:</strong> {{ recipe?.servings }}</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li *ngFor="let ingredient of recipe?.ingredients">
+          {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+  
