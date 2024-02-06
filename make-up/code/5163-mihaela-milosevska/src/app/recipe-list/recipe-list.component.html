@@ -1,1 +1,51 @@
-<p>And the recipe list and everything else comes here</p>
+<div>
+    <button (click)="addRecipe()">Add Recipe</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Cusine</th>
+      <th>Description</th>
+      <th>Ingredients</th>
+      <th>Instructions</th>
+      <th>Time</th>
+      <th>Servings</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Recipe of Recipes">
+      <td>{{ recipe.id }}</td>
+      <td>{{ recipe.title }}</td>
+      <td>{{ recipe.cusine }}</td>
+      <td>{{ recipe.description }}</td>
+      <td>{{ recipe.ingredients.length }}</td>
+      <td>{{ recipe.instructions }}</td>
+      <td>{{ recipe.time }}</td>
+      <td>{{ recipe.servings }}</td>
+      <td>
+        <button (click)="viewRecipe(recipe)">View</button>
+        <button (click)="editRecipe(recipe)">Edit</button>
+        <button (click)="deleteRecipe(recipe)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dialog id="modal">
+  <div id="modal-content">
+    <div id="modal-header">
+
+    </div>
+    <div id="modal-body">
+        Confirmation for deleting the recipe "{{ selectedRecipe?.title }}"?
+    </div>
+    <div id="modal-footer">
+      <button (click)="confirmModal()">Yes</button>
+      <button (click)="closeModal()">No</button>
+    </div>
+  </div>
+</dialog>
