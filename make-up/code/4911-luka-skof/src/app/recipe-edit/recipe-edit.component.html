@@ -1,0 +1,28 @@
+<h2>Edit recipe</h2>
+
+<form>
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="recipe.title" name="title">
+
+  <label for="cuisine">Cuisine:</label>
+  <input type="text" id="cuisine" [(ngModel)]="recipe.cuisine" name="cuisine">
+
+  <label for="description">Description:</label>
+  <input type="text" id="description" [(ngModel)]="recipe.description" name="description">
+
+  <label for="ingredients">Ingredients:</label>
+  <select id="ingredients" [(ngModel)]="recipe.ingredients" name="ingredients">
+    <option *ngFor="let recipe of recipe" [value]="ingredients">{{ ingredients }}</option>
+  </select>
+
+  <label for="instructions">Instructions:</label>
+  <input type="text" id="instructions" [(ngModel)]="recipe.instructions" name="instructions">
+
+  <label for="time">Time:</label>
+  <input type="number" id="time" [(ngModel)]="recipe.time" name="time">
+
+  <label for="servings">Servings:</label>
+  <input type="number" id="servings" [(ngModel)]="recipe.servings" name="servings">
+
+  <button type="button" (click)="saveChanges()">Save Changes</button>
+</form>
