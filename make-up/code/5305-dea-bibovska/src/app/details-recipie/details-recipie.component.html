@@ -1,0 +1,22 @@
+<div *ngIf="!!recipie">
+    <h1> {{ recipie.title }}</h1>
+    <p>Title: {{ recipie.title }}</p>
+    <p>Cuisine: {{ recipie.cuisine }}</p>
+    <p>Description: {{ recipie.description }}</p>
+    <p>Instructions: {{ recipie.instructions }}</p>
+    <p>Time: {{ recipie.time }}</p>
+    <p>Servings: {{ recipie.servings }}</p>
+
+    <h2>Ingredients</h2>
+    <ul>
+        <li *ngFor="let ingredient of recipie.ingredients">
+            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+        </li>
+    </ul>
+
+    <button (click)="editRecipie()">Edit</button>
+    <button (click)="deleteRecipie()">Delete</button>
+</div>
+<div *ngIf="!recipie">
+    No recipie loaded
+</div>
