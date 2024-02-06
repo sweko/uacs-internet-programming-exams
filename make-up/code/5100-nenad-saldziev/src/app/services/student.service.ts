@@ -9,7 +9,9 @@ export class StudentService {
 
   private studentSubject = new BehaviorSubject<Student>({id: 1, name: 'John Doe'});
 
-  constructor() { }
+  constructor( ) { }
+
+  // url : string = "http://localhost:3000/recipes"
 
   getStudent() {
     return this.studentSubject.asObservable();
