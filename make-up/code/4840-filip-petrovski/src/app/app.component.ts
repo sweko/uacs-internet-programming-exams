@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { StudentService } from './services/student.service';
-import { Observable } from 'rxjs';
-import { Student } from './models/student';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  student$: Observable<Student> = this.studentService.getStudent();
-  
-  constructor(private studentService: StudentService) { 
-    
-  }
+  title = 'recipie-app';
 }

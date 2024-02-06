@@ -1,0 +1,31 @@
+<h2>Create Recipe</h2>
+
+<form>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="recipe.title" required>
+        </div>
+        <div class="form-group">
+          <label for="cuisine">Cuisine</label>
+          <input type="text" class="form-control" id="cuisine" name="cuisine" [(ngModel)]="recipe.cuisine" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" name="description" [(ngModel)]="recipe.description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="instructions">Instructions</label>
+          <textarea class="form-control" id="instructions" name="instructions" [(ngModel)]="recipe.instructions" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="time">Time (minutes)</label>
+          <input type="number" class="form-control" id="time" name="time" [(ngModel)]="recipe.time" required>
+        </div>
+        <div class="form-group">
+          <label for="servings">Servings</label>
+          <input type="number" class="form-control" id="servings" name="servings" [(ngModel)]="recipe.servings">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+</form>

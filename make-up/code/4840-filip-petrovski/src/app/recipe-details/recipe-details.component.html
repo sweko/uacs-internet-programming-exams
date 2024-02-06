@@ -1,0 +1,12 @@
+<div *ngIf="recipe">
+    <h2>{{ recipe?.title }}</h2>
+    <p>Cuisine: {{ recipe?.cuisine }}</p>
+    <p>Description: {{ recipe?.description }}</p>
+    <p>Ingredients:</p>
+    <ul>
+      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}</li>
+    </ul>
+    <p>Instructions: {{ recipe?.instructions }}</p>
+    <p>Time: {{ recipe?.time }} minutes</p>
+    <p>Servings: {{ recipe?.servings }}</p>
+  </div>

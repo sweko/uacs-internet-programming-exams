@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { Student } from '../models/student';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
+  standalone: true,
+  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  @Input() student: Student | null = null;
+
 }
