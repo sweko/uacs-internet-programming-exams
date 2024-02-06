@@ -1,0 +1,35 @@
+<h2>Edit Recipe</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="onSave()">
+  <div>
+    <label>ID:</label>
+    <input type="text" formControlName="id">
+  </div>
+  <div>
+    <label>Title:</label>
+    <input type="text" formControlName="title">
+  </div>
+  <div>
+    <label>Cuisine:</label>
+    <select formControlName="cuisine">
+      <option *ngFor="let cuisine of cuisines" [value]="cuisine">{{ cuisine }}</option>
+    </select>
+  </div>
+  <div>
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
+  </div>
+  <div>
+    <label>Instructions:</label>
+    <textarea formControlName="instructions"></textarea>
+  </div>
+  <div>
+    <label>Time:</label>
+    <input type="number" formControlName="time">
+  </div>
+  <div>
+    <label>Servings:</label>
+    <input type="number" formControlName="servings">
+  </div>
+  <button type="submit">Save</button>
+</form>

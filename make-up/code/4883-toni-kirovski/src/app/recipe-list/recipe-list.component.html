@@ -1,1 +1,24 @@
-<p>And the recipe list and everything else comes here</p>
+<h2>Recipe List</h2>
+<button routerLink="/recipe-create">Create New Recipe</button>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Cuisine</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let recipe of recipes">
+      <td>{{ recipe.title }}</td>
+      <td>{{ recipe.cuisine }}</td>
+      <td>{{ recipe.description }}</td>
+      <td>
+        <button (click)="viewRecipe(recipe.id)">View</button>
+        <button (click)="editRecipe(recipe.id)">Edit</button>
+        <button (click)="deleteRecipe(recipe.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
