@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  thead {
+    background-color: #388E3C; 
+    color: #FFFFFF;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #66BB6A; 
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #43A047; 
+  }
+  
+  
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li {
+    list-style-type: none;
+  }
+  
+  
+  td, th {
+    color: #FFFFFF; 
+  }
+  
+  
+  tbody tr:hover {
+    background-color: #2E7D32; 
+    color: #FFFFFF; 
+  } 
