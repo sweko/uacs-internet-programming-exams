@@ -1,0 +1,65 @@
+/* Style for the Recipe List heading */
+h2.recipe-list-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Style for the Filter Section */
+.filter-section {
+  margin-bottom: 30px;
+}
+
+.filter-section label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #666;
+}
+
+.filter-section input[type="text"],
+.filter-section select {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #444;
+  background-color: #f9f9f9;
+  width: 200px;
+}
+
+/* Style for the Recipe List table */
+.recipe-list-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.recipe-list-table th, .recipe-list-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  color: #555;
+}
+
+.recipe-list-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style for the Recipe List buttons */
+.recipe-list-button {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-list-button:hover {
+  background-color: #45a049;
+}

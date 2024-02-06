@@ -1,0 +1,35 @@
+/* Style for the About Me section */
+.about-me-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-me-container h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-me-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.about-me-container a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-me-container a:hover {
+  color: #0056b3;
+}
