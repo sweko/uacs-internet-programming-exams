@@ -3,13 +3,16 @@ import { BehaviorSubject } from 'rxjs';
 import { Student } from '../models/student';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudentService {
+  private studentSubject = new BehaviorSubject<Student>({
+    id: 5140,
+    name: 'Simona Blazhevska',
+    year: 'Third year of studies',
+  });
 
-  private studentSubject = new BehaviorSubject<Student>({id: 1, name: 'John Doe'});
-
-  constructor() { }
+  constructor() {}
 
   getStudent() {
     return this.studentSubject.asObservable();
