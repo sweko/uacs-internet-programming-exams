@@ -1,0 +1,29 @@
+body {
+  background-color: grey;
+}
+
+.container {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+   
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-family: verdana;
+    font-size: 300%;
+  }
+  
+  p {
+    margin-bottom: 10px;
+    font-family: verdana;
+    font-size: 200%;
+  }
+  
+  a {
+    color: #007bff;
+    
+  }
+
+ 

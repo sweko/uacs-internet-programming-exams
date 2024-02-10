@@ -1,0 +1,11 @@
+<div *ngIf="recipe">
+  <h2>Edit Recipe</h2>
+  <form (submit)="updateRecipe()">
+
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="recipe.title" name="title" required>
+   
+
+    <button type="submit">Update Recipe</button>
+  </form>
+</div>
