@@ -1,0 +1,31 @@
+<h2>Create New Recipe</h2>
+
+<form>
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="newRecipe.title" name="title">
+
+  <label for="year">Cuisine:</label>
+  <input type="text" id="cuisine" [(ngModel)]="newRecipe.cuisine" name="cuisine">
+
+  <label for="description">Description:</label>
+  <input type="text" id="description" [(ngModel)]="newRecipe.description" name="description">
+
+  <label for="plot">Plot:</label>
+  <textarea id="plot" [(ngModel)]="newRecipe.plot" name="plot"></textarea>
+
+  <label for="ingredients">Ingredients:</label>
+  <select id="ingredients" [(ngModel)]="newRecipe.ingredients" name="ingredients" multiple>
+    <option *ngFor="let recipe of recipe" [value]="ingredients">{{ ingredients }}</option>
+  </select>
+
+  <label for="instructions">Instructions:</label>
+  <input type="text" id="instructions" [(ngModel)]="newRecipe.instructions" name="instructions">
+
+  <label for="time">Time:</label>
+  <input type="number" id="time" [(ngModel)]="newRecipe.time" name="time">
+
+  <label for="servings">Servings:</label>
+  <input type="number" id="servings" [(ngModel)]="newRecipe.servings" name="servings">
+
+  <button type="button" (click)="createRecipe()">Create Recipe</button>
+</form>

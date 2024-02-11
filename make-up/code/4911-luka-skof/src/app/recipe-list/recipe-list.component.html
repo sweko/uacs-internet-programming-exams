@@ -1,1 +1,31 @@
-<p>And the recipe list and everything else comes here</p>
+<h2>Recipes</h2>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Cuisine</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>Instrucions</th>
+        <th>Time</th>
+        <th>Servings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td>{{ recipe.id }}</td>
+        <td>{{ recipe.title }}</td>
+        <td>{{ recipe.cuisine }}</td>
+        <td>{{ recipe.description }}</td>
+        <td>{{ recipe.ingredients.join(' / ') }}</td>
+        <td>{{ countKeys(recipe.time) }}</td>
+        <td>{{ recipe.servings }}</td>
+        <td>
+            <a routerLink="/recipes/{{ recipe.id }}">View</a>
+            <a routerLink="/recipes/{{ recipe.id }}/edit">Edit</a>
+            <a (click)="deleterecipe(recipe.id)">Delete</a>
+          </td>
+      </tr>
+    </tbody>
+  </table>

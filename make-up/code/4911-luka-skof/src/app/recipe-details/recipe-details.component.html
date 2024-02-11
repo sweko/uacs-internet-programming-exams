@@ -1,0 +1,14 @@
+<h2>recipe Details</h2>
+<div *ngIf="recipe">
+  <p><strong>ID:</strong> {{ recipe.id }}</p>
+  <p><strong>Title:</strong> {{ recipe.title }}</p>
+  <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+  <p><strong>Description:</strong> {{ recipe.description }}</p>
+  <p><strong>Ingredients:</strong> {{ recipe.ingredients.join(' / ') }}</p>
+  <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+  <p><strong>Time:</strong> {{ recipe.time }}</p>
+  <p><strong>Servings:</strong> {{ recipe.servings }} </p>
+</div>
+<div *ngIf="!recipe">
+  <p>recipe not found.</p>
+</div>
