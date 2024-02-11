@@ -1,1 +1,49 @@
 <p>And the recipe list and everything else comes here</p>
+<div>
+    <button (click)="addRecipie()">Add Recipie</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Cuisine</th>
+      <th>Description</th>
+      <th>Instructions</th>
+      <th>Time</th>
+      <th>Servings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="">
+      <td>{{ recipie.id }}</td>
+      <td>{{ recipie.title }}</td>
+      <td>{{ recipie.cuisine }}</td>
+      <td>{{ recipie.instructions }}</td>
+      
+      <td>{{ recipie.time }}</td>
+      <td>{{ recipie.servings }}</td>
+      <td>
+        <button (click)="viewRecipie(recipie)">View</button>
+        <button (click)="editRecipie(recipie)">Edit</button>
+        <button (click)="deleteRecipie(recipie)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dialog id="modal">
+  <div id="modal-content">
+    <div id="modal-header">
+      <h3>Confirmation Dialog</h3>
+    </div>
+    <div id="modal-body">
+        Do you want to delete the recipie "{{ selectedRecipie?.title }}"?
+    </div>
+    <div id="modal-footer">
+      <button (click)="confirmModal()">Yes</button>
+      <button (click)="closeModal()">No</button>
+    </div>
+  </div>
+</dialog>
