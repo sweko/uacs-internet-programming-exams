@@ -1,1 +1,79 @@
-<p>And the recipe list and everything else comes here</p>
+<!-- <div>
+    <button (click)="addAuthor()">Add Author</button>
+</div> -->
+
+<table>
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Cuisine</th>
+        <th>Description</th>
+        <th>Instructions</th>
+        <th>Time</th>
+        <th>Servings</th>
+        <th>Ingredients</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let recipe of recipes">
+      <td>{{ recipe.id }}</td>
+      <td>{{ recipe.title }}</td>
+      <td>{{ recipe.cuisine }}</td>
+      <td>{{ recipe.description }}</td>
+      <td>{{ recipe.instructions }}</td>
+      <td>{{ recipe.time }}</td>
+      <td>{{ recipe.servings }}</td>
+      <td>{{ recipe.ingredients }}</td>
+      
+      <!-- <td>
+        <button (click)="viewAuthor(recipes)">View</button>
+        <button (click)="editAuthor(recipes)">Edit</button>
+        <button (click)="deleteAuthor(recipes)">Delete</button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+
+<!-- <dialog #dialog id="modal">
+  <div id="modal-content">
+    <div id="modal-header">
+      <h3>Confirmation dialog</h3>
+    </div>
+    <div id="modal-body">
+        Do you want to delete the author {{ selectedAuthor?.name }}
+    </div>
+    <div id="modal-footer">
+      <button (click)="confirmModal()">Yes</button>
+      <button (click)="closeModal()">No</button>
+    </div>
+  </div>
+</dialog> -->
+
+
+<!-- -- Importatnt --
+
+export interface recipes {
+    id: number;
+    title: string;
+    cuisine: string;
+    description: string;
+    instructions: string;
+    time: number;
+    servings: number;
+    ingredients: ingredients[];
+}
+
+export interface ingredients {
+    name: string;
+    quantity: number;
+    unit: string;
+}
+
+export interface recipesType {
+    name: string;
+    description: string;
+}
+
+
+-- End Importatnt -- -->

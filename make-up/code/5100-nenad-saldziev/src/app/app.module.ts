@@ -17,7 +17,8 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // HttpClientModule
   ],
   providers: [
     StudentService
