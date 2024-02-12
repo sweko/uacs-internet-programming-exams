@@ -1,1 +1,52 @@
-<p>And the recipe list and everything else comes here</p>
+<h2>Recipe List</h2>
+
+<!-- Filter Section -->
+<div>
+  <label for="titleFilter">Title:</label>
+  <input type="text" id="titleFilter" [(ngModel)]="titleFilter" (input)="applyFilters($event)">
+  <select id="cuisineFilter" [(ngModel)]="selectedCuisine" (change)="applyFilters($event)">
+    <option value="">All</option>
+    <option *ngFor="let cuisine of cuisines" [value]="cuisine">{{ cuisine }}</option>
+  </select>
+  
+  <label for="ingredientFilter">Ingredient:</label>
+  <select id="ingredientFilter" [(ngModel)]="selectedIngredient" (change)="applyFilters($event)">
+    <option value="">All</option>
+    <option *ngFor="let ingredient of ingredients" [value]="ingredient">{{ ingredient }}</option>
+  </select>
+</div>
+
+<!-- Recipe List -->
+<table>
+  <tr>
+    <th>ID</th>
+    <th (click)="sort('title')">Title</th>
+    <th (click)="sort('cuisine')">Cuisine</th>
+    <th>Description</th>
+    <th>Ingredients</th>
+    <th>Instructions</th>
+    <th (click)="sort('time')">Time</th>
+    <th>Servings</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let recipe of filteredRecipes">
+    <td>{{ recipe.id }}</td>
+    <td>{{ recipe.title }}</td>
+    <td>{{ recipe.cuisine }}</td>
+    <td>{{ truncateText(recipe.description, 100) }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}</li>
+      </ul>
+    </td>
+    <td>{{ truncateText(recipe.instructions, 100) }}</td>
+    <td>{{ formatTime(recipe.time) }}</td>
+    <td>{{ recipe.servings }}</td>
+    <td>
+      <button (click)="viewRecipe(recipe.id)">View</button>
+      <button (click)="editRecipe(recipe.id)">Edit</button>
+      <button (click)="deleteRecipe(recipe.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+<button (click)="addRecipe()">Add Recipe</button>
