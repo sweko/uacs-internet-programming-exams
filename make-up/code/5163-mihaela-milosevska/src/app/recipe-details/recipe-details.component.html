@@ -1,0 +1,23 @@
+<div *ngIf="!!recipe">
+    <h1> {{ recipe.title }}</h1>
+    <p>Title: {{ recipe.title }}</p>
+    <p>Cusine: {{ recipe.cusine}}</p>
+    <p>Description: {{ recipe.description }}</p>
+    <p>Instructions: {{ recipe.instructions }}</p>
+    <p>Time: {{ recipe.time }}</p>
+    <p>Servings: {{ recipe.servings }}</p>
+
+    <h2>Ingredients</h2>
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">
+            <p>Name: {{ ingredient.name }}</p>
+            <p>Quantity: {{ ingredient.quantity }}</p>
+            <p>Unit: {{ ingredient.unit }}</p>
+        </li>
+    </ul>
+    <button (click)="editRecipe()">Edit</button>
+    <button (click)="deleteRecipe()">Delete</button>
+</div>
+<div *ngIf="!recipe">
+    No recipe
+</div>
