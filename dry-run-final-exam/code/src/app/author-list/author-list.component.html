@@ -1,6 +1,47 @@
 <div>
-    This page should have a list of authors.
-
-    
-
+    <button (click)="addAuthor()">Add Author</button>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Birth Date</th>
+      <th>Alive</th>
+      <th>Nationality</th>
+      <th>Bibliography</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authors">
+      <td>{{ author.id }}</td>
+      <td>{{ author.name }}</td>
+      <td>{{ author.birthDate | date }}</td>
+      <td>{{ isAlive(author) }}</td>
+      <td>{{ author.nationality }}</td>
+      <td>{{ author.books.length }}</td>
+      <td>
+        <button (click)="viewAuthor(author)">View</button>
+        <button (click)="editAuthor(author)">Edit</button>
+        <button (click)="deleteAuthor(author)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<dialog #dialog id="modal">
+  <div id="modal-content">
+    <div id="modal-header">
+      <h3>Confirmation dialog</h3>
+    </div>
+    <div id="modal-body">
+        Do you want to delete the author {{ selectedAuthor?.name }}
+    </div>
+    <div id="modal-footer">
+      <button (click)="confirmModal()">Yes</button>
+      <button (click)="closeModal()">No</button>
+    </div>
+  </div>
+</dialog>

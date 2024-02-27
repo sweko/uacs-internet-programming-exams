@@ -1,0 +1,21 @@
+<div *ngIf="!!author">
+    <h1> {{ author.name }}</h1>
+    <p>Name: {{ author.name }}</p>
+    <p>Birth Date: {{ author.birthDate | date }}</p>
+    <p *ngIf="!!author.deathDate">Death Date: {{ author.deathDate | date }}</p>
+    <p>Nationality: {{author.nationality}} </p>
+
+    <h2>Bibliography</h2>
+    <ul>
+        <li *ngFor="let book of author.books">
+            {{ book.title }} ({{ book.year }}) - {{ book.type }}
+        </li>
+    </ul>
+
+    <button (click)="editAuthor()">Edit</button>
+    <button (click)="deleteAuthor()">Delete</button>
+</div>
+<div *ngIf="!author">
+    No author loaded
+</div>
+
