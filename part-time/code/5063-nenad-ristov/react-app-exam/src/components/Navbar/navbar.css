@@ -1,0 +1,30 @@
+#navbar ul li{
+    list-style-type: none;
+    display: inline;
+}
+
+#navbar ul li a{
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#navbar{
+    background-color: rgb(25, 9, 238);
+    height: 50px;
+    padding: 20px;
+}
+
+#footer{
+    background-color: #aca8a8;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
