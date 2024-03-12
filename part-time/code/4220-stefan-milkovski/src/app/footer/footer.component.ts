@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Student } from '../models/student';
 
 @Component({
@@ -8,4 +8,9 @@ import { Student } from '../models/student';
 })
 export class FooterComponent {
   @Input() student: Student | null = null;
+  constructor() {}
+
+  ngOnInit() {
+
+  }
 }
