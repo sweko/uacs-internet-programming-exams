@@ -1,0 +1,15 @@
+p{
+    text-align: center;
+    
+    width: 100px;
+    display: inline;
+    padding-left: 10px;
+}
+
+.ingr{
+    margin: 10px 15px;
+    width: 200px;
+    background-color: #f3f3f3;
+    border-radius: 15px;
+    padding: 5px;
+}
