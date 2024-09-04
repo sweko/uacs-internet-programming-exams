@@ -19,7 +19,14 @@
       <td>{{ author.id }}</td>
       <td>{{ author.name }}</td>
       <td>{{ author.birthDate | date }}</td>
-      <td>{{ isAlive(author) }}</td>
+      <td>
+        <span *ngIf="isAlive(author)">
+          <input type="checkbox" checked disabled>
+        </span>
+        <span *ngIf="!isAlive(author)">
+          <input type="checkbox" disabled>
+        </span>
+      </td>
       <td>{{ author.nationality }}</td>
       <td>{{ author.books.length }}</td>
       <td>
