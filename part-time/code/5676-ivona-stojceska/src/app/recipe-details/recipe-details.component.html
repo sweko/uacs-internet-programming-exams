@@ -1,0 +1,19 @@
+<p *ngIf="recipe.id">ID: {{ recipe.id }}</p>
+<p *ngIf="recipe.title">Title: {{ recipe.title }}</p>
+<p *ngIf="recipe.cuisine">Cuisine: {{ recipe.cuisine }}</p>
+<p *ngIf="recipe.description">Description: {{recipe.description}}</p>
+<p *ngIf="recipe.ingredients && recipe.ingredients.length > 0">Number of ingredients: {{recipe.ingredients.length}}</p>
+<p *ngIf="recipe.ingredients && recipe.ingredients.length > 0">Ingredients:</p>
+<ul *ngIf="recipe.ingredients && recipe.ingredients.length > 0">
+    
+    <li *ngFor="let ingredient of recipe.ingredients">
+      {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+    </li>
+</ul>
+<p *ngIf="recipe.instructions">Instructions: {{recipe.instructions}}</p>
+<p *ngIf="recipe.time">Time: {{ formatTime(recipe.time) }}</p>
+<p *ngIf="recipe.servings">Servings: {{ recipe.servings }}</p>
+
+<button (click)="deleteRecipe(recipe.id)">Delete</button>  
+
+
