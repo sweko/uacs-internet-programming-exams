@@ -1,1 +1,45 @@
-<p>And the recipe list and everything else comes here</p>
+<div class="recipe-list">
+    <div *ngIf="!imaPodatoci">
+        <h3>Ne se pronajdeni recepti</h3>
+    </div>
+    <div *ngIf="imaPodatoci" class="center-content">
+        <div class="col-12 d-flex justify-content-center mt-3">
+            <a class="btn btn-success" [routerLink]="'/recipes/create'">Create recipe</a>
+        </div>
+        <div class="recipe-card" *ngFor="let recipe of recipes">
+
+            <div class="card-body">
+                <div class="card-title-container">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <h6 style="font-size: 15px;">ID:{{recipe.id}}</h6>
+                </div>
+                <div class="card-description-container">
+                    <p class="card-text">{{ recipe.description | truncate}}</p>
+                    <p class="card-text" style="display: block;"><strong>Time:</strong> {{ recipe.time | timeTransform}}
+                    </p>
+                    <p class="card-text"><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+                    <a class="btn btn-success" [routerLink]="'/recipes/'+ recipe.id">View recipe</a>
+                    <a class="btn btn-primary ml-2" [routerLink]="'/recipes/'+ recipe.id+'/edit'">Edit recipe</a>
+                    <a class="btn btn-danger ml-2" (click)="deleteRecipe(recipe.id)">Delete recipe</a>
+
+                </div>
+
+                <div class="card-instruction-container">
+                    <p>{{recipe.instructions | truncate}}</p>
+                </div>
+
+                <div class="card-ingredients-container">
+                    <p class="card-text"><strong>Ingredients:</strong></p>
+                    <ul>
+                        <li matTooltip="" *ngFor="let ingredient of recipe.ingredients">
+                            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+
+
+.row-details::-webkit-scrollbar{
+    display: none;
+}
+
+.card-body{
+    background-color: rgb(91, 89, 89);
+    color:white
+}
+
+.card-title{
+    background-color: brown;
+    padding: 0.5rem;
+    color:white
+}
+
