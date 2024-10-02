@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -16,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="flex flex-col min-h-screen bg-background text-[#1c1c20]">
+      <body suppressHydrationWarning={true}>
+        <div className="flex flex-col min-h-screen bg-[#ffffff] text-[#1c1c20]">
           <Header />
           {children}
           <Footer />

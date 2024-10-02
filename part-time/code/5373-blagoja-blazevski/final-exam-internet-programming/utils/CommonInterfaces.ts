@@ -15,6 +15,13 @@ export interface IRecipe {
   servings: number;
 }
 
+export interface ICardButtonsModel {
+  view?: boolean;
+  edit?: boolean;
+  delete?: boolean;
+  viewText?: string;
+}
+
 export interface IData {
   [key: string]: any;
 }
@@ -25,6 +32,8 @@ export interface IFetchOptions {
   body?: IData;
 }
 
-export interface IStringList {
-  [index: number]: string;
+export interface IDataDefinition {
+  title?: string;
+  titleOver?: string;
+  description?: string;
 }

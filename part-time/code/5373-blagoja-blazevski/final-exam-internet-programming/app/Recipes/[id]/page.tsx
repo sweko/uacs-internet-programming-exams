@@ -1,17 +1,10 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/Card";
-import Footer from "@/components/Footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 import useFetchData from "@/utils/CallAxiosMethod";
 import { capitalizeFirstLetter } from "@/utils/GeneralMethods";
 import { IRecipe } from "@/utils/CommonInterfaces";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const RecipeDetails = ({
@@ -40,8 +33,8 @@ const RecipeDetails = ({
   const renderIngredients = () => {
     return data?.ingredients.map((ingredient, index) => (
       <li key={data.title + "_ingredient_" + index}>
-        {capitalizeFirstLetter(ingredient.name)} - {ingredient.quantity}{" "}
-        {ingredient.unit}
+        {capitalizeFirstLetter(ingredient.name)}{" "}
+        {ingredient.quantity ? "-" : ""} {ingredient.quantity} {ingredient.unit}
       </li>
     ));
   };
@@ -152,7 +145,7 @@ const RecipeDetails = ({
         </div>
         <div className="text-center">
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg font-extralight">
-            "{data?.description}"
+            &quot;{data?.description}&quot;
           </p>
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0" />

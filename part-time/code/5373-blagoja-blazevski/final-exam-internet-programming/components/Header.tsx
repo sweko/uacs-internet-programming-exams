@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="px-4 lg:px-6 h-14 flex items-center bg-[#ff5353] text-white">
+    <header className="px-4 lg:px-6 h-14 flex items-center shadow-sm text-[#ff5353]">
       <nav className="ml-auto flex gap-4 sm:gap-6">
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
@@ -19,9 +19,9 @@ const Header = () => {
         </Link>
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
-          href="#"
+          href="/Cuisines"
         >
-          Cuisine
+          Cuisines
         </Link>
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
