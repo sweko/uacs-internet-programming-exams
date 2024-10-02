@@ -9,7 +9,7 @@ import {
 } from "@/components/Card";
 import Footer from "@/components/Footer";
 import useFetchData from "@/utils/CallAxiosMethod";
-import { capitalizeFirstLetter } from "@/utils/ClientMethods";
+import { capitalizeFirstLetter } from "@/utils/GeneralMethods";
 import { IRecipe } from "@/utils/CommonInterfaces";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";

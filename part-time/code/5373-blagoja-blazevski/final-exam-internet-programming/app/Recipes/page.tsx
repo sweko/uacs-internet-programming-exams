@@ -36,6 +36,7 @@ export default function Recipes() {
         <Card>
           <CardHeader>
             <CardTitle>{recipe.title}</CardTitle>
+            <hr />
             <CardDescription>{recipe.description}</CardDescription>
           </CardHeader>
           <CardContent></CardContent>
