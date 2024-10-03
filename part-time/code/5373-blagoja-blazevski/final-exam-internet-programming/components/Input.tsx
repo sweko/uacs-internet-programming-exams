@@ -29,7 +29,6 @@ const Input = (props: IInputProps) => {
       )}
       <input
         title={props.caption}
-        aria-invalid={props.invalid}
         type={props.type ?? "text"}
         name={props.name}
         value={value}

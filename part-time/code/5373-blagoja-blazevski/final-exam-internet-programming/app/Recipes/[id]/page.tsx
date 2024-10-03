@@ -6,6 +6,7 @@ import { capitalizeFirstLetter } from "@/utils/GeneralMethods";
 import { IRecipe } from "@/utils/CommonInterfaces";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const RecipeDetails = ({
   params,
@@ -33,7 +34,12 @@ const RecipeDetails = ({
   const renderIngredients = () => {
     return data?.ingredients.map((ingredient, index) => (
       <li key={data.title + "_ingredient_" + index}>
-        {capitalizeFirstLetter(ingredient.name)}{" "}
+        <Link
+          className="hover:underline underline-offset-2 hover:text-[#ff5353] transition-all duration-200"
+          href={`/Ingredients/${ingredient.name}`}
+        >
+          {capitalizeFirstLetter(ingredient.name)}
+        </Link>{" "}
         {ingredient.quantity ? "-" : ""} {ingredient.quantity} {ingredient.unit}
       </li>
     ));
@@ -89,9 +95,10 @@ const RecipeDetails = ({
     <main className="flex-1">
       <section className="w-full py-16 lg:py-14">
         <div className="flex flex-col items-center space-y-4 text-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          <div className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
             {data?.title}
-          </h1>
+            <p className="m-0 p-0 text-xs tracking-normal">Recipe Id: {id}</p>
+          </div>
           <div className="flex flex-col justify-center space-y-4">
             <ul className="grid gap-4 md:grid-cols-3 grid-cols-2">
               <li>

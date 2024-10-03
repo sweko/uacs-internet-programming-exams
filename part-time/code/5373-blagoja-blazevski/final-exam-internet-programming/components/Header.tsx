@@ -31,7 +31,7 @@ const Header = () => {
         </Link>
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
-          href="#"
+          href="/Statistics"
         >
           Statistics
         </Link>

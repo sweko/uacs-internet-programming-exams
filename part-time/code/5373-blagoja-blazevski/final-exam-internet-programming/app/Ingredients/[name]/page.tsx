@@ -1,29 +1,30 @@
 "use client";
 
-import Button from "@/components/Button";
 import useFetchData from "@/utils/CallAxiosMethod";
 import { IData, IRecipe } from "@/utils/CommonInterfaces";
-import { renderCards, renderPagination } from "@/utils/GeneralMethods";
-import Link from "next/link";
+import {
+  capitalizeFirstLetter,
+  renderCards,
+  renderPagination,
+} from "@/utils/GeneralMethods";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-export default function Recipes() {
-  const objectName = usePathname().substring(1);
-  console.log(objectName);
+const ViewIngredient = ({
+  params,
+}: {
+  params: {
+    name: string;
+  };
+}) => {
+  const name = useSearchParams().get("name") || params.name;
 
   const [data, setData] = useState<IRecipe[]>();
 
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const pageSize = 15;
-
-  const handlePageClick = (value: number) => {
-    setCurrentPage(value);
-  };
-
-  const res = useFetchData({ objectName, method: "GET" });
+  const res = useFetchData({
+    objectName: `recipes?q=${name}&_sort=title`,
+    method: "GET",
+  });
 
   useEffect(() => {
     if (!res.isLoading) {
@@ -31,18 +32,27 @@ export default function Recipes() {
         console.log(res.data);
         setData(res.data as IRecipe[]);
       } else {
-        console.log(res.status);
+        console.log(res);
       }
     }
   }, [res.isLoading]);
+
+  const pageSize = 15;
+  const [currentPage, setCurrentPage] = useState(1);
+  const handlePageClick = (value: number) => {
+    setCurrentPage(value);
+  };
 
   return (
     <main className="flex-1">
       <section className="w-full py-16 lg:py-14">
         <div className="flex flex-col items-center space-y-4 text-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-            All Recipes
-          </h1>
+          <div className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+            View Ingredient: {capitalizeFirstLetter(decodeURIComponent(name))}
+            <p className="m-0 p-0 text-base tracking-normal">
+              Total recipes: {data?.length}
+            </p>
+          </div>
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0" />
         <div className="flex flex-col items-center space-y-4 text-center">
@@ -73,13 +83,10 @@ export default function Recipes() {
                 }
               )}
           </div>
-          <Link href="/Recipes/Create" className="w-full">
-            <Button style="positive" className="sm:w-72 w-full">
-              Add Recipe
-            </Button>
-          </Link>
         </div>
       </section>
     </main>
   );
-}
+};
+
+export default ViewIngredient;

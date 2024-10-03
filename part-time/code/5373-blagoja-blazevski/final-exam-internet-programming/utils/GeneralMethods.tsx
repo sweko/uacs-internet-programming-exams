@@ -8,6 +8,7 @@ import {
 import { ICardButtonsModel, IData, IDataDefinition } from "./CommonInterfaces";
 import Link from "next/link";
 import Button from "@/components/Button";
+import axios from "axios";
 
 export const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -81,23 +82,46 @@ export const renderCards = (
         >
           {buttonsModel.view && (
             <Link
-              href={`${objectName}/${
+              href={`/${objectName}/${
                 typeof row === "object" ? row[dataUniqueIdentifier] : row
               }`}
               key={`${objectName}_view_${index}`}
             >
-              <Button>View</Button>
+              <Button style="positive">View</Button>
             </Link>
           )}
           {buttonsModel.edit && (
             <Link
-              href={`${objectName}/${
+              href={`/${objectName}/${
                 typeof row === "object" ? row[dataUniqueIdentifier] : row
-              }/edit`}
+              }/Edit`}
               className="ml-2"
             >
               <Button style="outline">Edit</Button>
             </Link>
+          )}
+          {buttonsModel.delete && (
+            <Button
+              style="danger"
+              onClick={async () => {
+                const confirm = window.confirm(
+                  "Are you sure you want to delete this item?"
+                );
+                console.log(confirm);
+                if (confirm) {
+                  await deleteObject(
+                    objectName,
+                    typeof row === "object"
+                      ? row[dataUniqueIdentifier]
+                      : undefined
+                  );
+                } else {
+                  console.log("Cancelled");
+                }
+              }}
+            >
+              Delete
+            </Button>
           )}
         </div>
       </CardContent>
@@ -129,4 +153,17 @@ export const getDefaultValues = (data: IData) => {
   }
 
   return _data;
+};
+
+export const deleteObject = async (objectName: string, id?: number) => {
+  const objectToDelete = id ? `${objectName}/${id}` : objectName;
+  try {
+    const res = await axios(`http://localhost:2999/${objectToDelete}`, {
+      method: "DELETE",
+    });
+
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -5,85 +5,28 @@ import Dropdown from "@/components/Dropdown";
 import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
 import useFetchData from "@/utils/CallAxiosMethod";
-import { IRecipe } from "@/utils/CommonInterfaces";
+import { IIngredient, IRecipe } from "@/utils/CommonInterfaces";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-const RecipeEdit = ({
-  params,
-}: {
-  params: {
-    id: string;
-  };
-}) => {
-  const id = useSearchParams().get("id") || params.id;
-
-  const [data, setData] = useState<IRecipe>();
+const NewRecipe = () => {
+  // const [data, setData] = useState<IRecipe>();
+  const ddInstance = useRef<HTMLSelectElement>(null);
   const [cuisines, setCuisines] = useState<string[]>();
 
-  const { handleSubmit, getValues, reset, control, setValue } = useForm({
-    defaultValues: data,
+  const cuisinesRes = useFetchData({
+    objectName: "cuisines",
+    method: "GET",
   });
 
-  const res = useFetchData({ objectName: `recipes/${id}`, method: "GET" });
-  const resCuisines = useFetchData({ objectName: "cuisines", method: "GET" });
-
   useEffect(() => {
-    console.log("Data changed to: ", data);
-  }, [data]);
-  useEffect(() => {
-    if (!resCuisines.isLoading) {
-      if (resCuisines.status === 200) {
-        console.log(resCuisines.data);
-        setCuisines(resCuisines.data as string[]);
-      } else {
-        console.log(resCuisines.status);
+    if (!cuisinesRes.isLoading) {
+      if (cuisinesRes.status === 200) {
+        setCuisines(cuisinesRes.data as string[]);
       }
     }
-  }, [resCuisines.isLoading]);
-
-  useEffect(() => {
-    if (!res.isLoading) {
-      if (res.status === 200) {
-        console.log(res.data);
-        setData(res.data as IRecipe);
-        reset(res.data as IRecipe);
-      } else {
-        console.log(res.status);
-      }
-    }
-  }, [res.isLoading]);
-
-  const handleSave = async () => {
-    const dataToSave = getValues();
-    console.log(dataToSave);
-    const res = await axios({
-      method: "PATCH",
-      url: `http://localhost:2999/recipes/${id}`,
-      data: dataToSave,
-    });
-    if (res.status === 200) {
-      const jsonResponse = await res.data;
-      console.log("Recipe updated successfully");
-      console.log(res.data);
-      if (jsonResponse?.id) {
-        window.location.href = `/Recipes/${jsonResponse.id}`;
-      }
-    } else {
-      console.log("Error updating recipe ", res.status);
-    }
-  };
-
-  const addIngredient = () => {
-    const data = getValues();
-    const updatedIngredients = [...(data?.ingredients || [])];
-    updatedIngredients.push({ name: "", quantity: 0, unit: "" });
-    console.log(updatedIngredients);
-    setValue("ingredients", updatedIngredients);
-    reset({ ...data, ingredients: updatedIngredients });
-  };
+  });
 
   const renderIngredients = () => {
     const data = getValues();
@@ -140,12 +83,10 @@ const RecipeEdit = ({
             <Button
               className="h-50 self-center text-xs"
               onClick={() => {
-                const data = getValues();
                 console.log("Remove ingredient");
 
                 const updatedIngredients = [...(data?.ingredients || [])];
                 updatedIngredients.splice(index, 1);
-                // setData({ ...data, ingredients: updatedIngredients });
                 reset({ ...data, ingredients: updatedIngredients });
               }}
             >
@@ -157,27 +98,66 @@ const RecipeEdit = ({
     ));
   };
 
-  if (!data)
-    return (
-      <main className="flex-1">
-        <section className="w-full py-16 lg:py-14">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Edit Recipe Id: {id}
-            </h1>
-          </div>
-          <hr className="h-px my-8 bg-gray-200 border-0" />
-          <h1 className="text-center text-3xl">Loading...</h1>
-        </section>
-      </main>
-    );
+  const defaultValues = {
+    cuisine: "",
+    description: "",
+    ingredients: [],
+    instructions: "",
+    servings: 1,
+    time: 0,
+    title: "",
+  };
+
+  useEffect(() => {
+    if (cuisines) {
+      setValue("cuisine", cuisines[0]);
+    }
+  }, [cuisines]);
+
+  const { handleSubmit, getValues, reset, control, setValue } = useForm({
+    defaultValues: defaultValues as Omit<IRecipe, "id">,
+  });
+
+  const addIngredient = () => {
+    const data = getValues();
+    const updatedIngredients: IIngredient[] = [...(data?.ingredients || [])];
+    updatedIngredients.push({ name: "", quantity: 0, unit: "" });
+    console.log(updatedIngredients);
+    setValue("ingredients", updatedIngredients);
+    reset({ ...data, ingredients: updatedIngredients });
+  };
+
+  const handleCreate = async () => {
+    const data = getValues();
+    console.log(data);
+
+    const res = await axios("http://localhost:2999/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(data),
+    });
+
+    if (res.status === 201) {
+      const jsonResponse = await res.data;
+      console.log("Recipe created successfully");
+      console.log(jsonResponse);
+      if (jsonResponse.id) {
+        window.location.href = `/Recipes/${jsonResponse.id}`;
+      }
+    } else {
+      console.log("Error creating recipe");
+      console.log(res);
+    }
+  };
 
   return (
     <main className="flex-1">
       <section className="w-full pt-16 lg:pt-14">
         <div className="flex flex-col items-center space-y-4 text-center">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-            Edit Recipe Id: {id}
+            Create New Recipe
           </h1>
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0" />
@@ -202,9 +182,10 @@ const RecipeEdit = ({
             control={control}
             render={({ field, fieldState }) => (
               <Dropdown
+                ref={ddInstance}
                 name="Test"
                 options={cuisines}
-                value={"Mexican"}
+                value={field.value}
                 caption="🌍 Cuisine"
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                   console.log(e.target.value);
@@ -237,10 +218,6 @@ const RecipeEdit = ({
           <Controller
             name="servings"
             control={control}
-            rules={{
-              required: "Servings is required",
-              min: { value: 1, message: "Servings must be greater than 0" },
-            }}
             render={({ field, fieldState }) => (
               <Input
                 type="number"
@@ -257,13 +234,6 @@ const RecipeEdit = ({
         <Controller
           name="description"
           control={control}
-          rules={{
-            required: "Description is required",
-            minLength: {
-              value: 5,
-              message: "Description must be at least 5 characters long",
-            },
-          }}
           render={({ field, fieldState }) => (
             <Input
               invalid={fieldState.invalid}
@@ -292,13 +262,17 @@ const RecipeEdit = ({
                 Unit
               </label>
             </div>
-            {data && renderIngredients()}
+            {renderIngredients()}
           </>
         ) : (
           <p className="text-center mb-2">No ingredients added...</p>
         )}
-        <div className="flex md:px-4 px-2 w-full mb-3">
-          <Button className=" w-full" style="positive" onClick={addIngredient}>
+        <div className="flex md:px-4 px-2 w-full mb-3 justify-center">
+          <Button
+            className="md:w-72 w-full"
+            style="positive"
+            onClick={addIngredient}
+          >
             +
           </Button>
         </div>
@@ -326,9 +300,9 @@ const RecipeEdit = ({
         <hr className="h-px my-8 bg-gray-200 border-0 mt-2 mb-3" />
         <div className="flex md:px-4 px-2 w-full justify-center mb-3">
           <Button
-            className="w-72"
+            className="md:w-72 w-full"
             style="primary"
-            onClick={handleSubmit(handleSave)}
+            onClick={handleSubmit(handleCreate)}
           >
             Save
           </Button>
@@ -339,4 +313,4 @@ const RecipeEdit = ({
   );
 };
 
-export default RecipeEdit;
+export default NewRecipe;

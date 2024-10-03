@@ -1,14 +1,18 @@
 import { IData } from "@/utils/CommonInterfaces";
-import React, { useEffect, useRef } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from "react";
 import { IDropDownProps } from "./EditProps";
 
-const Dropdown = (props: IDropDownProps) => {
+const Dropdown = forwardRef<HTMLSelectElement, IDropDownProps>((props, ref) => {
   const ddInstance = useRef<HTMLSelectElement>(null);
-  useEffect(() => {
-    if (ddInstance.current) {
-      ddInstance.current.value = "";
-    }
-  }, []);
+  const [optionsLoaded, setOptionsLoaded] = React.useState(false);
+
+  useImperativeHandle(ref, () => ddInstance.current!);
+
   const renderOptions = () => {
     return props.options!.map((option: IData | string, index: number) => (
       <option
@@ -25,6 +29,18 @@ const Dropdown = (props: IDropDownProps) => {
       </option>
     ));
   };
+
+  useEffect(() => {
+    setOptionsLoaded(true);
+  }, []);
+
+  // useEffect(() => {
+  //   if (optionsLoaded) {
+  //     if (ddInstance.current && props.value) {
+  //       ddInstance.current.value = props.value;
+  //     }
+  //   }
+  // }, [optionsLoaded]);
 
   return (
     <div className="mb-4 sm:px-4 px-2">
@@ -50,6 +66,6 @@ const Dropdown = (props: IDropDownProps) => {
       </select>
     </div>
   );
-};
+});
 
 export default Dropdown;
