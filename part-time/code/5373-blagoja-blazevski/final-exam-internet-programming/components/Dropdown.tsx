@@ -9,7 +9,6 @@ import { IDropDownProps } from "./EditProps";
 
 const Dropdown = forwardRef<HTMLSelectElement, IDropDownProps>((props, ref) => {
   const ddInstance = useRef<HTMLSelectElement>(null);
-  const [optionsLoaded, setOptionsLoaded] = React.useState(false);
 
   useImperativeHandle(ref, () => ddInstance.current!);
 
@@ -30,18 +29,6 @@ const Dropdown = forwardRef<HTMLSelectElement, IDropDownProps>((props, ref) => {
     ));
   };
 
-  useEffect(() => {
-    setOptionsLoaded(true);
-  }, []);
-
-  // useEffect(() => {
-  //   if (optionsLoaded) {
-  //     if (ddInstance.current && props.value) {
-  //       ddInstance.current.value = props.value;
-  //     }
-  //   }
-  // }, [optionsLoaded]);
-
   return (
     <div className="mb-4 sm:px-4 px-2">
       {props.caption && (
@@ -57,11 +44,15 @@ const Dropdown = forwardRef<HTMLSelectElement, IDropDownProps>((props, ref) => {
         value={props.value}
         id={props.name}
         name={props.name}
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        defaultValue={""}
+        className={`${props.className} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
           if (props.onChange) props.onChange(e);
         }}
       >
+        <option disabled value={""}>
+          Select an option
+        </option>
         {props.options && renderOptions()}
       </select>
     </div>

@@ -140,7 +140,12 @@ const RecipeDetails = ({
                   <CardContent className="flex items-center">
                     <div className="flex-1 space-y-1">
                       <p className="text-sm text-muted-foreground">
-                        {data?.cuisine}
+                        <Link
+                          className="hover:underline underline-offset-2 hover:text-[#ff5353] transition-all duration-200"
+                          href={`/Cuisines/${data?.cuisine}`}
+                        >
+                          {data?.cuisine}
+                        </Link>
                       </p>
                     </div>
                   </CardContent>

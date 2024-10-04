@@ -13,6 +13,7 @@ export interface IInputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
+  className?: string;
 }
 
 export interface IDropDownProps {
@@ -22,5 +23,6 @@ export interface IDropDownProps {
   optionLabel?: string;
   optionValue?: string;
   value?: string;
+  className?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

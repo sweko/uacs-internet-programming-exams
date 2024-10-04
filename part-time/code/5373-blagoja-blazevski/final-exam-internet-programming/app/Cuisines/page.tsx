@@ -47,7 +47,7 @@ const Cuisines = () => {
                   (currentPage - 1) * pageSize,
                   currentPage * pageSize
                 ),
-                "cuisines",
+                "Cuisines",
                 { view: true, edit: false, delete: false }
               )}
           </div>

@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 
 const Header = () => {
   return (
-    <header className="px-4 lg:px-6 h-14 flex items-center shadow-sm text-[#ff5353]">
+    <header className="px-4 lg:px-6 h-14 flex items-center shadow-sm text-white sticky top-0 bg-gradient-to-b bg-[#ff5353]">
       <nav className="ml-auto flex gap-4 sm:gap-6">
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
@@ -25,7 +27,7 @@ const Header = () => {
         </Link>
         <Link
           className="text-sm font-medium hover:underline underline-offset-4"
-          href="#"
+          href="/About"
         >
           About
         </Link>

@@ -46,6 +46,7 @@ const Statistics = () => {
     });
     return totalRecipesPerCuisine;
   };
+
   const calculateTotalRecipesPerServingsRange = () => {
     const totalRecipesPerServingsRange: Record<string, number> = {};
     recipes.forEach((recipe) => {
@@ -134,7 +135,13 @@ const Statistics = () => {
     return Object.keys(totalRecipesPerCuisine).map((cuisine) => (
       <div className="text-sm" key={cuisine}>
         <p>
-          {cuisine}: {totalRecipesPerCuisine[cuisine]} recipes
+          <Link
+            className="hover:underline underline-offset-2 hover:text-[#ff5353] transition-all duration-200"
+            href={`/Cuisines/${cuisine}`}
+          >
+            {cuisine}
+          </Link>
+          : {totalRecipesPerCuisine[cuisine]} recipes
         </p>
       </div>
     ));

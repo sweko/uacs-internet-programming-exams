@@ -12,7 +12,10 @@ const Footer = () => {
         {new Date().getFullYear()} {student.name} - {student.id}
       </p>
       <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-        <Link className="text-xs hover:underline underline-offset-4" href="#">
+        <Link
+          className="text-xs hover:underline underline-offset-4"
+          href="/About"
+        >
           About
         </Link>
       </nav>
