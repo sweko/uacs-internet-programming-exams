@@ -94,6 +94,7 @@ export default function Recipes() {
   };
 
   const resetFilter = async () => {
+    setFilterValue({ search_q: "", cuisine: "", ingredient: "" });
     const query_url = `recipes?_sort=title&_order=${sortAsc ? "asc" : "desc"}`;
 
     const res = await axios.get(`http://localhost:2999/${query_url}`);
