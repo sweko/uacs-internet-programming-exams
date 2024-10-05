@@ -109,12 +109,19 @@ export const renderCards = (
                 );
                 console.log(confirm);
                 if (confirm) {
-                  await deleteObject(
+                  const res = await deleteObject(
                     objectName,
                     typeof row === "object"
                       ? row[dataUniqueIdentifier]
                       : undefined
                   );
+                  if (res?.status === 200) {
+                    console.log("Deleted");
+                    window.location.reload();
+                  } else {
+                    console.log("Error deleting item");
+                    console.log(res);
+                  }
                 } else {
                   console.log("Cancelled");
                 }
