@@ -1,0 +1,22 @@
+<div class="row mt-5" *ngIf="ingredient.recipes.length>0">
+    <div class="col-12 d-flex justify-content-center">
+        <div class="w-75 ">
+            <div class="card w-100">
+                <div class="card-body">
+                    <h2 class="card-text">Ingredient details page </h2>
+                    <hr />
+                    <h3 class="card-title text-center mb-5">{{ingredient.name}}</h3>
+                    <h6>Recipes(Total: <strong>{{ingredient.recipes.length}}</strong>):</h6>
+                    <ul>
+                        <li *ngFor="let recipe of ingredient.recipes">
+                            <a [routerLink]="['/recipes/'+ recipe.id]">{{recipe.title}}</a> --- <span>Quantity of
+                                this
+                                ingredient {{ingredientQuantity}} </span>--<span>Unit: {{unitOfIngredient}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row mt-5">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="card">
+            <h3 class="card-title text-center">Statistics: </h3>
+            <hr>
+            <div class="card-body">
+                <div class="row text-center">
+                    <p class="col-4">Total recipes: {{recipes.length}}</p>
+                    <p class="col-4">Total ingredients: {{ingredients.length}}</p>
+                    <p class="col-4">Total cuisines: {{cuisines.length}}</p>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4>Total recipes per ingredient:</h4>
+                        <ul>
+                            <li *ngFor="let item of displayIngredients">
+                                {{item.name}} - Number of recipes: {{item.recipes.length}}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6">
+                        <h4>Total recipes per cuisine:</h4>
+                        <ul>
+                            <li *ngFor="let item of displayCuisines">
+                                {{item.name}} - Number of recipes: {{item.recipes.length}}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
