@@ -1,1 +1,46 @@
-<p>And the recipe list and everything else comes here</p>
+<h1>Recipes list</h1>
+
+<button (click)="goToCreateRecipe()">Add new recipe</button>
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Cuisine</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>Instructions</th>
+        <th>Time </th>
+        <th>Servings</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let recipe of recipesData">
+        <td>{{ recipe.id}}</td>
+        <td>{{ recipe.title}}</td>
+        <td>{{ recipe.cuisine}}</td>
+        <td [title]="recipe.description">{{ truncateText(recipe.description)}}</td>
+        <td>
+          <ul>
+            <li *ngFor="let ingredient of recipe.ingredients">
+              {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+            </li>
+          </ul>
+        </td>
+        <td [title]="recipe.instructions">{{ truncateText(recipe.instructions)}}</td>
+        <td>{{ formatTime(recipe.time)}}</td>
+        <td>{{ recipe.servings}}</td>          
+        <td>
+          <button (click)="viewRecipe(recipe)">View</button>
+          <button (click)="editRecipe(recipe)"> Edit</button>
+          <button (click)="deleteRecipe(recipe.id)">Delete</button>  
+        </td>
+
+
+      </tr>
+    </tbody>
+    
+  </table>
