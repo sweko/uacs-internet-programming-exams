@@ -8,9 +8,21 @@
   </head>
   <body>
     <h1>Information About Authors</h1>
+    <div>
+      <div>
+        <label for="name-search">Name: </label>
+        <input type="text" id="name-search" />
+      </div>
+      <div>
+        <label for="nationality-search">Nationalities: </label>
+        <select id="nationality-search">
+        </select>
+      </div>
+      <button id="search-authors">Search</button>
+    </div>
     <div class="author-header-table">
-      <div class="author-header">ID <span id="sort-id">sort</span></div>
-      <div class="author-header">Name <span id="sort-name">sort</span></div>
+      <div class="author-header">ID <span id="sort-id" class="unsorted sorter">asc</span></div>
+      <div class="author-header">Name <span id="sort-name"  class="unsorted sorter">asc</span></div>
       <div class="author-header">Birth Date</div>
       <div class="author-header">Alive</div>
       <div class="author-header">Age</div>
@@ -19,6 +31,7 @@
       <div class="author-header">Years active</div>
     </div>
     <div id="author-container">
+
     </div>
     <script src="script.js"></script>
   </body>
