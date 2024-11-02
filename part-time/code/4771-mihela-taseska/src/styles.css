@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20231230/pngtree-illustrated-vector-background-restaurant-menu-design-with-paper-texture-food-and-image_13914730.png') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

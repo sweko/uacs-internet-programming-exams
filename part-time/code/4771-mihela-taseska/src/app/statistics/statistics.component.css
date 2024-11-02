@@ -1,0 +1,9 @@
+.row {
+    background-color: rgba(169, 161, 161,.35) ;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 120vh;
+    overflow-y: scroll;
+}

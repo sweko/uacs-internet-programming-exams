@@ -1,0 +1,43 @@
+<h1>Edit recipe!</h1>
+<form formGroup="editRecipe" (ngSubmit)="onSubmit()">
+  <div>
+    <label class="form-label">ID:</label>
+    <input type="number" class="form-control"  [value]="nextId" disabled />
+  </div>
+
+    <div>
+      <label class="form-label">Title:</label>
+      <input type="text" class="form-control" placeholder="Enter title"  formControlName="title" required/>
+    </div>
+
+    <div>
+      <label class="form-label">Cuisine:</label>
+      <select class="form-control"  formControlName="cuisine" required>
+        <option value="" disabled selected hidden>Select cuisine</option>
+        <option *ngFor="let cuisine of cuisines" [value]="cuisine">{{ cuisine }}</option>
+      </select>
+    </div>
+
+<div>
+    <label class="form-label">Description:</label>
+    <input type="text" class="form-control" placeholder="Enter description"  formControlName="description"/>
+  </div>
+
+  <div>
+    <label class="form-label">Instructions:</label>
+    <input type="text" class="form-control" placeholder="Enter instructions"  formControlName="instructions"/>
+  </div>
+
+  <div>
+    <label class="form-label">Time:</label>
+    <input type="number" class="form-control" placeholder="Enter time" formControlName="time" required />
+  </div>
+
+  <div>
+    <label class="form-label">Servings:</label>
+    <input type="number" class="form-control" placeholder="Enter servings"  formControlName="servings"/>
+  </div>
+
+
+    <button type="submit">Update Recipe</button>
+  </form>

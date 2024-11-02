@@ -1,0 +1,61 @@
+<div class="row row-details mt-2">
+    <div class="col-2">
+        <a class="btn btn-dark  text-white ml-5" routerLink="/"> Back to the list</a>
+    </div>
+    <div class="col-8">
+
+
+
+        <form (ngSubmit)="createRecipe()">
+            <div class="row">
+
+                <div class="card-body row">
+                    <div class="col-12">
+                        <h5 class="card-title text-center">Create recipe form</h5>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" name="title" id="title" [(ngModel)]="title"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cuisine">Cuisine:</label>
+                            <select class="form-control" id="cuisine" name="cuisine" [(ngModel)]="cuisine" required>
+                                <option *ngFor="let cuisine of cuisines" [value]="cuisine">{{ cuisine }}</option>
+
+                            </select>
+                            <div class="form-group">
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" id="description" name="description"
+                                    [(ngModel)]="description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="instructions">Instructions:</label>
+                            <textarea class="form-control" id="instructions" name="instructions" rows="4"
+                                [(ngModel)]="instruction" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time:</label>
+                            <input type="number" class="form-control" id="time" name="time" [(ngModel)]="time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="servings">Servings:</label>
+                            <input type="number" class="form-control" name="servings" id="servings"
+                                [(ngModel)]="servings">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary ml-3 mt-4">Create Recipe</button>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>

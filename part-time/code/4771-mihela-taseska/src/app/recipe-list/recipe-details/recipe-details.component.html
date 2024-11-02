@@ -1,0 +1,38 @@
+<div class="row row-details mt-2">
+    <div class="col-2">
+        <a class="btn btn-dark  text-white ml-5" routerLink="/"> Back to the list</a>
+    </div>
+    <div class="col-8" *ngIf="recipe">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{recipe.title}} <p>ID:{{recipe.id}}</p>
+                </h5>
+                <p class="card-text pt-2"><strong> Description:</strong> {{recipe.description}}</p>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="card-text pt-2"><strong> Instruction:</strong> {{recipe.instructions}}</p>
+                        <p class="card-text pt-2"><strong> Cuisine:</strong> {{recipe.cuisine}}</p>
+                        <p class="card-text pt-2"><strong> Time:</strong> {{recipe.time | timeTransform}}</p>
+                        <p class="card-text pt-2 pb-2"><strong> Servings:</strong> {{recipe.servings}}</p>
+
+
+                    </div>
+                    <div class="col-6">
+                        <strong class="pt-2">Ingredients (#{{recipe.ingredients?.length}}):</strong>
+                        <ul>
+                            <li *ngFor="let ingredient of recipe.ingredients">
+                                {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <a class="btn btn-primary ml-2 text-white" [routerLink]="'/recipes/'+ recipe.id+'/edit'">Edit recipe</a>
+                <a class="btn btn-danger ml-2 text-white" (click)="deleteRecipe()">Delete recipe</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
