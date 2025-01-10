@@ -1,0 +1,21 @@
+
+<input type="text" [(ngModel)]="search" placeholder="Search by author name" (change)="filterAuthors()">
+
+<table>
+    <tr>
+        <th>Author</th>
+        <th>Books</th>
+        <th>Actions</th>
+    </tr>
+    @for (author of displayAuthors; track $index) {
+        <tr>
+            <td>{{ author.name }}</td>
+            <td>{{ author.bibliography.length }}</td>
+            <td>
+                <a [routerLink]="['/authors', author.id]">View</a>
+                <a [routerLink]="['/authors', author.id, 'edit']">Edit</a>
+                <a (click)="deleteAuthor(author.id)">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

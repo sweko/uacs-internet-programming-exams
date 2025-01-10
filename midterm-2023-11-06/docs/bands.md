@@ -4,7 +4,7 @@ Build a website that allows the user to view a list of bands and their albums.
 
 ## Data
 
-The data is provided via an API that provides the data. The url of the API is [https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/midterm-2023-11-06/data/bands.json](https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/midterm-2023-11-06/data/bands.json).
+The data is provided via an API that provides the data. The url of the API is [https://raw.githubusercontent.com/sweko/internet-programming-a98db973kwl8xp1lz94kjf0bma5pez8c/refs/heads/main/data/doctor-who-episodes.json](https://raw.githubusercontent.com/sweko/internet-programming-a98db973kwl8xp1lz94kjf0bma5pez8c/refs/heads/main/data/doctor-who-episodes.json).
 
 The format of the data is an object, that has a single property `metalBands`, which is an array of `band` objects, and each band object is as follows:
 
