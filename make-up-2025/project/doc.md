@@ -10,14 +10,16 @@ Create a web application that allows users to manage recipes and create weekly m
 
 ### 1. Recipe Management
 - Display a list of recipes with image thumbnails
+- Alternatively display the list of recipes in a grid view
+- Enable switching between list and grid view
 - Add new recipes with:
   - Title
   - Description
-  - Ingredients list
+  - Ingredients list (name and quantity)
   - Step-by-step instructions
   - Cooking time
   - Difficulty level
-  - Image URL
+  - Image URL (you can use sites like [MealDb](https://www.themealdb.com/) for free images)
 - Edit existing recipes
 - Delete recipes
 - View detailed recipe information
@@ -34,8 +36,6 @@ Create a web application that allows users to manage recipes and create weekly m
 - Automatically generate shopping lists from meal plans
 - Combine ingredients from multiple recipes
 - Mark items as purchased
-- Add custom items to the list
-- Remove items from the list
 
 ### 4. Recipe Categories and Favorites
 - Create and manage recipe categories
@@ -43,10 +43,18 @@ Create a web application that allows users to manage recipes and create weekly m
 - Filter recipes by category
 - Sort recipes by various criteria (cooking time, difficulty)
 
+### 5. Ingredients management
+
+- List all currently registered ingredients
+- Add new ingredients (name only)
+- Edit existing ingredients
+- Delete ingredients
+
+
 ## Technical Requirements
 
 ### Required Angular Features
-- Implementation of routing (**bonus** use lazy loading)
+- Implementation of routing (**bonus** points for lazy loading)
 - Use either template-driven and reactive forms (or a combination)
 - HTTP client integration with a backend service (JSON Server is recommended)
 - Custom pipes for data transformation
