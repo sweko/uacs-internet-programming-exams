@@ -1,5 +1,5 @@
 // API URL
-const API_URL = "https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term-2024/data/authors.json";
+const API_URL = "https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term-2025/data/authors.json";
 
 // Global state
 let authors = [];
@@ -42,8 +42,11 @@ function populateNationalityFilter() {
 
 // Setup event listeners
 function setupEventListeners() {
-    document.getElementById('search-authors').addEventListener('click', applyFilters);
+    // document.getElementById('search-authors').addEventListener('click', applyFilters);
     document.getElementById('name-search').addEventListener('input', applyFilters);
+    document.getElementById('nationality-search').addEventListener('change', applyFilters);
+    document.getElementById('year-search').addEventListener('change', applyFilters);
+    document.getElementById('alive-search').addEventListener('change', applyFilters);
     document.getElementById('close-modal').addEventListener('click', closeModal);
 }
 
@@ -85,6 +88,48 @@ function applyFilters() {
     displayAuthors();
 }
 
+// Normalize date format (handle YYYY-MM-DD, YYYY.MM.DD, MM/DD/YYYY, YYYY/MM/DD, and non-padded variants)
+function normalizeDate(dateString) {
+    if (!dateString) return null;
+    
+    // Check if it contains slashes
+    if (dateString.includes('/')) {
+        const parts = dateString.split('/');
+        if (parts.length === 3) {
+            // Check if it's MM/DD/YYYY (month is typically <= 12, year > 31)
+            if (parts[2].length === 4) {
+                const [month, day, year] = parts;
+                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+            }
+            // Otherwise it's YYYY/MM/DD
+            else {
+                const [year, month, day] = parts;
+                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+            }
+        }
+    }
+    
+    // Check if it contains dots (YYYY.MM.DD)
+    if (dateString.includes('.')) {
+        const parts = dateString.split('.');
+        if (parts.length === 3) {
+            const [year, month, day] = parts;
+            return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        }
+    }
+    
+    // Check if it contains dashes (YYYY-MM-DD or YYYY-M-D)
+    if (dateString.includes('-')) {
+        const parts = dateString.split('-');
+        if (parts.length === 3) {
+            const [year, month, day] = parts;
+            return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        }
+    }
+    
+    return dateString;
+}
+
 // Check if author was active in a given year
 function isActiveInYear(yearsActive, year) {
     if (!yearsActive) return false;
@@ -101,8 +146,8 @@ function isActiveInYear(yearsActive, year) {
 
 // Calculate age
 function calculateAge(birthDate, deathDate) {
-    const birth = new Date(birthDate);
-    const end = deathDate ? new Date(deathDate) : new Date();
+    const birth = new Date(normalizeDate(birthDate));
+    const end = deathDate ? new Date(normalizeDate(deathDate)) : new Date();
     
     let age = end.getFullYear() - birth.getFullYear();
     const monthDiff = end.getMonth() - birth.getMonth();
@@ -129,7 +174,7 @@ function getYearsActive(author) {
 
     let endLabel;
     if (author.death_date) {
-        const deathYear = new Date(author.death_date).getFullYear();
+        const deathYear = new Date(normalizeDate(author.death_date)).getFullYear();
         endLabel = deathYear.toString();
     } else if (currentYear - endYear <= 2) {
         endLabel = 'present';
@@ -139,7 +184,7 @@ function getYearsActive(author) {
 
     return {
         start: startYear,
-        end: author.death_date ? new Date(author.death_date).getFullYear() : endYear,
+        end: author.death_date ? new Date(normalizeDate(author.death_date)).getFullYear() : endYear,
         endLabel: endLabel,
         display: `${startYear} - ${endLabel}`
     };
@@ -244,7 +289,7 @@ function createAuthorRow(author) {
     // Birth Date
     const birthDiv = document.createElement('div');
     birthDiv.className = 'author-data';
-    birthDiv.textContent = author.birth_date;
+    birthDiv.textContent = normalizeDate(author.birth_date);
     row.appendChild(birthDiv);
 
     // Alive
@@ -314,8 +359,8 @@ function sortBy(field) {
                 bValue = b.name.toLowerCase();
                 break;
             case 'birth_date':
-                aValue = new Date(a.birth_date);
-                bValue = new Date(b.birth_date);
+                aValue = new Date(normalizeDate(a.birth_date));
+                bValue = new Date(normalizeDate(b.birth_date));
                 break;
             case 'alive':
                 aValue = !a.death_date ? 1 : 0;
