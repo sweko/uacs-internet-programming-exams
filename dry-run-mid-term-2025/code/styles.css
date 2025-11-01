@@ -1,5 +1,50 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .filters {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .filters > div {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .filters label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .filters input[type="text"],
+  .filters input[type="number"],
+  .filters select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .filters button {
+    padding: 6px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .filters button:hover {
+    background-color: #0056b3;
   }
 
   .author-header-table {
@@ -28,6 +73,16 @@ body {
     border: 1px solid #868686;
   }
 
+  .author-data a {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .author-data a:hover {
+    text-decoration: underline;
+  }
+
 
   .modal.hidden {
     display: none;
@@ -45,9 +100,32 @@ body {
   }
 
   #biblio-details-content {
-    margin: 50px 50px;
-    padding: 50px 50px;
+    margin: 50px auto;
+    padding: 30px;
     background-color: white;
+    max-width: 800px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  #biblio-details-content h2 {
+    margin-top: 0;
+  }
+
+  #close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  #close-modal:hover {
+    background-color: #c82333;
   }
 
   .sorted {

@@ -8,21 +8,37 @@
   </head>
   <body>
     <h1>Information About Authors</h1>
-    <div>
+    <div class="filters">
       <div>
         <label for="name-search">Name: </label>
         <input type="text" id="name-search" />
       </div>
       <div>
-        <label for="nationality-search">Nationalities: </label>
+        <label for="nationality-search">Nationality: </label>
         <select id="nationality-search">
+          <option value="">All</option>
         </select>
+      </div>
+      <div>
+        <label for="alive-search">Alive: </label>
+        <input type="checkbox" id="alive-search" />
+      </div>
+      <div>
+        <label for="year-search">Years Active: </label>
+        <input type="number" id="year-search" placeholder="Enter year" />
       </div>
       <button id="search-authors">Search</button>
     </div>
     <div class="author-header-table">
     </div>
     <div id="author-container">
+    </div>
+    <div id="biblio-modal" class="modal hidden">
+      <div id="biblio-details-content">
+        <h2 id="biblio-author-name"></h2>
+        <button id="close-modal">Close</button>
+        <div id="biblio-list"></div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

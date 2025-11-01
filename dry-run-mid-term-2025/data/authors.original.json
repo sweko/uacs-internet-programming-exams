@@ -1,7 +1,7 @@
 {
   "authors": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Paolo Bacigalupi",
       "birth_date": "1972-08-06",
       "nationality": "American",
@@ -14,7 +14,7 @@
         {
           "name": "Ship Breaker",
           "year": 2010,
-          "type": "novel"
+          "type": "Novel"
         },
         {
           "name": "The Drowned Cities",
@@ -61,7 +61,7 @@
       "bibliography": [
         {
           "name": "Binti",
-          "year": "2015",
+          "year": 2015,
           "type": "Novella"
         },
         {
@@ -150,7 +150,7 @@
         {
           "name": "Provenance",
           "year": 2017,
-          "type": "NOVEL"
+          "type": "Novel"
         },
         {
           "name": "The Raven Tower",
@@ -160,11 +160,6 @@
         {
           "name": "Translation State",
           "year": 2023,
-          "type": "Novel"
-        },
-        {
-          "name": "Ancillary Justice",
-          "year": 2013,
           "type": "Novel"
         }
       ]
@@ -239,16 +234,11 @@
           "name": "Hieroglyph: Stories and Visions for a Better Future",
           "year": 2014,
           "type": "Collection"
-        },
-        {
-          "name": "Snow Crash",
-          "year": 1992,
-          "type": "Novel"
         }
       ]
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Olaf Stapledon",
       "birth_date": "1886-05-10",
       "death_date": "1950-09-06",
@@ -314,7 +304,7 @@
         },
         {
           "name": "Xenocide",
-          "year": "1991",
+          "year": 1991,
           "type": "Novel"
         },
         {
@@ -418,7 +408,7 @@
         {
           "name": "The Wonder Engine",
           "year": 2018,
-          "type": "novel"
+          "type": "Novel"
         },
         {
           "name": "Paladin's Grace",
@@ -465,7 +455,7 @@
     {
       "id": 8,
       "name": "Ray Bradbury",
-      "birth_date": "08/22/1920",
+      "birth_date": "1920-08-22",
       "death_date": "2012-06-05",
       "nationality": "American",
       "bibliography": [
@@ -610,7 +600,7 @@
         {
           "name": "Golden Age and Other Stories",
           "year": 2021,
-          "type": "collection"
+          "type": "Collection"
         },
         {
           "name": "No Flight Without the Shatter",
@@ -635,7 +625,7 @@
       ]
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Cixin Liu",
       "birth_date": "1963-06-23",
       "nationality": "Chinese",
@@ -706,7 +696,7 @@
         {
           "name": "Humans",
           "year": 2003,
-          "type": "NOVEL"
+          "type": "Novel"
         },
         {
           "name": "Hybrids",
@@ -763,7 +753,7 @@
         },
         {
           "name": "Rainbows End",
-          "year": "2006",
+          "year": 2006,
           "type": "Novel"
         },
         {
@@ -985,16 +975,11 @@
           "name": "Burning Chrome",
           "year": 1986,
           "type": "Collection"
-        },
-        {
-          "name": "Neuromancer",
-          "year": 1984,
-          "type": "Novel"
         }
       ]
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "China Miéville",
       "birth_date": "1972-09-30",
       "nationality": "British",
@@ -1175,7 +1160,7 @@
         {
           "name": "Beneath the Sugar Sky",
           "year": 2018,
-          "type": "novella"
+          "type": "Novella"
         },
         {
           "name": "In an Absent Dream",
@@ -1289,7 +1274,7 @@
         {
           "name": "The Red Room",
           "year": 1896,
-          "type": "COLLECTION"
+          "type": "Collection"
         },
         {
           "name": "The Crystal Egg and Other Stories",
@@ -1307,7 +1292,7 @@
       "id": 19,
       "name": "Douglas Adams",
       "birth_date": "1952-03-11",
-      "death_date": "11-05-2001",
+      "death_date": "2001-05-11",
       "nationality": "British",
       "bibliography": [
         {
@@ -1456,7 +1441,7 @@
         {
           "name": "Dawn",
           "year": 1987,
-          "type": "novel"
+          "type": "Novel"
         },
         {
           "name": "Adulthood Rites",
@@ -1541,8 +1526,8 @@
     {
       "id": 23,
       "name": "H.P. Lovecraft",
-      "birth_date": "1890.08.20",
-      "death_date": "1937.03.15",
+      "birth_date": "1890-08-20",
+      "death_date": "1937-03-15",
       "nationality": "American",
       "bibliography": [
         {
@@ -1960,7 +1945,7 @@
         },
         {
           "name": "A Storm of Swords",
-          "year": "2000",
+          "year": 2000,
           "type": "Novel"
         },
         {
@@ -2564,11 +2549,6 @@
           "name": "The Element of Fire",
           "year": 1993,
           "type": "Novel"
-        },
-        {
-          "name": "All Systems Red",
-          "year": 2017,
-          "type": "Novella"
         }
       ]
     },
@@ -2805,7 +2785,7 @@
         {
           "name": "Beyond the Door",
           "year": 1954,
-          "type": "collection"
+          "type": "Collection"
         },
         {
           "name": "The Minority Report",
@@ -2895,7 +2875,7 @@
     {
       "id": 38,
       "name": "Isaac Asimov",
-      "birth_date": "1920-1-2",
+      "birth_date": "1920-01-02",
       "death_date": "1992-04-06",
       "nationality": "American",
       "bibliography": [
@@ -3017,7 +2997,7 @@
       ]
     },
     {
-      "id": "39",
+      "id": 39,
       "name": "N.K. Jemisin",
       "birth_date": "1972-09-19",
       "nationality": "American",
@@ -3118,11 +3098,6 @@
         {
           "name": "A Prayer for the Crown-Shy",
           "year": 2022,
-          "type": "Novel"
-        },
-        {
-          "name": "The Long Way to a Small, Angry Planet",
-          "year": 2014,
           "type": "Novel"
         }
       ]
@@ -3357,7 +3332,7 @@
         {
           "name": "Penric's Fox",
           "year": 2015,
-          "type": "NOVELLA"
+          "type": "Novella"
         },
         {
           "name": "Penric's Mission",
@@ -3916,7 +3891,7 @@
         },
         {
           "name": "It",
-          "year": "1986",
+          "year": 1986,
           "type": "Novel"
         },
         {
@@ -4272,7 +4247,7 @@
     {
       "id": 51,
       "name": "Ursula K. Le Guin",
-      "birth_date": "1929/10/21",
+      "birth_date": "1929-10-21",
       "death_date": "2018-01-22",
       "nationality": "American",
       "bibliography": [
