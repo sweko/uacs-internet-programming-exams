@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>List of authors</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Information About Authors</h1>
-    <div class="filters">
-      <div>
-        <label for="name-search">Name: </label>
-        <input type="text" id="name-search" />
-      </div>
-      <div>
-        <label for="nationality-search">Nationality: </label>
-        <select id="nationality-search">
-          <option value="">All</option>
-        </select>
-      </div>
-      <div>
-        <label for="alive-search">Alive: </label>
-        <input type="checkbox" id="alive-search" />
-      </div>
-      <div>
-        <label for="year-search">Years Active: </label>
-        <input type="number" id="year-search" placeholder="Enter year" />
-      </div>
-      <!-- <button id="search-authors">Search</button> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Authors List</h1>
+        
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter">
+                <label for="name-filter">Name:</label>
+                <input type="text" id="name-filter" placeholder="Filter by name">
+            </div>
+            <div class="filter">
+                <label for="nationality-filter">Nationality:</label>
+                <select id="nationality-filter">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label>
+                    <input type="checkbox" id="alive-filter"> Show only living authors
+                </label>
+            </div>
+            <div class="filter">
+                <label for="active-year-filter">Active in year:</label>
+                <input type="number" id="active-year-filter" placeholder="Enter year">
+            </div>
+        </div>
+
+        <!-- Authors Table -->
+        <table class="authors-table">
+            <thead>
+                <tr>
+                    <th data-sort="id">ID<span class="sort-arrow"></span></th>
+                    <th data-sort="name">Name<span class="sort-arrow"></span></th>
+                    <th data-sort="birthDate">Birth date<span class="sort-arrow"></span></th>
+                    <th data-sort="alive">Alive<span class="sort-arrow"></span></th>
+                    <th data-sort="age">Age<span class="sort-arrow"></span></th>
+                    <th data-sort="nationality">Nationality<span class="sort-arrow"></span></th>
+                    <th data-sort="bibliography">Bibliography<span class="sort-arrow"></span></th>
+                    <th data-sort="yearsActive">Years Active<span class="sort-arrow"></span></th>
+                </tr>
+            </thead>
+            <tbody id="authors-list">
+                <!-- Authors will be inserted here by JavaScript -->
+            </tbody>
+        </table>
     </div>
-    <div class="author-header-table">
+
+    <!-- Modal -->
+    <div id="book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody id="modal-books-list">
+                    <!-- Books will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div id="author-container">
-    </div>
-    <div id="biblio-modal" class="modal hidden">
-      <div id="biblio-details-content">
-        <h2 id="biblio-author-name"></h2>
-        <button id="close-modal">Close</button>
-        <div id="biblio-list"></div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
