@@ -1,470 +1,343 @@
-// API URL
-const API_URL = "https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term-2025/data/authors.json";
+// Constants
+const API_URL = 'https://raw.githubusercontent.com/sweko/uacs-internet-programming-exams/main/dry-run-mid-term-2025/data/authors.json';
 
-// Global state
+// State management
 let authors = [];
-let filteredAuthors = [];
-let currentSort = { field: null, ascending: true };
+let currentSort = {
+    column: 'id',
+    ascending: true
+};
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadAuthors();
-    populateNationalityFilter();
-    displayAuthors();
-    setupEventListeners();
-});
+// Cache DOM elements
+const authorsList = document.getElementById('authors-list');
+const nationalityFilter = document.getElementById('nationality-filter');
+const nameFilter = document.getElementById('name-filter');
+const aliveFilter = document.getElementById('alive-filter');
+const activeYearFilter = document.getElementById('active-year-filter');
+const modal = document.getElementById('book-modal');
+const closeModal = document.querySelector('.close');
 
-// Load authors from API
-async function loadAuthors() {
+// Fetch and initialize data
+async function fetchAuthors() {
     try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        authors = data.authors || data;
-        filteredAuthors = [...authors];
+        authors = data.authors;
+        initializeNationalityFilter();
+        renderAuthors();
     } catch (error) {
-        console.error('Error loading authors:', error);
-        alert('Failed to load authors data');
+        console.error('Error fetching authors:', error);
     }
 }
 
-// Populate nationality dropdown
-function populateNationalityFilter() {
-    const nationalitySelect = document.getElementById('nationality-search');
+// Initialize nationality filter with unique values
+function initializeNationalityFilter() {
     const nationalities = [...new Set(authors.map(author => author.nationality))].sort();
-    
     nationalities.forEach(nationality => {
         const option = document.createElement('option');
         option.value = nationality;
         option.textContent = nationality;
-        nationalitySelect.appendChild(option);
+        nationalityFilter.appendChild(option);
     });
 }
 
-// Setup event listeners
-function setupEventListeners() {
-    // document.getElementById('search-authors').addEventListener('click', applyFilters);
-    document.getElementById('name-search').addEventListener('input', applyFilters);
-    document.getElementById('nationality-search').addEventListener('change', applyFilters);
-    document.getElementById('year-search').addEventListener('change', applyFilters);
-    document.getElementById('alive-search').addEventListener('change', applyFilters);
-    document.getElementById('close-modal').addEventListener('click', closeModal);
+// Helper functions
+/**
+ * Parse a variety of date string formats into a JS Date object.
+ * Does not modify the source data; returns null if parsing fails.
+ */
+function parseDateToJS(d) {
+    if (!d) return null;
+    if (d instanceof Date) return d;
+    if (typeof d !== 'string') return null;
+    const s = d.trim();
+
+    // YYYY-MM-DD or YYYY-M-D
+    if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(s)) {
+        const [y, m, day] = s.split('-').map(Number);
+        return new Date(y, m - 1, day);
+    }
+
+    // MM/DD/YYYY (common US format)
+    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s)) {
+        const [mo, day, y] = s.split('/').map(Number);
+        return new Date(y, mo - 1, day);
+    }
+
+    // YYYY/MM/DD
+    if (/^\d{4}\/\d{1,2}\/\d{1,2}$/.test(s)) {
+        const [y, m, day] = s.split('/').map(Number);
+        return new Date(y, m - 1, day);
+    }
+
+    // YYYY.MM.DD
+    if (/^\d{4}\.\d{1,2}\.\d{1,2}$/.test(s)) {
+        const [y, m, day] = s.split('.').map(Number);
+        return new Date(y, m - 1, day);
+    }
+
+    // Dashes with ambiguous order: e.g. 11-05-2001
+    if (/^\d{1,2}-\d{1,2}-\d{4}$/.test(s)) {
+        const [p1, p2, y] = s.split('-').map(Number);
+        // If first part >12 assume D-M-YYYY, otherwise assume M-D-YYYY
+        if (p1 > 12) {
+            return new Date(y, p2 - 1, p1);
+        }
+        return new Date(y, p1 - 1, p2);
+    }
+
+    // Fallback: let Date try to parse common formats
+    const parsed = new Date(s);
+    if (!isNaN(parsed)) return parsed;
+    return null;
 }
 
-// Apply filters
-function applyFilters() {
-    const nameFilter = document.getElementById('name-search').value.toLowerCase().trim();
-    const nationalityFilter = document.getElementById('nationality-search').value;
-    const aliveFilter = document.getElementById('alive-search').checked;
-    const yearFilter = document.getElementById('year-search').value;
-
-    filteredAuthors = authors.filter(author => {
-        // Name filter
-        if (nameFilter && !author.name.toLowerCase().includes(nameFilter)) {
-            return false;
-        }
-
-        // Nationality filter
-        if (nationalityFilter && author.nationality !== nationalityFilter) {
-            return false;
-        }
-
-        // Alive filter
-        if (aliveFilter && author.death_date) {
-            return false;
-        }
-
-        // Year filter
-        if (yearFilter) {
-            const year = parseInt(yearFilter);
-            const yearsActive = getYearsActive(author);
-            if (!isActiveInYear(yearsActive, year)) {
-                return false;
-            }
-        }
-
-        return true;
-    });
-
-    displayAuthors();
+function formatDateIso(d) {
+    const date = parseDateToJS(d);
+    if (!date) return d || '';
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
 }
-
-// Normalize date format (handle YYYY-MM-DD, YYYY.MM.DD, MM/DD/YYYY, YYYY/MM/DD, and non-padded variants)
-function normalizeDate(dateString) {
-    if (!dateString) return null;
-    
-    // Check if it contains slashes
-    if (dateString.includes('/')) {
-        const parts = dateString.split('/');
-        if (parts.length === 3) {
-            // Check if it's MM/DD/YYYY (month is typically <= 12, year > 31)
-            if (parts[2].length === 4) {
-                const [month, day, year] = parts;
-                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-            }
-            // Otherwise it's YYYY/MM/DD
-            else {
-                const [year, month, day] = parts;
-                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-            }
-        }
-    }
-    
-    // Check if it contains dots (YYYY.MM.DD)
-    if (dateString.includes('.')) {
-        const parts = dateString.split('.');
-        if (parts.length === 3) {
-            const [year, month, day] = parts;
-            return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-        }
-    }
-    
-    // Check if it contains dashes (YYYY-MM-DD or YYYY-M-D)
-    if (dateString.includes('-')) {
-        const parts = dateString.split('-');
-        if (parts.length === 3) {
-            const [year, month, day] = parts;
-            return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-        }
-    }
-    
-    return dateString;
-}
-
-// Check if author was active in a given year
-function isActiveInYear(yearsActive, year) {
-    if (!yearsActive) return false;
-    
-    const startYear = yearsActive.start;
-    let endYear = yearsActive.end;
-    
-    if (yearsActive.endLabel === 'present') {
-        endYear = new Date().getFullYear();
-    }
-    
-    return year >= startYear && year <= endYear;
-}
-
-// Calculate age
-function calculateAge(birthDate, deathDate) {
-    const birth = new Date(normalizeDate(birthDate));
-    const end = deathDate ? new Date(normalizeDate(deathDate)) : new Date();
-    
-    let age = end.getFullYear() - birth.getFullYear();
-    const monthDiff = end.getMonth() - birth.getMonth();
-    
-    if (monthDiff < 0 || (monthDiff === 0 && end.getDate() < birth.getDate())) {
-        age--;
-    }
-    
+function calculateAge(birthDate, deathDate = null) {
+    const birth = parseDateToJS(birthDate);
+    const end = deathDate ? parseDateToJS(deathDate) : new Date();
+    if (!birth || isNaN(birth)) return '';
+    const age = Math.floor((end - birth) / (365.25 * 24 * 60 * 60 * 1000));
     return age;
 }
 
-// Get years active
-function getYearsActive(author) {
-    if (!author.bibliography || author.bibliography.length === 0) {
-        return null;
-    }
-
-    const years = author.bibliography.map(book => parseInt(book.year)).filter(y => !isNaN(y));
-    if (years.length === 0) return null;
-
-    const startYear = Math.min(...years);
-    const endYear = Math.max(...years);
-    const currentYear = new Date().getFullYear();
-
-    let endLabel;
-    if (author.death_date) {
-        const deathYear = new Date(normalizeDate(author.death_date)).getFullYear();
-        endLabel = deathYear.toString();
-    } else if (currentYear - endYear <= 2) {
-        endLabel = 'present';
-    } else {
-        endLabel = endYear.toString();
-    }
-
-    return {
-        start: startYear,
-        end: author.death_date ? new Date(normalizeDate(author.death_date)).getFullYear() : endYear,
-        endLabel: endLabel,
-        display: `${startYear} - ${endLabel}`
-    };
+function isAlive(author) {
+    return !author.death_date;
 }
 
-// Get bibliography summary
-function getBibliographySummary(bibliography) {
-    const typeCounts = {};
-    
-    bibliography.forEach(book => {
+function formatBibliography(bibliography) {
+    const counts = bibliography.reduce((acc, book) => {
         const type = book.type.charAt(0).toUpperCase() + book.type.slice(1).toLowerCase();
-        typeCounts[type] = (typeCounts[type] || 0) + 1;
-    });
+        acc[type] = (acc[type] || 0) + 1;
+        return acc;
+    }, {});
 
-    const summaryParts = Object.entries(typeCounts).map(([type, count]) => {
-        const plural = count === 1 ? type : pluralize(type);
-        return `${count} ${plural}`;
-    });
-
-    if (summaryParts.length === 0) return '0 books';
-    if (summaryParts.length === 1) return summaryParts[0];
-    if (summaryParts.length === 2) return summaryParts.join(' and ');
-    
-    const lastPart = summaryParts.pop();
-    return summaryParts.join(', ') + ' and ' + lastPart;
+    return Object.entries(counts)
+        .map(([type, count]) => `${count} ${type}${count === 1 ? '' : 's'}`)
+        .join(', ')
+        .replace(/,([^,]*)$/, ' and$1');
 }
 
-// Pluralize book types
-function pluralize(type) {
-    if (type === 'Collection') return 'Collections';
-    if (type === 'Novella') return 'Novellas';
-    return type + 's';
-}
+function getYearsActive(author) {
+    const books = author.bibliography;
+    if (!books.length) return 'N/A';
 
-// Display authors
-function displayAuthors() {
-    displayHeaders();
-    
-    const container = document.getElementById('author-container');
-    container.innerHTML = '';
+    const years = books.map(book => typeof book.year === 'string' ? parseInt(book.year) : book.year);
+    const startYear = Math.min(...years);
+    let endYear;
 
-    filteredAuthors.forEach(author => {
-        const row = createAuthorRow(author);
-        container.appendChild(row);
-    });
-}
-
-// Display headers with sorting
-function displayHeaders() {
-    const headerContainer = document.querySelector('.author-header-table');
-    headerContainer.innerHTML = '';
-
-    const headers = [
-        { label: 'ID', field: 'id' },
-        { label: 'Name', field: 'name' },
-        { label: 'Birth Date', field: 'birth_date' },
-        { label: 'Alive', field: 'alive' },
-        { label: 'Age', field: 'age' },
-        { label: 'Nationality', field: 'nationality' },
-        { label: 'Bibliography', field: 'bibliography' },
-        { label: 'Years Active', field: 'years_active' }
-    ];
-
-    headers.forEach(header => {
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'author-header';
-        headerDiv.style.cursor = 'pointer';
-        
-        let arrow = '';
-        if (currentSort.field === header.field) {
-            arrow = currentSort.ascending ? ' ▲' : ' ▼';
-            headerDiv.classList.add('sorted');
-        } else {
-            arrow = ' ▽';
-            headerDiv.classList.add('unsorted');
-        }
-        
-        headerDiv.textContent = header.label + arrow;
-        headerDiv.addEventListener('click', () => sortBy(header.field));
-        
-        headerContainer.appendChild(headerDiv);
-    });
-}
-
-// Create author row
-function createAuthorRow(author) {
-    const row = document.createElement('div');
-    row.className = 'author-row';
-
-    // ID
-    const idDiv = document.createElement('div');
-    idDiv.className = 'author-data';
-    idDiv.textContent = author.id;
-    row.appendChild(idDiv);
-
-    // Name
-    const nameDiv = document.createElement('div');
-    nameDiv.className = 'author-data';
-    nameDiv.textContent = author.name;
-    row.appendChild(nameDiv);
-
-    // Birth Date
-    const birthDiv = document.createElement('div');
-    birthDiv.className = 'author-data';
-    birthDiv.textContent = normalizeDate(author.birth_date);
-    row.appendChild(birthDiv);
-
-    // Alive
-    const aliveDiv = document.createElement('div');
-    aliveDiv.className = 'author-data';
-    const aliveCheckbox = document.createElement('input');
-    aliveCheckbox.type = 'checkbox';
-    aliveCheckbox.checked = !author.death_date;
-    aliveCheckbox.disabled = true;
-    aliveDiv.appendChild(aliveCheckbox);
-    row.appendChild(aliveDiv);
-
-    // Age
-    const ageDiv = document.createElement('div');
-    ageDiv.className = 'author-data';
-    ageDiv.textContent = calculateAge(author.birth_date, author.death_date);
-    row.appendChild(ageDiv);
-
-    // Nationality
-    const nationalityDiv = document.createElement('div');
-    nationalityDiv.className = 'author-data';
-    nationalityDiv.textContent = author.nationality;
-    row.appendChild(nationalityDiv);
-
-    // Bibliography
-    const biblioDiv = document.createElement('div');
-    biblioDiv.className = 'author-data';
-    const biblioLink = document.createElement('a');
-    biblioLink.href = '#';
-    biblioLink.textContent = getBibliographySummary(author.bibliography);
-    biblioLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showBibliographyModal(author);
-    });
-    biblioDiv.appendChild(biblioLink);
-    row.appendChild(biblioDiv);
-
-    // Years Active
-    const yearsDiv = document.createElement('div');
-    yearsDiv.className = 'author-data';
-    const yearsActive = getYearsActive(author);
-    yearsDiv.textContent = yearsActive ? yearsActive.display : 'N/A';
-    row.appendChild(yearsDiv);
-
-    return row;
-}
-
-// Sort authors
-function sortBy(field) {
-    if (currentSort.field === field) {
-        currentSort.ascending = !currentSort.ascending;
+    if (author.death_date) {
+        const d = parseDateToJS(author.death_date);
+        endYear = d ? d.getFullYear() : new Date(author.death_date).getFullYear();
     } else {
-        currentSort.field = field;
-        currentSort.ascending = true;
+        const maxYear = Math.max(...years);
+        const currentYear = new Date().getFullYear();
+        endYear = (currentYear - maxYear <= 2) ? 'present' : maxYear;
     }
 
-    filteredAuthors.sort((a, b) => {
-        let aValue, bValue;
+    return `${startYear} - ${endYear}`;
+}
 
-        switch (field) {
+// Filtering functions
+function applyFilters() {
+    let filteredAuthors = [...authors];
+
+    // Name filter
+    const nameQuery = nameFilter.value.toLowerCase();
+    if (nameQuery) {
+        filteredAuthors = filteredAuthors.filter(author =>
+            author.name.toLowerCase().includes(nameQuery)
+        );
+    }
+
+    // Nationality filter
+    const nationalityQuery = nationalityFilter.value;
+    if (nationalityQuery) {
+        filteredAuthors = filteredAuthors.filter(author =>
+            author.nationality === nationalityQuery
+        );
+    }
+
+    // Alive filter
+    if (aliveFilter.checked) {
+        filteredAuthors = filteredAuthors.filter(isAlive);
+    }
+
+    // Active year filter
+    const activeYear = activeYearFilter.value;
+    if (activeYear) {
+        const activeYearNum = parseInt(activeYear, 10);
+        filteredAuthors = filteredAuthors.filter(author => {
+            const years = author.bibliography
+                .map(book => typeof book.year === 'string' ? parseInt(book.year) : book.year);
+            const startYear = Math.min(...years);
+            let endYear = Math.max(...years);
+            if (author.death_date) {
+                const d = parseDateToJS(author.death_date);
+                if (d) endYear = d.getFullYear();
+            }
+            return activeYearNum >= startYear && activeYearNum <= endYear;
+        });
+    }
+
+    return filteredAuthors;
+}
+
+// Sorting functions
+function applySorting(authors) {
+    return authors.sort((a, b) => {
+        let comparison = 0;
+        
+        switch (currentSort.column) {
             case 'id':
-                aValue = parseInt(a.id);
-                bValue = parseInt(b.id);
+                comparison = (typeof a.id === 'string' ? parseInt(a.id) : a.id) -
+                           (typeof b.id === 'string' ? parseInt(b.id) : b.id);
                 break;
             case 'name':
-                aValue = a.name.toLowerCase();
-                bValue = b.name.toLowerCase();
+                comparison = a.name.localeCompare(b.name);
                 break;
-            case 'birth_date':
-                aValue = new Date(normalizeDate(a.birth_date));
-                bValue = new Date(normalizeDate(b.birth_date));
+            case 'birthDate':
+                const aBirth = parseDateToJS(a.birth_date);
+                const bBirth = parseDateToJS(b.birth_date);
+                if (aBirth && bBirth) {
+                    comparison = aBirth - bBirth;
+                } else if (aBirth && !bBirth) {
+                    comparison = 1;
+                } else if (!aBirth && bBirth) {
+                    comparison = -1;
+                } else {
+                    comparison = 0;
+                }
                 break;
             case 'alive':
-                aValue = !a.death_date ? 1 : 0;
-                bValue = !b.death_date ? 1 : 0;
+                comparison = isAlive(b) - isAlive(a);
                 break;
             case 'age':
-                aValue = calculateAge(a.birth_date, a.death_date);
-                bValue = calculateAge(b.birth_date, b.death_date);
+                comparison = calculateAge(a.birth_date, a.death_date) -
+                           calculateAge(b.birth_date, b.death_date);
                 break;
             case 'nationality':
-                aValue = a.nationality.toLowerCase();
-                bValue = b.nationality.toLowerCase();
+                comparison = a.nationality.localeCompare(b.nationality);
                 break;
             case 'bibliography':
-                aValue = a.bibliography.length;
-                bValue = b.bibliography.length;
+                comparison = a.bibliography.length - b.bibliography.length;
                 break;
-            case 'years_active':
-                const aYears = getYearsActive(a);
-                const bYears = getYearsActive(b);
-                aValue = aYears ? aYears.start * 10000 + aYears.end : 0;
-                bValue = bYears ? bYears.start * 10000 + bYears.end : 0;
+            case 'yearsActive':
+                const aYears = a.bibliography.map(book => typeof book.year === 'string' ? parseInt(book.year) : book.year);
+                const bYears = b.bibliography.map(book => typeof book.year === 'string' ? parseInt(book.year) : book.year);
+                comparison = Math.min(...aYears) - Math.min(...bYears);
+                if (comparison === 0) {
+                    const aMax = Math.max(...aYears);
+                    const bMax = Math.max(...bYears);
+                    comparison = aMax - bMax;
+                }
                 break;
-            default:
-                return 0;
         }
 
-        if (aValue < bValue) return currentSort.ascending ? -1 : 1;
-        if (aValue > bValue) return currentSort.ascending ? 1 : -1;
-        return 0;
+        return currentSort.ascending ? comparison : -comparison;
     });
-
-    displayAuthors();
 }
 
-// Show bibliography modal
-function showBibliographyModal(author) {
-    const modal = document.getElementById('biblio-modal');
-    const authorName = document.getElementById('biblio-author-name');
-    const biblioList = document.getElementById('biblio-list');
+// Rendering functions
+function renderAuthors() {
+    const filteredAuthors = applyFilters();
+    const sortedAuthors = applySorting(filteredAuthors);
 
-    authorName.textContent = `Books by ${author.name}`;
-    
-    // Sort books by year (newest to oldest)
-    const sortedBooks = [...author.bibliography].sort((a, b) => {
-        const yearA = parseInt(a.year);
-        const yearB = parseInt(b.year);
-        return yearB - yearA;
-    });
+    authorsList.innerHTML = sortedAuthors.map(author => `
+        <tr>
+            <td>${author.id}</td>
+            <td>${author.name}</td>
+            <td>${formatDateIso(author.birth_date)}</td>
+            <td><input type="checkbox" ${isAlive(author) ? 'checked' : ''} disabled></td>
+            <td>${calculateAge(author.birth_date, author.death_date)}</td>
+            <td>${author.nationality}</td>
+            <td class="bibliography-link" onclick="showBibliography('${author.id}')">
+                ${formatBibliography(author.bibliography)}
+            </td>
+            <td>${getYearsActive(author)}</td>
+        </tr>
+    `).join('');
 
-    biblioList.innerHTML = '';
-    
-    const table = document.createElement('table');
-    table.style.width = '100%';
-    table.style.borderCollapse = 'collapse';
-    
-    // Header
-    const thead = document.createElement('thead');
-    const headerRow = document.createElement('tr');
-    ['Name', 'Year', 'Type'].forEach(heading => {
-        const th = document.createElement('th');
-        th.textContent = heading;
-        th.style.border = '1px solid #ddd';
-        th.style.padding = '8px';
-        th.style.textAlign = 'left';
-        th.style.backgroundColor = '#f2f2f2';
-        headerRow.appendChild(th);
+    // Update sort arrows
+    document.querySelectorAll('.sort-arrow').forEach(arrow => {
+        arrow.className = 'sort-arrow';
+        const column = arrow.parentElement.dataset.sort;
+        if (column === currentSort.column) {
+            arrow.classList.add(currentSort.ascending ? 'asc' : 'desc');
+        }
     });
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-    
-    // Body
-    const tbody = document.createElement('tbody');
-    sortedBooks.forEach(book => {
-        const row = document.createElement('tr');
-        
-        const nameCell = document.createElement('td');
-        nameCell.textContent = book.name;
-        nameCell.style.border = '1px solid #ddd';
-        nameCell.style.padding = '8px';
-        row.appendChild(nameCell);
-        
-        const yearCell = document.createElement('td');
-        yearCell.textContent = book.year;
-        yearCell.style.border = '1px solid #ddd';
-        yearCell.style.padding = '8px';
-        row.appendChild(yearCell);
-        
-        const typeCell = document.createElement('td');
-        typeCell.textContent = book.type;
-        typeCell.style.border = '1px solid #ddd';
-        typeCell.style.padding = '8px';
-        row.appendChild(typeCell);
-        
-        tbody.appendChild(row);
-    });
-    table.appendChild(tbody);
-    
-    biblioList.appendChild(table);
-    modal.classList.remove('hidden');
 }
 
-// Close modal
-function closeModal() {
-    const modal = document.getElementById('biblio-modal');
-    modal.classList.add('hidden');
+// Modal functions
+function showBibliography(authorId) {
+    const author = authors.find(a => a.id.toString() === authorId.toString());
+    if (!author) return;
+
+    const books = [...author.bibliography]
+        .sort((a, b) => b.year - a.year)
+        .map(book => `
+            <tr>
+                <td>${book.name}</td>
+                <td>${book.year}</td>
+                <td>${book.type.charAt(0).toUpperCase() + book.type.slice(1).toLowerCase()}</td>
+            </tr>
+        `).join('');
+
+    document.getElementById('modal-title').textContent = `${author.name}'s Bibliography`;
+    document.getElementById('modal-books-list').innerHTML = books;
+    // Show modal and prevent background scrolling so scrolls go to the modal content
+    modal.style.display = 'flex';
+    // lock page scroll
+    document.body.style.overflow = 'hidden';
 }
+
+// Event listeners
+document.querySelectorAll('.authors-table th').forEach(header => {
+    header.addEventListener('click', () => {
+        const column = header.dataset.sort;
+        if (currentSort.column === column) {
+            currentSort.ascending = !currentSort.ascending;
+        } else {
+            currentSort.column = column;
+            currentSort.ascending = true;
+        }
+        renderAuthors();
+    });
+});
+
+nameFilter.addEventListener('input', renderAuthors);
+nationalityFilter.addEventListener('change', renderAuthors);
+aliveFilter.addEventListener('change', renderAuthors);
+activeYearFilter.addEventListener('input', renderAuthors);
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    // restore page scroll
+    document.body.style.overflow = '';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        // restore page scroll
+        document.body.style.overflow = '';
+    }
+});
+
+// Close on ESC key and restore scroll
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
+// Initialize the application
+fetchAuthors();
